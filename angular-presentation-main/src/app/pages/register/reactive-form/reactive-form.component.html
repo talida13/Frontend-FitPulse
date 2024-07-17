@@ -1,0 +1,41 @@
+<div class="content-wrapper">
+  <p class="form-title">Reactive form</p>
+  <div class="form-wrapper">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <div class="form-input-wrapper">
+        <input class="form-input" id="name" type="text" formControlName="name" placeholder="name">
+        <p *ngIf="isNameInvalid" class="error-message">The name is required.</p>
+      </div>
+  
+      <div class="form-input-wrapper">
+        <input class="form-input" id="email" type="email" formControlName="email" placeholder="email">
+        <p *ngIf="isEmailInvalid" class="error-message">An email is required. It also must contain the '@centric' domain.</p>
+      </div>
+  
+      <div class="form-input-wrapper">
+        <input class="form-input" id="password" type="password" formControlName="password" placeholder="password">
+        <p *ngIf="isPasswordInvalid" class="error-message">The password is required. It also must have between 6 to 20 charcters and one special character.</p>
+      </div>
+
+      <!-- Add a new input field for age similar to the one above. -->
+      <div class="form-input-wrapper">
+        <input class="form-input" id="age" type="number" formControlName="age" placeholder="age">
+        <p *ngIf="isAgeInvalid" class="error-message">The age is required. It also must be between 18 and 100.</p>
+      </div>
+  
+      <button class="submit-button">Submit</button>
+  
+      <div class="values">
+          Form values: {{formValues | json}}
+      </div>
+
+      <div class="form-properties">
+          IsDirty:  {{form.dirty}} <br>
+          IsTouched:  {{form.touched}} <br>
+          IsValid: {{form.valid}} <br>
+          IsInvalid: {{form.invalid}} <br>
+      </div>
+    </form>
+  </div>
+</div>

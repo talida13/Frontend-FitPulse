@@ -1,0 +1,24 @@
+@import '/src/styles/variables';
+
+.page-content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: $forbidden-primary-color;
+}
+
+p:first-child {
+  color: rgb(173, 0, 0);
+  font-size: 45px;
+}
+
+p:nth-child(2) {
+  font-size: 30px;
+}
+
+.empasised-word {
+  color: $register-primary-color;
+  font-size: 45px;
+  cursor: pointer;
+}

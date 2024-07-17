@@ -1,0 +1,13 @@
+@import '/src/styles/variables';
+
+.page-content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: $landing-page-primary-color;
+}
+
+.message {
+  font-size: 30px;
+}

@@ -1,0 +1,27 @@
+<div class="content-wrapper">
+    <p class="form-title">Template-driven form</p>
+    <div class="form-wrapper">
+      <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  
+        <div class="form-input-wrapper">
+          <input class="form-input" id="name" type="text" name="name" ngModel required placeholder="name">
+          <p *ngIf="form.submitted && form.controls['name']?.invalid" class="error-message">The name is required.</p>
+        </div>
+  
+        <div class="form-input-wrapper">
+          <input class="form-input" id="email" type="email" name="email" ngModel required email placeholder="email">
+          <p *ngIf="form.submitted && form.controls['email']?.invalid" class="error-message">An email is required.</p>
+        </div>
+  
+        <div class="form-input-wrapper">
+          <input class="form-input" id="password" type="password" name="password" ngModel required minlength="6" maxlength="20" placeholder="password">
+          <p *ngIf="form.submitted && form.controls['password']?.invalid" class="error-message">The password is required. It also must have between 6 to 20 characters.</p>
+        </div>
+  
+        <button class="submit-button" type="submit">Submit</button>
+        <div class="values">
+            Form values: {{formValues | json}}
+        </div>
+      </form>
+    </div>
+  </div>
