@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.description {
+    margin-top: 2%;
+    font-size: medium;
+}
+
+.value {
+    margin-top: 4%;
+    font-size: medium;
+    font-weight: 700;
+}
+
+.bonus {
+    margin-top: 4%;
+    font-size: small;
+    font-weight: 500;
+}

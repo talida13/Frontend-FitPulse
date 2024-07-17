@@ -1,0 +1,107 @@
+<div class="container">
+  <div class="example-action-buttons">
+    <button mat-button (click)="accordion.openAll()">Expand All</button>
+    <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+  </div>
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel *ngFor="let teacher of teachers; let i = index">
+      <mat-expansion-panel-header>
+        <mat-panel-title> {{ teacher.fullName }}</mat-panel-title>
+        <mat-panel-description>
+          Edit data for {{ teacher.fullName }}
+          <mat-icon>edit</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <form
+        class="form-container"
+        [formGroup]="formGroupArray[i]"
+        (submit)="submitEdit(i)"
+      >
+        <p>Name: {{ teacher.fullName }}</p>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="fullName" />
+        </mat-form-field>
+        <p>Email: {{ teacher.email }}</p>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="email" />
+        </mat-form-field>
+        <p>Role: {{ teacher.role }}</p>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="role" />
+        </mat-form-field>
+        <p>Phone Number: {{ teacher.phoneNumber }}</p>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="phoneNumber" />
+        </mat-form-field>
+        <p>Cabinet: {{ teacher.cabinet }}</p>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="cabinet" />
+        </mat-form-field>
+
+        <button
+          color="primary"
+          mat-button
+          class="submit-btn"
+          inputmode="submit"
+        >
+          Edit<mat-icon style="margin-left: 4px">edit</mat-icon>
+        </button>
+        <button
+          color="primary"
+          mat-button
+          class="submit-btn"
+          (click)="deleteLab(teacher)"
+        >
+          Delete<mat-icon style="margin-left: 4px">delete</mat-icon>
+        </button>
+      </form>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> New teacher </mat-panel-title>
+        <mat-panel-description>
+          Add a new teacher for {{ courseTitle }}
+          <mat-icon>add</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <form
+        class="form-container"
+        [formGroup]="addFormGroup"
+        (submit)="submitAdd()"
+      >
+        <p>Name</p>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="fullName" />
+        </mat-form-field>
+        <p>Email</p>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="email" />
+        </mat-form-field>
+        <p>Role</p>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="role" />
+        </mat-form-field>
+        <p>Phone Number</p>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="phoneNumber" />
+        </mat-form-field>
+        <p>Cabinet</p>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="cabinet" />
+        </mat-form-field>
+
+        <button
+          color="primary"
+          mat-button
+          class="submit-btn"
+          inputmode="submit"
+        >
+          Add new teacher<mat-icon style="margin-left: 4px">add</mat-icon>
+        </button>
+      </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

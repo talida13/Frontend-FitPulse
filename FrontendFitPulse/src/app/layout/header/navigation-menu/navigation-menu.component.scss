@@ -1,0 +1,18 @@
+.container {
+    position: inherit;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.container .mat-drawer {
+    min-width: 200px;
+    padding-left: 0%;
+    margin-left: 0;
+}
+
+.mat-drawer {
+    left: 0;
+    bottom: 0;
+}

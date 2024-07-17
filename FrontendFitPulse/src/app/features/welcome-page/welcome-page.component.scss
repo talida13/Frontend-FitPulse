@@ -1,0 +1,19 @@
+.mat-grid-list {
+  margin-top: 4%;
+  margin-left: 4%;
+  margin-right: 4%;
+}
+
+.mat-grid-tile:last-child {
+  background-image: url(https://media.istockphoto.com/photos/coding-man-picture-id696067380);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 4%;
+}
+
+.mat-grid-tile:first-child {
+  margin-right: 4%;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 40px;
+}

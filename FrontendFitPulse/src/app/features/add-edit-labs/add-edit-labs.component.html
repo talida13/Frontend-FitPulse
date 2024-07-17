@@ -1,0 +1,149 @@
+<div class="container">
+  <div class="example-action-buttons">
+    <button mat-button (click)="accordion.openAll()">Expand All</button>
+    <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+  </div>
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel *ngFor="let lab of labs; let i = index">
+      <mat-expansion-panel-header>
+        <mat-panel-title> {{ lab.name }} {{ lab.group }} </mat-panel-title>
+        <mat-panel-description>
+          Edit data for {{ lab.name }}
+          <mat-icon>edit</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <form
+        class="form-container"
+        [formGroup]="formGroupArray[i]"
+        (submit)="submitEdit(i)"
+      >
+        <p>Name: {{ lab.name }}</p>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="name" />
+        </mat-form-field>
+        <p>Group: {{ lab.group }}</p>
+        <mat-form-field appearance="fill">
+          <mat-select formControlName="group">
+            <mat-option value="A1">A1</mat-option>
+            <mat-option value="A2">A2</mat-option>
+            <mat-option value="B1">B1</mat-option>
+            <mat-option value="B2">B2</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <p>Description: {{ lab.description }}</p>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="description" />
+        </mat-form-field>
+        <p>Year: {{ lab.year }}</p>
+        <mat-form-field appearance="fill">
+          <mat-select formControlName="year">
+            <mat-option value="1">1</mat-option>
+            <mat-option value="2">2</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <p>Semester: {{ lab.semester }}</p>
+        <mat-form-field appearance="fill">
+          <mat-select formControlName="semester">
+            <mat-option value="1">1</mat-option>
+            <mat-option value="2">2</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <p>Teacher</p>
+        <mat-form-field appearance="fill">
+          <mat-select formControlName="teacherId">
+            <mat-option
+              *ngFor="let teacher of teachers"
+              value="{{ teacher.id }}"
+              >{{ teacher.fullName }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+
+        <button
+          color="primary"
+          mat-button
+          class="submit-btn"
+          inputmode="submit"
+        >
+          Edit<mat-icon style="margin-left: 4px">edit</mat-icon>
+        </button>
+        <button
+          color="primary"
+          mat-button
+          class="submit-btn"
+          (click)="deleteLab(lab)"
+        >
+          Delete<mat-icon style="margin-left: 4px">delete</mat-icon>
+        </button>
+      </form>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> New laboratory </mat-panel-title>
+        <mat-panel-description>
+          Add new laboratory for {{ courseTitle }}
+          <mat-icon>add</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <form
+        class="form-container"
+        [formGroup]="addFormGroup"
+        (submit)="submitAdd()"
+      >
+        <p>Name</p>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="name" />
+        </mat-form-field>
+        <p>Group</p>
+        <mat-form-field appearance="fill">
+          <mat-select formControlName="group">
+            <mat-option value="A1">A1</mat-option>
+            <mat-option value="A2">A2</mat-option>
+            <mat-option value="B1">B1</mat-option>
+            <mat-option value="B2">B2</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <p>Description</p>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="description" />
+        </mat-form-field>
+        <p>Year</p>
+        <mat-form-field appearance="fill">
+          <mat-select formControlName="year">
+            <mat-option value="1">1</mat-option>
+            <mat-option value="2">2</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <p>Semester</p>
+        <mat-form-field appearance="fill">
+          <mat-select formControlName="semester">
+            <mat-option value="1">1</mat-option>
+            <mat-option value="2">2</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <p>Teacher</p>
+        <mat-form-field appearance="fill">
+          <mat-select formControlName="teacherId">
+            <mat-option
+              *ngFor="let teacher of teachers"
+              value="{{ teacher.id }}"
+              >{{ teacher.fullName }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+
+        <button
+          color="primary"
+          mat-button
+          class="submit-btn"
+          inputmode="submit"
+        >
+          Add a new lab<mat-icon style="margin-left: 4px">add</mat-icon>
+        </button>
+      </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

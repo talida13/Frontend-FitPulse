@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="example-action-buttons">
+      <button mat-button (click)="accordion.openAll()">Expand All</button>
+      <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+    </div>
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel *ngFor="let homework of homeworks; let i = index">
+        <mat-expansion-panel-header>
+          <mat-panel-title> {{ homeworksIndex[i] }}</mat-panel-title>
+          <mat-panel-description>
+            Edit data for homework of{{ homeworksIndex[i] }}
+            <mat-icon>edit</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+  
+        <form
+          class="form-container"
+          [formGroup]="formGroupArray[i]"
+          (submit)="submitEdit(i)"
+        >
+          <p>Value: {{ homework.value }}</p>
+          <mat-form-field appearance="fill">
+            <input matInput type="number" formControlName="value" />
+          </mat-form-field>
+          <p>Description: {{ homework.description }}</p>
+          <mat-form-field appearance="fill">
+            <input matInput formControlName="description" />
+          </mat-form-field>
+          <p>Bonus: {{ homework.bonus }}</p>
+          <mat-form-field appearance="fill">
+            <input matInput type="number" formControlName="bonus" />
+          </mat-form-field>
+  
+          <button
+            color="primary"
+            mat-button
+            class="submit-btn"
+            inputmode="submit"
+          >
+            Edit<mat-icon style="margin-left: 4px">edit</mat-icon>
+          </button>
+          <button
+            color="primary"
+            mat-button
+            class="submit-btn"
+            (click)="deleteLab(homework)"
+          >
+            Delete<mat-icon style="margin-left: 4px">delete</mat-icon>
+          </button>
+        </form>
+      </mat-expansion-panel>
+  
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> New homework </mat-panel-title>
+          <mat-panel-description>
+            Add a new homework for {{ courseTitle }}
+            <mat-icon>add</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+  
+        <form
+          class="form-container"
+          [formGroup]="addFormGroup"
+          (submit)="submitAdd()"
+        >
+        <p>Value</p>
+        <mat-form-field appearance="fill">
+          <input matInput type="number" formControlName="value" />
+        </mat-form-field>
+        <p>Description</p>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="description" />
+        </mat-form-field>
+        <p>Bonus</p>
+        <mat-form-field appearance="fill">
+          <input matInput type="number" formControlName="bonus" />
+        </mat-form-field>
+  
+          <button
+            color="primary"
+            mat-button
+            class="submit-btn"
+            inputmode="submit"
+          >
+            Add a new homework for next week<mat-icon style="margin-left: 4px">add</mat-icon>
+          </button>
+        </form>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  

@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+.name, .year-semester {
+    margin-top: 4%;
+    justify-content: center;
+    align-items: center;
+}
+
+.name {
+    font-size: large;
+    margin-top: 2%;
+    font-weight: 600;
+}
+
+.year-semester {
+    font-size: medium;
+    font-weight: 400;
+}
+
+.description {
+    margin-top: 4%;
+    justify-content: flex-start;
+    text-align: justify;
+}

@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="example-action-buttons">
+      <button mat-button (click)="accordion.openAll()">Expand All</button>
+      <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+    </div>
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel *ngFor="let course of courses; let i = index">
+        <mat-expansion-panel-header>
+          <mat-panel-title> {{ coursesIndex[i] }}</mat-panel-title>
+          <mat-panel-description>
+            Edit data for course of{{ coursesIndex[i] }}
+            <mat-icon>edit</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+  
+        <form
+          class="form-container"
+          [formGroup]="formGroupArray[i]"
+          (submit)="submitEdit(i)"
+        >
+          <p>Name: {{ course.name }}</p>
+          <mat-form-field appearance="fill">
+            <input matInput formControlName="name" />
+          </mat-form-field>
+          <p>Description: {{ course.description }}</p>
+          <mat-form-field appearance="fill">
+            <input matInput formControlName="description" />
+          </mat-form-field>
+          <p>Year: {{ course.year }}</p>
+          <mat-form-field appearance="fill">
+            <input matInput type="number" formControlName="year" />
+          </mat-form-field>
+          <p>Semester: {{ course.semester }}</p>
+          <mat-form-field appearance="fill">
+            <input matInput type="number" formControlName="semester" />
+          </mat-form-field>
+  
+          <button
+            color="primary"
+            mat-button
+            class="submit-btn"
+            inputmode="submit"
+          >
+            Edit<mat-icon style="margin-left: 4px">edit</mat-icon>
+          </button>
+          <button
+            color="primary"
+            mat-button
+            class="submit-btn"
+            (click)="deleteLab(course)"
+          >
+            Delete<mat-icon style="margin-left: 4px">delete</mat-icon>
+          </button>
+        </form>
+      </mat-expansion-panel>
+  
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> New course </mat-panel-title>
+          <mat-panel-description>
+            Add a new course for {{ courseTitle }}
+            <mat-icon>add</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+  
+        <form
+          class="form-container"
+          [formGroup]="addFormGroup"
+          (submit)="submitAdd()"
+        >
+        <p>Name</p>
+          <mat-form-field appearance="fill">
+            <input matInput formControlName="name" />
+          </mat-form-field>
+          <p>Description</p>
+          <mat-form-field appearance="fill">
+            <input matInput formControlName="description" />
+          </mat-form-field>
+          <p>Year</p>
+          <mat-form-field appearance="fill">
+            <input matInput type="number" formControlName="year" />
+          </mat-form-field>
+          <p>Semester</p>
+          <mat-form-field appearance="fill">
+            <input matInput type="number" formControlName="semester" />
+          </mat-form-field>
+  
+          <button
+            color="primary"
+            mat-button
+            class="submit-btn"
+            inputmode="submit"
+          >
+            Add the course for the next week<mat-icon style="margin-left: 4px">add</mat-icon>
+          </button>
+        </form>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  

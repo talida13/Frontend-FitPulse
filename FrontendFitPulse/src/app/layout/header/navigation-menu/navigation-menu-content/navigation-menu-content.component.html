@@ -1,0 +1,44 @@
+<mat-list>
+  <mat-list-item role="listitem" (click)="goToDashboard()"
+    ><button mat-button>Home</button></mat-list-item
+  >
+  <mat-list-item role="listitem" (click)="goToCatalog()"
+    ><button mat-button>Catalog</button></mat-list-item
+  >
+  <mat-list-item role="listitem" (click)="goToHomeworks()"
+    ><button mat-button>Homeworks</button></mat-list-item
+  >
+  <mat-list-item role="listitem" (click)="goToCourses()"
+    ><button mat-button>Courses</button></mat-list-item
+  >
+  <mat-list-item role="listitem" (click)="goToTeachers()"
+    ><button mat-button>Teachers</button></mat-list-item
+  >
+  <mat-list-item
+    *ngIf="isAdminOn"
+    role="listitem"
+    (click)="goToAddEditTeachers()"
+    ><button mat-button>Add/Edit Teachers</button></mat-list-item
+  >
+  <mat-list-item
+    *ngIf="isAdminOn"
+    role="listitem"
+    (click)="goToAddEditCourses()"
+    ><button mat-button>Add/Edit Courses</button></mat-list-item
+  >
+  <mat-list-item *ngIf="isAdminOn" role="listitem" (click)="goToAddEditLabs()"
+    ><button mat-button>Add/Edit Labs</button></mat-list-item
+  >
+  <mat-list-item
+    *ngIf="isAdminOn"
+    role="listitem"
+    (click)="goToAddEditHomeworks()"
+    ><button mat-button>Add/Edit Homeworks</button></mat-list-item
+  >
+  <mat-list-item
+    *ngIf="isAdminOn"
+    role="listitem"
+    (click)="goToAddEditStudents()"
+    ><button mat-button>Add/Edit Students</button></mat-list-item
+  >
+</mat-list>

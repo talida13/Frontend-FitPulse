@@ -1,0 +1,82 @@
+<form
+  class="form-container"
+  [formGroup]="registerFormGroup"
+  (submit)="submit()"
+>
+  <p>Register for this course</p>
+
+  <mat-form-field appearance="fill" hintLabel="Min. 5 chars">
+    <mat-label>Enter your full name:</mat-label>
+    <input matInput formControlName="fullName" required maxlength="50" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Select your year:</mat-label>
+    <mat-select formControlName="year">
+      <mat-option value="1">1</mat-option>
+      <mat-option value="2">2</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Select your group:</mat-label>
+    <mat-select formControlName="group">
+      <mat-option value="A1">A1</mat-option>
+      <mat-option value="A2">A2</mat-option>
+      <mat-option value="B1">B1</mat-option>
+      <mat-option value="B2">B2</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your email:</mat-label>
+    <input
+      matInput
+      placeholder="example@example.com"
+      formControlName="email"
+      required
+      maxlength="50"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" hintLabel="Min. 10 chars">
+    <mat-label>Enter your password:</mat-label>
+    <input
+      matInput
+      [type]="hide1 ? 'password' : 'text'"
+      formControlName="password"
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="hide1 = !hide1"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide1"
+    >
+      <mat-icon>{{ hide1 ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" hintLabel="Re-enter your password">
+    <mat-label>Confirm password:</mat-label>
+    <input
+      matInput
+      [type]="hide ? 'password' : 'text'"
+      formControlName="confirmPassword"
+      required
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+    >
+      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button color="primary" mat-button class="submit-btn">
+    Register<mat-icon style="margin-left: 4px">send</mat-icon>
+  </button>
+</form>
