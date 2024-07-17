@@ -1,0 +1,9 @@
+<div *ngFor="let product of detailsProducts">
+    <div class="card"
+         [style.backgroundColor]="product.cardBackgroundColor">
+        <h1 [style.color]="cardTextColor">{{product.name}}</h1>
+        <p [style.fontSize.px]="cardFontSize">{{product.description}}</p>
+        <button (click)="addProductToCart(product)">{{ addProductBtn }}</button>
+    </div>
+</div>
+
