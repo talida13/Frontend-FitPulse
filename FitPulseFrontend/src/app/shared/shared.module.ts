@@ -48,9 +48,12 @@ import {DialogModule} from '@angular/cdk/dialog';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { BaseComponentComponent } from './base-config/base-component/base-component.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    //BaseComponentComponent
+  ],
   imports: [
   ],
   exports: [
