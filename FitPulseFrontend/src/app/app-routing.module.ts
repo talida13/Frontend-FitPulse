@@ -6,6 +6,7 @@ import { HomepageComponent } from './layout/homepage/homepage.component';
 const routes: Routes = [
   { path: 'home', component: HomepageComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
+  
 ];
 
 
