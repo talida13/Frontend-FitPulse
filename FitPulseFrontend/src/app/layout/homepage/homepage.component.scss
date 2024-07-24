@@ -47,11 +47,14 @@
   .girl-running-icon {
     width: 470px;
     position: absolute;
-    top:200px;
+    top:190px;
     left: 20px;
     //max-width: 100%;
     overflow: hidden;
     height: 470px;
    // object-fit: cover;
+   z-index: -1;
     }
-  
+  .content{
+z-index: 2;
+  }
