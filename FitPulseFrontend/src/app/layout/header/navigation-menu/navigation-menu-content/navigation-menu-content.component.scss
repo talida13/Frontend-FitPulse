@@ -1,0 +1,9 @@
+mat-list-item{
+    display: inline-flex;
+    margin-right: 16px; /* spațiu între elemente */
+}
+.nav-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
