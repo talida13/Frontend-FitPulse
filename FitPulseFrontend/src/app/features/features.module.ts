@@ -7,6 +7,10 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { AdminComponent } from './admin/admin.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 
+import { SharedModule } from '../shared/shared.module';
+import { LayoutModule } from '../layout/layout.module';
+///import { SharedModule } from './shared/shared.module';
+
 
 
 @NgModule({
@@ -19,7 +23,9 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     ContactUsComponent
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    SharedModule,
+    LayoutModule
+]
 })
 export class FeaturesModule { }

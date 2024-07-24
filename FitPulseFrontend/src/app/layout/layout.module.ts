@@ -4,8 +4,9 @@ import { HeaderComponent } from './header/header.component';
 import { NavigationMenuComponent } from './header/navigation-menu/navigation-menu.component';
 import { SharedModule } from '../shared/shared.module';
 import { HomepageComponent } from './homepage/homepage.component';
-import { FeaturesModule } from '../features/features.module';
 import { NavigationMenuContentComponent } from './header/navigation-menu/navigation-menu-content/navigation-menu-content.component';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
+
 
 
 
@@ -14,16 +15,18 @@ import { NavigationMenuContentComponent } from './header/navigation-menu/navigat
     HeaderComponent,
     NavigationMenuComponent,
     HomepageComponent,
-    NavigationMenuContentComponent
+    NavigationMenuContentComponent,
+    MainLayoutComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    FeaturesModule
+
   ],
   exports: [
     HeaderComponent,
-    HomepageComponent
+    HomepageComponent,
+    MainLayoutComponent
   ]
 })
 export class LayoutModule { }
