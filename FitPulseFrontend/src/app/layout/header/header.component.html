@@ -1,1 +1,11 @@
-<p>header works!</p>
+<mat-toolbar color="primary" class="toolbar">
+    <span class="logo">
+      <img src="assets/logo.png" alt="FitPulse Logo">
+    </span>
+    <span class="spacer"></span>
+    <app-navigation-menu></app-navigation-menu>
+  
+    <button mat-raised-button color="accent" class="login" (click)="goToLogin()">Login</button>
+
+  </mat-toolbar>
+  

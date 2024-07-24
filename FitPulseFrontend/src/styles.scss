@@ -1,39 +1,62 @@
-
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
-// Plus imports for other components in your app.
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
+// Include the core styles for Angular Material
 @include mat.core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$FitPulseFrontend-primary: mat.define-palette(mat.$indigo-palette);
-$FitPulseFrontend-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+// Define your custom color palette
+$custom-primary: mat.define-palette(mat.$green-palette, 800, 600, 900);
+$custom-accent: mat.define-palette(mat.$lime-palette, 600, 400, 700);
+$custom-warn: mat.define-palette(mat.$red-palette);
 
-// The warn palette is optional (defaults to red).
-$FitPulseFrontend-warn: mat.define-palette(mat.$red-palette);
-
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$FitPulseFrontend-theme: mat.define-light-theme((
-  color: (
-    primary: $FitPulseFrontend-primary,
-    accent: $FitPulseFrontend-accent,
-    warn: $FitPulseFrontend-warn,
+// Define the custom theme
+$custom-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $custom-primary,
+      accent: $custom-accent,
+      warn: $custom-warn,
+    ),
   )
-));
+);
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include mat.all-component-themes($FitPulseFrontend-theme);
+// Include the custom theme styles for Angular Material components
+@include mat.all-component-themes($custom-theme);
 
-/* You can add global styles to this file, and also import other style files */
+// Your additional global styles
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-list-base .mat-list-item .mat-list-item-content, 
+.mat-list-base .mat-list-option .mat-list-item-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 0 16px;
+  position: relative;
+  height: inherit;
+  margin-top: 4% !important;
+
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    padding: 4px !important;
+    margin-left: 4% !important;
+  }
+}
+/* Custom styles for the toolbar */
+.toolbar {
+  background: transparent !important;  // Set the background to transparent
+
+  .mat-toolbar-row {
+    background: transparent !important; // Ensure rows within the toolbar are also transparent
+  }
+}
+
+/* Optional: Style toolbar items if needed */
+.toolbar .mat-toolbar-item {
+  color: white; // Example: Change color of toolbar items
+}
+
+

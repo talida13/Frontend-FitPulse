@@ -1,0 +1,33 @@
+mat-toolbar {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    position: relative; /* Required to position the spacer correctly */
+    justify-content: space-between; /* Ensure space between the logo and login button */
+  
+    .logo img {
+      height: 40px;
+    }
+  
+    .spacer {
+      flex: 1; /* This will push the nav to the center */
+    }
+  
+    nav {
+      display: flex;
+      position: absolute; /* Position it absolutely */
+      left: 50%; /* Center horizontally */
+      transform: translateX(-50%); /* Offset by half its width */
+      align-items: center;
+  
+      a {
+        color: white;
+        text-decoration: none;
+        margin: 0 1rem; /* Add spacing between links */
+      }
+    }
+  
+    .login {
+      margin-left: 1rem;
+    }
+  }
+  
