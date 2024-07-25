@@ -1,86 +1,91 @@
 <div class="container">
-    <div class="register-container">
-      <mat-card class="register-card">
-        <h1>Register</h1>
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-          <div *ngIf="step === 1">
+  <div class="register-container">
+
+    <mat-card class="register-card">
+      <h1>Register</h1>
+      <form [formGroup]="firstFormGroup" (ngSubmit)="stepper.next()">
+        <div *ngIf="stepper.selectedIndex === 0">
+          <mat-label>First name</mat-label>
+          <mat-form-field class="full-width">
+            
+            <input matInput formControlName="firstName" placeholder="First name">
+          </mat-form-field>
+          <mat-label>Last name</mat-label>
+          <mat-form-field class="full-width">
+           
+            <input matInput formControlName="lastName" placeholder="Last name">
+          </mat-form-field>
+          <mat-label>Age</mat-label>
+          <mat-form-field class="full-width">
+           
+            <input matInput formControlName="age" placeholder="Your age">
+          </mat-form-field>
+          <mat-label>Weight</mat-label>
+          <mat-form-field class="full-width">
+         
+            <input matInput formControlName="weight" placeholder="Your weight">
+          </mat-form-field>
+          <mat-label>Height</mat-label>
+          <mat-form-field class="full-width">
+           
+            <input matInput formControlName="height" placeholder="Your height">
+          </mat-form-field>
+          <mat-label>Gender</mat-label>
+          <mat-form-field class="full-width">
         
-
-            <mat-form-field class="full-width">
-              <mat-label>First name</mat-label>
-              <input matInput formControlName="firstName" placeholder="First name">
-            </mat-form-field>
-            <mat-form-field class="full-width">
-              <mat-label>Last name</mat-label>
-              <input matInput formControlName="lastName" placeholder="Last name">
-            </mat-form-field>
-            <mat-form-field class="full-width">
-              <mat-label>Age</mat-label>
-              <input matInput formControlName="age" placeholder="Your age">
-            </mat-form-field>
-            <mat-form-field class="full-width">
-              <mat-label>Weight</mat-label>
-              <input matInput formControlName="weight" placeholder="Your weight">
-            </mat-form-field>
-            <mat-form-field class="full-width">
-              <mat-label>Height</mat-label>
-              <input matInput formControlName="height" placeholder="Your height">
-            </mat-form-field>
-            <mat-form-field class="full-width">
-              <mat-label>Gender</mat-label>
-              <mat-select formControlName="gender">
-                <mat-option value="male">Male</mat-option>
-                <mat-option value="female">Female</mat-option>
-                <mat-option value="other">Other</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <button mat-raised-button color="primary" class="Login" (click)="nextStep()">Next</button>
-
-
-          </div>
-  
-          <div *ngIf="step === 2">
-            <mat-form-field class="full-width">
-              <mat-label>E-mail</mat-label>
-              <input matInput formControlName="email" placeholder="Enter your e-mail address">
-            </mat-form-field>
-            <mat-form-field class="full-width">
-              <mat-label>Username</mat-label>
-              <input matInput formControlName="username" placeholder="Choose your username">
-            </mat-form-field>
-            <mat-form-field class="full-width">
-              <mat-label>Choose a strong password</mat-label>
-              <input matInput type="password" formControlName="password" placeholder="Create a password">
-            </mat-form-field>
-            <mat-form-field class="full-width">
-              <mat-label>Confirm password</mat-label>
-              <input matInput type="password" formControlName="confirmPassword" placeholder="Confirm created password">
-            </mat-form-field>
-            <button mat-raised-button color="primary" class="Login" (click)="previousStep()">Back</button>
-            <button mat-raised-button color="primary" class="Login" type="submit">Register</button>
-          </div>
-
-        </form>
-        <p class="signup-link">Already have an account? <a href="#">Login here</a></p>
-      </mat-card>
-      <mat-card class="register-card">
-        <mat-horizontal-stepper [linear]="true" #stepper>
-          <mat-step [stepControl]="registerForm" label="Personal Information">
-            <ng-template matStepLabel>Personal Information</ng-template>
-          </mat-step>
-    
-          <mat-step [stepControl]="registerForm" label="Account Information">
-            <ng-template matStepLabel>Account Information</ng-template>
-          </mat-step>
-        </mat-horizontal-stepper>
-        </mat-card>
-    </div>
-    
- 
+            <mat-select formControlName="gender" value="Your gender" placeholder="Your gender" style="color: rgba(0, 0, 0, 0.4);">
+             
+              <mat-option value="male">Male</mat-option>
+              <mat-option value="female">Female</mat-option>
+              <mat-option value="other">Other</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-raised-button color="primary" class="Login" type="submit">Next</button>
+        </div>
+      </form>
+      <form [formGroup]="secondFormGroup" (ngSubmit)="onSubmit()">
+        <div *ngIf="stepper.selectedIndex === 1">
+          <mat-label>E-mail</mat-label>
+          <mat-form-field class="full-width">
+            
+            <input matInput formControlName="email" placeholder="Enter your e-mail address">
+          </mat-form-field>
+          <mat-label>Username</mat-label>
+          <mat-form-field class="full-width">
+            
+            <input matInput formControlName="username" placeholder="Choose your username">
+          </mat-form-field>
+          <mat-label>Password</mat-label>
+          <mat-form-field class="full-width">
+           
+            <input matInput type="password" formControlName="password" placeholder="Create a password">
+          </mat-form-field>
+          <mat-label>Confirm password</mat-label>
+          <mat-form-field class="full-width">
+          
+            <input matInput type="password" formControlName="confirmPassword" placeholder="Confirm created password">
+          </mat-form-field>
+          <button mat-raised-button color="primary" class="Login" (click)="stepper.previous()">Back</button>
+          <button mat-raised-button color="primary" class="Login" type="submit">Register</button>
+        </div>
+      </form>
+      <p class="signup-link">Already have an account? <a href="#">Login here</a></p>
+    </mat-card>
 
 
+    <mat-card class="stepper-card">
+      <div class="stepper-header">
+      <mat-stepper headerPosition="top" #stepper>
+   
+        <mat-step label="Profile" [stepControl]="firstFormGroup">
+          <ng-template matStepLabel>Profile</ng-template>
+        </mat-step>
+        <mat-step label="Account" [stepControl]="secondFormGroup">
+          <ng-template matStepLabel>Account</ng-template>
+        </mat-step>
+
+      </mat-stepper>
+      </div>  
+    </mat-card>
   </div>
-
-
-  
-  
+</div>

@@ -7,17 +7,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register-form.component.scss']
 })
 export class RegisterFormComponent {
-  step: number = 1;
-  registerForm: FormGroup;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  isLinear = true;
 
   constructor(private fb: FormBuilder) {
-    this.registerForm = this.fb.group({
+    this.firstFormGroup = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       age: ['', Validators.required],
       weight: ['', Validators.required],
       height: ['', Validators.required],
-      gender: ['', Validators.required],
+      gender: ['', Validators.required]
+    });
+    this.secondFormGroup = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -25,22 +28,13 @@ export class RegisterFormComponent {
     });
   }
 
-  nextStep() {
-    if (this.step==1) {
-      this.step++;
-    }
-  }
-  //this.registerForm.valid
-
-  previousStep() {
-    this.step--;
-  }
-
   onSubmit() {
-    if (this.registerForm.valid) {
-      console.log(this.registerForm.value);
-      // Handle form submission, e.g., send data to the server
+    if (this.firstFormGroup.valid && this.secondFormGroup.valid) {
+      const formData = {
+        ...this.firstFormGroup.value,
+        ...this.secondFormGroup.value
+      };
+      console.log(formData);
     }
   }
-
 }
