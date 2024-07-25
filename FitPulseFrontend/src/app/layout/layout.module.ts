@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NavigationMenuContentComponent } from './header/navigation-menu/navigation-menu-content/navigation-menu-content.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -16,7 +17,8 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
     NavigationMenuComponent,
     HomepageComponent,
     NavigationMenuContentComponent,
-    MainLayoutComponent
+    MainLayoutComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,

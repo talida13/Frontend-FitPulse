@@ -1,0 +1,25 @@
+mat-card-footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    border-radius: 30px 30px 0px 0px;
+    background: rgba(131, 222, 167, 0.40);
+}
+
+p {
+    display: flex;
+    height: 40px;
+    flex-direction: column;
+    justify-content: center;
+    align-self: stretch;
+    color: var(--shades-white, #FFF);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+}
