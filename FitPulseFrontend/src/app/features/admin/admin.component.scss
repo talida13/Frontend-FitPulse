@@ -1,0 +1,85 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .admin-page {
+    text-align: center;
+    color: white;
+    padding: 2rem;
+    position: relative;
+    
+    .remove-workout {
+      background-color: #3a6b4b;
+      padding: 2rem;
+      border-radius: 8px;
+      display: inline-block;
+      margin-bottom: 2rem;
+    
+      h1 {
+        margin-bottom: 1rem;
+      }
+    
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    
+        label {
+          font-size: 1rem;
+          margin-bottom: 0.5rem;
+        }
+    
+        select {
+          padding: 0.5rem;
+          font-size: 1rem;
+        }
+    
+        .remove-button, .skip-button {
+          padding: 0.75rem 1.5rem;
+          border: none;
+          cursor: pointer;
+          font-size: 1rem;
+        }
+    
+        .remove-button {
+          background-color: #61e786;
+          color: black;
+        }
+    
+        .skip-button {
+          background-color: #5a5a5a;
+          color: white;
+        }
+      }
+    }
+    
+    .pagination {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+    
+      .page-number, .prev-page, .next-page {
+        background-color: #3a6b4b;
+        border: none;
+        color: white;
+        padding: 0.75rem;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+    }
+  }
+  
+  .athlete-icon {
+    width: 470px;
+    position: absolute;
+    top: 190px;
+    right: 20px;
+    height: 470px;
+    z-index: -1;
+  }
+  
+  .content {
+    z-index: 2;
+  }
+  

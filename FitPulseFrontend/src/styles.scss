@@ -4,54 +4,54 @@
 @include mat.core();
 
 // Define your custom color palette
-$custom-primary: mat.define-palette(mat.$green-palette, 800, 600, 900);
-$custom-accent: mat.define-palette(mat.$lime-palette, 600, 400, 700);
-$custom-warn: mat.define-palette(mat.$red-palette);
+//$custom-primary: mat.define-palette(mat.$green-palette, 800, 600, 900);
+// $custom-accent: mat.define-palette(mat.$lime-palette, 600, 400, 700);
+// $custom-warn: mat.define-palette(mat.$red-palette);
 
-// Define the custom theme
-$custom-theme: mat.define-light-theme(
-  (
-    color: (
-      primary: $custom-primary,
-      accent: $custom-accent,
-      warn: $custom-warn,
-    ),
-  )
-);
+// // Define the custom theme
+// $custom-theme: mat.define-light-theme(
+//   (
+//     color: (
+//       primary: $custom-primary,
+//       accent: $custom-accent,
+//       warn: $custom-warn,
+//     ),
+//   )
+// );
 
 // Include the custom theme styles for Angular Material components
-@include mat.all-component-themes($custom-theme);
+//@include mat.all-component-themes($custom-theme);
 
 
 html, body {
   margin: 0;
   height: 100%;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Poppins;
   background-color: #4B4B4B;
   position: relative;
   z-index: 1; 
 }
 
-.mat-list-base .mat-list-item .mat-list-item-content, 
-.mat-list-base .mat-list-option .mat-list-item-content {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  box-sizing: border-box;
-  padding: 0 16px;
-  position: relative;
-  height: inherit;
-  margin-top: 4% !important;
+// .mat-list-base .mat-list-item .mat-list-item-content, 
+// .mat-list-base .mat-list-option .mat-list-item-content {
+//   display: flex;
+//   flex-direction: row;
+//   align-items: flex-start;
+//   box-sizing: border-box;
+//   padding: 0 16px;
+//   position: relative;
+//   height: inherit;
+//   margin-top: 4% !important;
 
-  .mat-form-field-appearance-fill .mat-form-field-flex {
-    padding: 4px !important;
-    margin-left: 4% !important;
-  }
-}
+//   .mat-form-field-appearance-fill .mat-form-field-flex {
+//     padding: 4px !important;
+//     margin-left: 4% !important;
+//   }
+// }
 
 
 .toolbar {
-  background: transparent !important;  // Set the background to transparent
+  background: transparent !important; 
 
   .mat-toolbar-row {
     background: transparent !important; 
@@ -69,16 +69,18 @@ html, body {
   z-index: 2; 
 }
 
-/* Styles for the ellipse */
+
 .ellipse {
   width: 100%; 
   height: 900px;
   position: absolute;
   top: 0; 
- // left: -300px; 
+  //left: -300px; 
   //transform: translateY(-25%);
   filter: blur(600px); 
   border-radius: 50%;
-  background-color: rgba(136, 252, 106, 0.8);
+  background-color: rgba(136, 252, 106, 0.5);
+
+  //background-color: #88FC6A;
   z-index: 1; 
 }

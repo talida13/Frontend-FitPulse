@@ -7,17 +7,19 @@ import { RegisterFormComponent } from './features/register-form/register-form.co
 import { AboutUsComponent } from './features/about-us/about-us.component';
 import { ContactUsComponent } from './features/contact-us/contact-us.component';
 import { WorkoutsComponent } from './features/workouts/workouts.component';
+import { AdminComponent } from './features/admin/admin.component';
 
 const routes: Routes = [
   {
     path: '', component: MainLayoutComponent, children: [
-      { path: 'home', component: HomepageComponent },
+      { path: 'Home', component: HomepageComponent },
       { path: 'Login', component: LoginFormComponent },
       { path: 'Register', component: RegisterFormComponent },
       { path: 'About', component: AboutUsComponent },
       { path: 'Contact', component: ContactUsComponent },
       { path: 'Workouts', component: WorkoutsComponent },
-      { path: '', redirectTo: 'home', pathMatch: 'full' }
+      { path: 'Admin', component: AdminComponent },
+      { path: '', redirectTo: 'Home', pathMatch: 'full' }
     ]
   }
 ];
