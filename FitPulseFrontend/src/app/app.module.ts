@@ -6,6 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { LayoutModule } from './layout/layout.module'; 
 import { FeaturesModule } from './features/features.module';
+import { LoginService } from './core/services/login.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,9 +20,11 @@ import { FeaturesModule } from './features/features.module';
     BrowserAnimationsModule,
     SharedModule,
     LayoutModule,
-    FeaturesModule
+    FeaturesModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
