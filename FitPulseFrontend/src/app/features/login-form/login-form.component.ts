@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../../core/services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -10,7 +11,7 @@ import { LoginService } from '../../core/services/login.service';
 export class LoginFormComponent implements OnInit {
   loginForm!: FormGroup;
 
-  constructor( private fb: FormBuilder, private loginService: LoginService ) { 
+  constructor( private fb: FormBuilder, private loginService: LoginService,private readonly router: Router ) { 
     
   }
 
@@ -27,12 +28,13 @@ export class LoginFormComponent implements OnInit {
       this.loginService.login(credentials).subscribe({
         next: (user) => {
           console.log('Login successful', user);
-          // Poți stoca JWT token-ul și naviga spre o altă pagină dacă este necesar
-          // localStorage.setItem('jwt', user.jwtToken || '');
+          this.router.navigateByUrl('Home');
+        
+           localStorage.setItem('jwt', user.jwtToken || '');
         },
         error: (err) => {
           console.error('Login failed', err);
-          // Afișează un mesaj de eroare utilizatorului
+      
         }
       });
     }
