@@ -2,13 +2,13 @@
 
 
   <mat-list class="nav-content">
-    <mat-list-item role="listitem" (click)="goToHome()"><button mat-button>Home</button></mat-list-item>
-    <mat-list-item role="listitem" (click)="goToAbout()"><button mat-button>About</button></mat-list-item>
-    <mat-list-item role="listitem" (click)="goToContact()"><button mat-button>Contact</button></mat-list-item>
-    <mat-list-item role="listitem" (click)="goToWorkouts()"><button mat-button>Workouts</button></mat-list-item>
-
-    <mat-list-item  *ngIf="isAdminOn" role="listitem" (click)="goToAdmin()"><button mat-button>Admin</button></mat-list-item>
-    <mat-list-item  *ngIf="isLoggedIn" role="listitem" (click)="goToProfile()"><button mat-button>Profile</button></mat-list-item>
+    <mat-list-item role="listitem" class="center-button" (click)="goToHome()"><button mat-button >Home</button></mat-list-item>
+    <mat-list-item role="listitem" class="center-button" (click)="goToWorkouts()"><button mat-button >Workouts</button></mat-list-item>
+    <mat-list-item role="listitem" class="center-button" (click)="goToAbout()"><button mat-button >About</button></mat-list-item>
+    <mat-list-item role="listitem" class="center-button" (click)="goToContact()"><button mat-button >Contact</button></mat-list-item>
+  
+    <mat-list-item  *ngIf="isAdminOn" role="listitem" (click)="goToAdmin()"><button mat-button class="right-button">Admin</button></mat-list-item>
+    <mat-list-item  *ngIf="isLoggedIn" role="listitem" (click)="goToProfile()"><button mat-button class="right-button">Profile</button></mat-list-item>
   </mat-list>
 
   

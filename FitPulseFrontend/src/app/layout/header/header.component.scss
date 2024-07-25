@@ -1,28 +1,55 @@
 mat-toolbar {
     display: flex;
-    align-items: center; /* Center items vertically */
-    position: relative; /* Required to position the spacer correctly */
-    justify-content: space-between; /* Ensure space between the logo and login button */
+    align-items: center; 
+    position: relative; 
+    justify-content: space-between; 
+    top:10px;
+
   
     .logo img {
-      height: 40px;
+      height: 52px;
     }
   
     .spacer {
-      flex: 1; /* This will push the nav to the center */
+      flex: 1; 
     }
   
     app-navigation-menu {
       display: flex;
-      position: absolute; /* Position it absolutely */
-      left: 50%; /* Center horizontally */
-      transform: translateX(-50%); /* Offset by half its width */
+      position: absolute; 
+      left: 50%; 
+      transform: translateX(-50%);
       align-items: center;
 
     }
   
     .login {
-      margin-left: 1rem;
+      display: flex;
+      width: 150px;
+      height: 50px;
+      padding: 0px 30px;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex-shrink: 0;
+      border-radius: 30px;
+      background: var(--grey-lighten-4, #F5F5F5);
+      color: #54EC90;
+      
+      text-align: center;
+      font-family: Poppins;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: 24px; 
+      letter-spacing: 1.25px;
+      box-shadow: none;
+    }
+
+    .login:hover {
+      background: #54EC90; 
+      color: #FFFFFF;
+      box-shadow: none;
     }
   }
   

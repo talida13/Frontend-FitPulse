@@ -11,13 +11,13 @@ import { WorkoutsComponent } from './features/workouts/workouts.component';
 const routes: Routes = [
   {
     path: '', component: MainLayoutComponent, children: [
-      { path: 'home', component: HomepageComponent },
+      { path: 'Home', component: HomepageComponent },
       { path: 'Login', component: LoginFormComponent },
       { path: 'Register', component: RegisterFormComponent },
       { path: 'About', component: AboutUsComponent },
       { path: 'Contact', component: ContactUsComponent },
       { path: 'Workouts', component: WorkoutsComponent },
-      { path: '', redirectTo: 'home', pathMatch: 'full' }
+      { path: '', redirectTo: 'Home', pathMatch: 'full' }
     ]
   }
 ];
