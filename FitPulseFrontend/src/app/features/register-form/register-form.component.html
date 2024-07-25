@@ -1,1 +1,63 @@
-<p>register-form works!</p>
+<div class="container">
+    <div class="register-container">
+      <mat-card class="register-card">
+        <h1>Register</h1>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div *ngIf="step === 1">
+            <mat-form-field class="full-width">
+              <mat-label>First name</mat-label>
+              <input matInput formControlName="firstName" placeholder="First name">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <mat-label>Last name</mat-label>
+              <input matInput formControlName="lastName" placeholder="Last name">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <mat-label>Age</mat-label>
+              <input matInput formControlName="age" placeholder="Your age">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <mat-label>Weight</mat-label>
+              <input matInput formControlName="weight" placeholder="Your weight">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <mat-label>Height</mat-label>
+              <input matInput formControlName="height" placeholder="Your height">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <mat-label>Gender</mat-label>
+              <mat-select formControlName="gender">
+                <mat-option value="male">Male</mat-option>
+                <mat-option value="female">Female</mat-option>
+                <mat-option value="other">Other</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <button mat-raised-button color="primary" class="Login" (click)="nextStep()">Next</button>
+          </div>
+  
+          <div *ngIf="step === 2">
+            <mat-form-field class="full-width">
+              <mat-label>E-mail</mat-label>
+              <input matInput formControlName="email" placeholder="Enter your e-mail address">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <mat-label>Username</mat-label>
+              <input matInput formControlName="username" placeholder="Choose your username">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <mat-label>Choose a strong password</mat-label>
+              <input matInput type="password" formControlName="password" placeholder="Create a password">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <mat-label>Confirm password</mat-label>
+              <input matInput type="password" formControlName="confirmPassword" placeholder="Confirm created password">
+            </mat-form-field>
+            <button mat-raised-button color="primary" class="Login" (click)="previousStep()">Back</button>
+            <button mat-raised-button color="primary" class="Login" type="submit">Register</button>
+          </div>
+        </form>
+        <p class="signup-link">Already have an account? <a href="#">Login here</a></p>
+      </mat-card>
+    </div>
+  </div>
+  
