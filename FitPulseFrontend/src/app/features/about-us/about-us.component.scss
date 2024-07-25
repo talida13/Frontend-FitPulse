@@ -1,0 +1,80 @@
+.about-us-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.about-us{
+    text-align: center;
+    color: white;
+   // background: linear-gradient(135deg, #1abc9c, #16a085);
+    padding: 2rem;
+
+    .intro {
+        margin-bottom: 2rem;
+    
+        h1 {
+            color: #6EF0A2;
+            font-family: "Libre Caslon Text";
+            font-size: 36px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+    
+        p {
+            margin-bottom: 1.5rem;
+            //width: 629px;
+            //height: 318px;
+            flex-direction: column;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+    
+        .get-started {
+          background-color: #4caf50;
+          color: white;
+          border: none;
+          padding: 0.75rem 2rem;
+          cursor: pointer;
+        }
+      }
+}
+
+.running-yellow-man-icon{
+    
+
+    box-sizing: border-box;
+    width: 592px;
+    height: 562px;
+    flex-shrink: 0;
+    position: absolute;
+    top:540px;
+    left:-25px;
+    bottom: 3178px;
+    right: 1353px;
+    //max-width: 100%;
+    overflow: hidden;
+   // object-fit: cover;
+   z-index: -1;
+   
+
+
+   
+
+   
+}
+
+.content{
+    z-index: 2;
+}
+
+.button{
+    left: 42px;
+    top: 4.50px;
+    position: absolute;
+    color: #047624;
+    font-size: 36px;
+    font-family: Poppins;
+    font-weight: 600;
+    word-wrap: break-word;
+}
