@@ -6,6 +6,8 @@
     min-height: 100vh;
     color: white;
     font-family: Poppins;
+    margin-top: 50px;
+    
   }
   
   .register-container {
@@ -17,7 +19,7 @@
   
   .register-card {
     padding: 40px;
-    background: rgba(131, 222, 167, 0.2); /* Using rgba for background color with opacity */
+    background: rgba(131, 222, 167, 0.2); 
     border-radius: 45px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     color: white;
