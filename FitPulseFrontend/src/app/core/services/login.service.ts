@@ -37,6 +37,6 @@ export class LoginService {
   }
 
   register(credentials: UserCredentials): Observable<boolean> {
-    return this.http.post<boolean>(`${this.apiUrl}/Register`, credentials);
+    return this.http.post<boolean>(`${this.apiUrl}/RegisterUser`, credentials);
   }
 }
