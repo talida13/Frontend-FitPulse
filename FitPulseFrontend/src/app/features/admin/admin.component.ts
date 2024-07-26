@@ -1,7 +1,4 @@
-
-
 import { Component } from '@angular/core';
-import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({
   selector: 'app-admin',
@@ -9,5 +6,12 @@ import { SharedModule } from 'src/app/shared/shared.module';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent {
+  currentPage: number = 1;
+  workouts: string[] = ['Workout 1', 'Workout 2', 'Workout 3'];
+  categories: string[] = ['Cardio', 'Strength', 'Flexibility'];
+  difficultyLevels: string[] = ['Easy', 'Medium', 'Hard'];
 
+  changePage(page: number) {
+    this.currentPage = page;
+  }
 }

@@ -1,29 +1,107 @@
-<div class="main-container">
-    <div class="admin-page">
-      <img class="athlete-icon" alt="" src="assets/girl-running.png">
-      <div class="content">
-        <div class="remove-workout">
-          <h1>Remove a workout</h1>
-          <form>
-            <label for="workout-name">Workout name</label>
-            <select id="workout-name">
-              <option value="">Select workout</option>
-              <!-- Adaugă opțiuni pentru antrenamente aici -->
-            </select>
-            <button type="submit" class="remove-button">Remove</button>
-            <button type="button" class="skip-button">Skip</button>
-          </form>
-        </div>
-        <div class="pagination">
-          <button class="prev-page">&lt;</button>
-          <button class="page-number">1</button>
-          <button class="page-number">2</button>
-          <button class="page-number">3</button>
-          <button class="page-number">4</button>
-          <button class="page-number">5</button>
-          <button class="next-page">&gt;</button>
-        </div>
+<div class="container">
+  <div class="admin-page">
+    <img class="athlete-icon" alt="" src="assets/athlete.png">
+    <div class="content">
+      <!-- Remove a workout -->
+      <div *ngIf="currentPage === 1" class="admin-card">
+        <h1>Remove a workout</h1>
+        <form>
+          <mat-form-field appearance="fill">
+            <mat-label>Workout name</mat-label>
+            <mat-select placeholder="Select workout">
+              <mat-option *ngFor="let workout of workouts" [value]="workout">{{ workout }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-raised-button color="warn" type="submit">Remove</button>
+          <button mat-raised-button color="primary" type="button">Skip</button>
+        </form>
+      </div>
+      
+      <!-- Add a workout -->
+      <div *ngIf="currentPage === 2" class="admin-card">
+        <h1>Add a workout</h1>
+        <form>
+          <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Enter name">
+          </mat-form-field>
+          
+          <mat-form-field appearance="fill">
+            <mat-label>Calories burned</mat-label>
+            <input matInput placeholder="Enter calories burned">
+          </mat-form-field>
+          
+          <mat-form-field appearance="fill">
+            <mat-label>Category</mat-label>
+            <mat-select placeholder="Select category">
+              <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Difficulty level</mat-label>
+            <mat-select placeholder="Select difficulty level">
+              <mat-option *ngFor="let level of difficultyLevels" [value]="level">{{ level }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Number of exercises</mat-label>
+            <input matInput placeholder="Enter number of exercises">
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" type="submit">Add</button>
+          <button mat-raised-button color="primary" type="button">Skip</button>
+        </form>
+      </div>
+      
+      <!-- Edit a workout -->
+      <div *ngIf="currentPage === 3" class="admin-card">
+        <h1>Edit a workout</h1>
+        <form>
+          <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <mat-select placeholder="Select a workout">
+              <mat-option *ngFor="let workout of workouts" [value]="workout">{{ workout }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>No of exercises</mat-label>
+            <input matInput placeholder="Enter number of exercises">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Change category</mat-label>
+            <mat-select placeholder="Select category">
+              <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Change difficulty level</mat-label>
+            <mat-select placeholder="Select difficulty level">
+              <mat-option *ngFor="let level of difficultyLevels" [value]="level">{{ level }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Calories burned</mat-label>
+            <input matInput placeholder="Enter calories burned">
+          </mat-form-field>
+          
+          <button mat-raised-button color="primary" type="submit">Next</button>
+        </form>
+      </div>
+      
+      <!-- Pagination -->
+      <div class="stepper-card">
+        <button mat-icon-button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">←</button>
+        <button mat-icon-button (click)="changePage(1)" [class.active]="currentPage === 1">1</button>
+        <button mat-icon-button (click)="changePage(2)" [class.active]="currentPage === 2">2</button>
+        <button mat-icon-button (click)="changePage(3)" [class.active]="currentPage === 3">3</button>
+        <button mat-icon-button (click)="changePage(currentPage + 1)" [disabled]="currentPage === 3">→</button>
       </div>
     </div>
   </div>
-  
+</div>
