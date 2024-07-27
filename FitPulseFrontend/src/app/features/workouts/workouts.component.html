@@ -1,1 +1,58 @@
-<p>workouts works!</p>
+<div class="principal">
+    <mat-card class="filter-card">
+      <div class="filter-form">
+        <div class="div-sort">
+          <mat-form-field appearance="fill">
+            <mat-label>Sort by</mat-label>
+            <mat-select [(value)]="sorting">
+              <mat-option value="default">Latest workout added</mat-option>
+              <mat-option value="difficulty-ascending">Difficulty ascending</mat-option>
+              <mat-option value="difficulty-descending">Difficulty descending</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="div-sort">
+          <mat-form-field appearance="fill">
+            <mat-label>Select an option2</mat-label>
+            <mat-select [(value)]="selected2">
+              <mat-option value="none">None</mat-option>
+              <mat-option value="option1">Option 1</mat-option>
+              <mat-option value="option2">Option 2</mat-option>
+              <mat-option value="option3">Option 3</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="div-sort">
+          <mat-form-field appearance="fill">
+            <mat-label>Select an option3</mat-label>
+            <mat-select [(value)]="selected3">
+              <mat-option value="none">None</mat-option>
+              <mat-option value="option1">Option 1</mat-option>
+              <mat-option value="option2">Option 2</mat-option>
+              <mat-option value="option3">Option 3</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card>
+  
+    <div class="workouts">
+      <mat-card class="workouts-card">
+        <mat-card class="workout-card" (click)="navigateToWorkout(workout.id)" *ngFor="let workout of pagedWorkouts">
+          <div class="workout-title">{{ workout.title }}</div>
+          <div class="workout-info">{{ workout.info }}</div>
+        </mat-card>
+      </mat-card>
+    </div>
+  </div>
+  
+  <div class="pagination">
+    <mat-card class="pagination-card">
+    <mat-paginator [length]="workouts.length"
+                   [pageSize]="pageSize"
+                   [pageSizeOptions]="pageSizeOptions"
+                   (page)="handlePageEvent($event)">
+    </mat-paginator>
+</mat-card>
+  </div>
+  
