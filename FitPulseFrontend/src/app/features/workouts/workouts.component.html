@@ -39,12 +39,19 @@
     <div class="workouts">
       <mat-card class="workouts-card">
         <mat-card class="workout-card" (click)="navigateToWorkout(workout.id)" *ngFor="let workout of pagedWorkouts">
-          <div class="workout-title">{{ workout.title }}</div>
-          <div class="workout-info">{{ workout.info }}</div>
+          <div class="workout-name">{{ workout.name }}</div>
+          <div class="workout-category">{{ workout.category }}</div>
+          <div class="workout-difficulty">{{ workout.difficulty }}</div>
+          <div class="workout-author">{{ workout.author }}</div>
+          <div class="workout-published-date">{{ workout.published_Date |date }}</div>
+          <div class="workout-photo">{{ workout.photo }}</div>
         </mat-card>
       </mat-card>
     </div>
   </div>
+
+
+
   
   <div class="pagination">
     <mat-card class="pagination-card">

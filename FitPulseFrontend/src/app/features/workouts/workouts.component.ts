@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
+import { WorkoutService, Workout } from '../../core/services/workout.service';
 
 @Component({
   selector: 'app-workouts',
@@ -12,31 +13,23 @@ export class WorkoutsComponent implements OnInit {
   selected2 = 'option1';
   selected3 = 'none';
 
-  workouts = [
-    { id: 1, title: 'Treadmill Workout', info: '290 kcal' },
-    { id: 2, title: 'Back Workout', info: '100 kcal' },
-    { id: 3, title: 'Workout3', info: '100 kcal' },
-    { id: 4, title: 'Workout3', info: '100 kcal' },
-    { id: 5, title: 'Workout3', info: '100 kcal' },
-    { id: 6, title: 'Workout3', info: '100 kcal' },
-    { id: 7, title: 'Workout3', info: '100 kcal' },
-    { id: 8, title: 'Workout3', info: '100 kcal' },
-    { id: 9, title: 'Workout3', info: '100 kcal' },
-    { id: 10, title: 'Workout3', info: '100 kcal' },
-    { id: 11, title: 'Workout3', info: '100 kcal' },
-    { id: 12, title: 'Workout3', info: '100 kcal' },
-    // Adaugă restul antrenamentelor tale aici
-  ];
-
-  pagedWorkouts: { id: number; title: string; info: string; }[] = [];
+  workouts: Workout[] = [];
+  pagedWorkouts: Workout[] = [];
   pageSize = 5;
   pageIndex = 0;
   pageSizeOptions = [5, 10, 25, 100];
 
-  constructor(private router: Router) {}
+  constructor(private workoutService: WorkoutService, private router: Router) {}
 
   ngOnInit() {
-    this.updatePagedWorkouts();
+    this.fetchWorkouts();
+  }
+
+  fetchWorkouts() {
+    this.workoutService.getWorkouts().subscribe((data: Workout[]) => {
+      this.workouts = data;
+      this.updatePagedWorkouts();
+    });
   }
 
   updatePagedWorkouts() {
