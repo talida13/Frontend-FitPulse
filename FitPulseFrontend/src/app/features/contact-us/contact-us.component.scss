@@ -81,7 +81,16 @@
               }
           
         }
-    
+        
+        .faq{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height: 630px;
+            border-radius: 30px;
+            padding: 16px;
+            margin: 20px;
+        }
 }
 
 .title {
