@@ -1,57 +1,122 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: white;
+  font-family: Poppins;
+  margin-top: 50px;
+}
+
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 72px;
+  
+input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input{
+  // background-color: white;
+   color:rgba(0, 0, 0, 0.4);
+   width: 100%;
+ }
+}
+
+.register-card, .stepper-card {
+  padding: 40px;
+  background: rgba(131, 222, 167, 0.2); 
+  border-radius: 45px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  color: white;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+  height: 100%;
+}
+.stepper-card {
+  padding: 40px;
+  background: rgba(131, 222, 167, 0.2);
+  border-radius: 45px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  color: white;
+  width: 100%; 
+  max-width: 400px;
+  margin-top: 20px;
+  height: 80px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+button{
+  font: Poppins;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.register-card h1 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.signup-link a {
+  color: #53F393;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.Login {
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: #53F393;
+}
+
+
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: #5389F3; 
+}
+
+.stepper-header{
+  display: flex;
+  justify-content: center;
+ // background-color: red;
+  padding-top: 20px;
+}
+
+::ng-deep {
+  .mat-mdc-form-field .mdc-text-field--filled:not(.mdc-text-field--disabled)
+  {
+   background-color: white;
+    height: 40px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    color: white;
-    font-family: Poppins;
-    margin-top: 50px;
-    
-  }
-  
-  .register-container {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 72px;
+    border-radius: 5px;
   }
-  
-  .register-card {
-    padding: 40px;
-    background: rgba(131, 222, 167, 0.2); 
-    border-radius: 45px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    color: white;
-    width: 100%;
-    max-width: 400px;
-  
-    h1 {
-      margin-bottom: 20px;
-      text-align: center;
-    }
-  
-    .full-width {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-  
-    .signup-link {
-      text-align: center;
-      margin-top: 10px;
-  
-      a {
-        color: #53F393;
-        text-decoration: none;
-        font-weight: bold;
-      }
-    }
-  }
-  
-  .Login {
-    width: 100%;
-    margin-bottom: 20px;
-    background-color: #53F393;
-  }
-  
+
+}
+mat-form-field {
+  width: 100%; 
+}
+
+
+
+
