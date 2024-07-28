@@ -9,6 +9,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 
 import { SharedModule } from '../shared/shared.module';
 import { LayoutModule } from '../layout/layout.module';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 import { WorkoutDetailsComponent } from './workout-details/workout-details.component';
 ///import { SharedModule } from './shared/shared.module';
 
@@ -21,8 +22,7 @@ import { WorkoutDetailsComponent } from './workout-details/workout-details.compo
     WorkoutsComponent,
     AboutUsComponent,
     AdminComponent,
-    ContactUsComponent,
-    WorkoutDetailsComponent
+    ContactUsComponent
   ],
   imports: [
     CommonModule,
