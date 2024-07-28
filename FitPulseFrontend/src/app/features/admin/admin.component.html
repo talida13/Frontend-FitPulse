@@ -2,7 +2,7 @@
   <div class="admin-page">
     <img class="athlete-icon" alt="" src="assets/athlete.png">
     <div class="content">
-      <!-- Remove a workout -->
+
       <div *ngIf="currentPage === 1" class="admin-card">
         <h1>Remove a workout</h1>
         <form>
@@ -17,7 +17,7 @@
         </form>
       </div>
       
-      <!-- Add a workout -->
+     
       <div *ngIf="currentPage === 2" class="admin-card">
         <h1>Add a workout</h1>
         <form>
@@ -55,7 +55,7 @@
         </form>
       </div>
       
-      <!-- Edit a workout -->
+
       <div *ngIf="currentPage === 3" class="admin-card">
         <h1>Edit a workout</h1>
         <form>
@@ -94,7 +94,7 @@
         </form>
       </div>
       
-      <!-- Pagination -->
+
       <div class="stepper-card">
         <button mat-icon-button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">←</button>
         <button mat-icon-button (click)="changePage(1)" [class.active]="currentPage === 1">1</button>

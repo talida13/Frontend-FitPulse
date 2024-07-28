@@ -8,6 +8,7 @@ import { AboutUsComponent } from './features/about-us/about-us.component';
 import { ContactUsComponent } from './features/contact-us/contact-us.component';
 import { WorkoutsComponent } from './features/workouts/workouts.component';
 import { AdminComponent } from './features/admin/admin.component';
+import { UserProfileComponent } from './features/user-profile/user-profile.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'Contact', component: ContactUsComponent },
       { path: 'Workouts', component: WorkoutsComponent },
       { path: 'Admin', component: AdminComponent },
+      {path: 'Profile', component: UserProfileComponent},
       { path: '', redirectTo: 'Home', pathMatch: 'full' }
     ]
   }
