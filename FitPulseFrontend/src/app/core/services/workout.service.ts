@@ -26,6 +26,10 @@ export class WorkoutService {
   }
 
   getWorkoutById(id: number): Observable<Workout> {
+    return this.http.get<Workout>(`${this.apiUrl}/GetWorkoutById`, { params: { id: id.toString() } });
+  }
+  
+  getWorkoutByName(name: string): Observable<Workout> {
     return this.http.get<Workout>(`${this.apiUrl}/GetWorkout/${name}`);
   }
 
