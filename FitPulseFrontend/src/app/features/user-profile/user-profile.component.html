@@ -5,14 +5,32 @@
 <div class="container">
     <div class="user-container">
       <mat-card class="profile-card">
-        <img class="profile-icon" alt="" src="assets/default-profile-picture-male.png">
-        <p class="profile-name">John Doe</p>
-        <p class="profile-age">Age</p>
-        <p class="user-age">36</p>
-        <p class="profile-height">Height</p>
-        <p class="user-height">180 cm</p>
-        <p class="profile-weight">Weight</p>
-        <p class="user-weight">80 kg</p>
+        <div class="user-picture">
+          <img class="profile-icon" alt="" src="assets/default-profile-picture-male.jpg">
+        </div>
+        <div class="user-name">
+          <p class="profile-name">John Doe</p>
+        </div>
+        <mat-list class="user-biometrics">
+          <div class="age">
+            <p class="profile-biometrics">Age:&nbsp;</p>
+            <p class="profile-biometrics-data">36</p>
+          </div>
+          <div class="divider">
+            <mat-divider></mat-divider>
+          </div>
+          <div class="height">
+            <p class="profile-biometrics">Height:&nbsp;</p>
+            <p class="profile-biometrics-data">180</p>
+          </div>
+          <div class="divider">
+            <mat-divider></mat-divider>
+          </div>
+          <div class="weight">
+            <p class="profile-biometrics">Weight:&nbsp;</p>
+            <p class="profile-biometrics-data">88.5</p>
+          </div>
+        </mat-list>
       </mat-card>
     </div>
   </div>
