@@ -54,7 +54,9 @@ import { RouterModule } from '@angular/router';
   declarations: [//HeaderComponent],
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    
+
   ],
   exports: [
  //   HeaderComponent,
@@ -107,7 +109,8 @@ import { RouterModule } from '@angular/router';
     ScrollingModule,
     DialogModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+  
   ]
 })
 export class SharedModule { }
