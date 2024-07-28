@@ -22,7 +22,9 @@ import { WorkoutDetailsComponent } from './workout-details/workout-details.compo
     WorkoutsComponent,
     AboutUsComponent,
     AdminComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    UserProfileComponent,
+    WorkoutDetailsComponent
   ],
   imports: [
     CommonModule,
