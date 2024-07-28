@@ -1,0 +1,66 @@
+.profile-card {
+    background-color: rgba(131, 222, 167, 0.4);
+    width: calc(100% / 5);
+    height: auto;
+    border-radius: 30px;
+    margin-left: 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.user-picture {
+    //background-color: blue;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.profile-icon {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.user-name{
+    //background-color: salmon;
+    color: white;
+    text-align: center;
+    font-family: Poppins;
+    font-weight: 800;
+    font-size: 35px;
+}
+
+.profile-name {
+    margin: 0px;
+    padding: 0px;
+}
+
+.user-biometrics {
+    //background-color: orange;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.age, .height, .weight {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-left: 30px;
+}
+
+.mat-divider {
+    border-width: 5px;
+    border-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    width: calc(100% - 60px);   
+}
+
+.divider {
+    display: flex;
+    justify-content: center;
+}
+
