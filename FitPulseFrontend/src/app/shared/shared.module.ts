@@ -48,7 +48,6 @@ import { CdkMenuModule } from '@angular/cdk/menu';
 import { DialogModule } from '@angular/cdk/dialog';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { CarouselModule } from 'ngx-owl-carousel-o';
 //import { HeaderComponent } from '../layout/header/header.component';
 
 @NgModule({
@@ -56,13 +55,12 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
   ],
   imports: [
     CommonModule,
-    CarouselModule
+    
 
   ],
   exports: [
  //   HeaderComponent,
     RouterModule,
-    CarouselModule,
     A11yModule,
     CdkAccordionModule,
     ClipboardModule,
