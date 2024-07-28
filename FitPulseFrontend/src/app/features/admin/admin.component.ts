@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,12 +7,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent {
-  currentPage: number = 1;
-  workouts: string[] = ['Workout 1', 'Workout 2', 'Workout 3'];
-  categories: string[] = ['Cardio', 'Strength', 'Flexibility'];
-  difficultyLevels: string[] = ['Easy', 'Medium', 'Hard'];
+  currentPage = 1;
+  totalPages = 5; // Adjust this based on your requirement
 
-  changePage(page: number) {
-    this.currentPage = page;
+  goToPage(page: number) {
+    if (page > 0 && page <= this.totalPages) {
+      this.currentPage = page;
+    }
+  }
+
+  goToPreviousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+
+  goToNextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  }
+
+  skip() {
+    // Implement skip logic if needed
   }
 }
