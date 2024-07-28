@@ -34,46 +34,55 @@
 
         <mat-card class="questionnaire">
             <p class="title">Here to help</p>
-            <br><form>
+            <br><form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
                 <mat-label>
                     Name and surname
                 </mat-label>
                 <mat-form-field class="form-width" appearance="outline">
-                    <input matInput type="text">
+                    <input matInput formControlName="name">
                 </mat-form-field>
+
                 <mat-label>
                     Email address
                 </mat-label>
                 <mat-form-field class="form-width" appearance="outline">
-                    <input matInput type="email">
+                    <input matInput formControlName="email">
                 </mat-form-field>
+
                 <mat-label>
                     Contact number
                 </mat-label>
                 <mat-form-field class="form-width" appearance="outline">
-                    <input matInput type="number">
+                    <input matInput formControlName="phone">
+                    
                 </mat-form-field>
+
                 <mat-label>
                     Message
                 </mat-label>
                 <mat-form-field class="form-width" appearance="outline">
-                    <textarea matInput type="text">
+                    <textarea matInput formControlName="message">
                     </textarea>
+                    
                 </mat-form-field>
+
                 <mat-label>
                     Where did you heard about us?
                 </mat-label>
                 <mat-form-field class="form-width" appearance="outline">
-                    <mat-select class="select-class">
+                    <mat-select formControlName="heardAboutUs">
                         <mat-option value="Advertising">Advertising</mat-option>
                         <mat-option value="Social Media">Social Media</mat-option>
                         <mat-option value="Through a friend">Through a friend</mat-option>
                         <mat-option value="Other">Other</mat-option>
                     </mat-select>
+
                 </mat-form-field>
+
+                <button mat-raised-button color="accent" class="sumbit" type="submit">Submit</button>
             </form>
             
-            <button mat-raised-button color="accent" class="sumbit">Submit</button>
         </mat-card>
 
         <mat-card class="faq">
