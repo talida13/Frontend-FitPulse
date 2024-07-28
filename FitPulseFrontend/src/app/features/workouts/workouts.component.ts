@@ -39,7 +39,7 @@ export class WorkoutsComponent implements OnInit {
   }
 
   navigateToWorkout(id: number) {
-    this.router.navigate([`/workout/${id}`]);
+    this.router.navigate([`/Workout/${id}`]);
   }
 
   handlePageEvent(event: PageEvent) {

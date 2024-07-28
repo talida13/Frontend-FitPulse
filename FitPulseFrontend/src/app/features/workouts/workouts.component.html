@@ -43,10 +43,10 @@
             <img class="workout-photo" [src]="'assets/' + workout.photo" alt="workout photo">
             <div class="workout-info">
               <div class="workout-name">{{ workout.name }}</div>
-              <div class="workout-category">{{ workout.category }}</div>
-              <div class="workout-difficulty">{{ workout.difficulty }}</div>
-              <div class="workout-author">{{ workout.author }}</div>
-              <div class="workout-published-date">{{ workout.published_Date | date }}</div>
+             <!-- <div class="workout-category">{{ workout.category }}</div>-->
+              <div class="workout-difficulty"><p>{{ workout.difficulty }}</p></div>
+              <!-- <div class="workout-author">{{ workout.author }}</div>
+              <div class="workout-published-date">{{ workout.published_Date | date }}</div> -->
             </div>
           </div>
         </mat-card>
