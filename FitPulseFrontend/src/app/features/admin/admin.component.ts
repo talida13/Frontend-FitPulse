@@ -15,8 +15,8 @@ export class AdminComponent {
   editWorkout = { exercises: '', category: '', difficulty: '', calories: '' };
   exerciseToEdit = { name: '', sets: '', reps: '' };
 
-  workouts = ['treadmill workout', 'leg workout', 'back workout', 'running workout']; // List of workouts
-  categories = ['strength', 'cardio', 'flexibility'];
+  workouts = ['Treadmill Workout', 'Back Workout', 'Leg Workout', 'Running Workout', 'Cycling Workout', 'Battle Rope Workout', 'Dumbbell Workout']; // List of workouts
+  categories = ['Treadmill Workout', 'Back Workout', 'Leg Workout', 'Running Workout', 'Cycling Workout', 'Battle Rope Workout', 'Dumbbell Workout'];
   difficulties = ['easy', 'medium', 'hard'];
   numberOfExercises = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
