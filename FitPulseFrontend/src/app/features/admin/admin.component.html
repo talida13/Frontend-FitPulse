@@ -1,107 +1,124 @@
 <div class="container">
-  <div class="admin-page">
-    <img class="athlete-icon" alt="" src="assets/athlete.png">
-    <div class="content">
-
-      <div *ngIf="currentPage === 1" class="admin-card">
-        <h1>Remove a workout</h1>
-        <form>
-          <mat-form-field appearance="fill">
-            <mat-label>Workout name</mat-label>
-            <mat-select placeholder="Select workout">
-              <mat-option *ngFor="let workout of workouts" [value]="workout">{{ workout }}</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <button mat-raised-button color="warn" type="submit">Remove</button>
-          <button mat-raised-button color="primary" type="button">Skip</button>
-        </form>
-      </div>
-      
-     
-      <div *ngIf="currentPage === 2" class="admin-card">
-        <h1>Add a workout</h1>
-        <form>
-          <mat-form-field appearance="fill">
-            <mat-label>Name</mat-label>
-            <input matInput placeholder="Enter name">
-          </mat-form-field>
-          
-          <mat-form-field appearance="fill">
-            <mat-label>Calories burned</mat-label>
-            <input matInput placeholder="Enter calories burned">
-          </mat-form-field>
-          
-          <mat-form-field appearance="fill">
-            <mat-label>Category</mat-label>
-            <mat-select placeholder="Select category">
-              <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field appearance="fill">
-            <mat-label>Difficulty level</mat-label>
-            <mat-select placeholder="Select difficulty level">
-              <mat-option *ngFor="let level of difficultyLevels" [value]="level">{{ level }}</mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field appearance="fill">
-            <mat-label>Number of exercises</mat-label>
-            <input matInput placeholder="Enter number of exercises">
-          </mat-form-field>
-
-          <button mat-raised-button color="primary" type="submit">Add</button>
-          <button mat-raised-button color="primary" type="button">Skip</button>
-        </form>
-      </div>
-      
-
-      <div *ngIf="currentPage === 3" class="admin-card">
-        <h1>Edit a workout</h1>
-        <form>
-          <mat-form-field appearance="fill">
-            <mat-label>Name</mat-label>
-            <mat-select placeholder="Select a workout">
-              <mat-option *ngFor="let workout of workouts" [value]="workout">{{ workout }}</mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field appearance="fill">
-            <mat-label>No of exercises</mat-label>
-            <input matInput placeholder="Enter number of exercises">
-          </mat-form-field>
-
-          <mat-form-field appearance="fill">
-            <mat-label>Change category</mat-label>
-            <mat-select placeholder="Select category">
-              <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field appearance="fill">
-            <mat-label>Change difficulty level</mat-label>
-            <mat-select placeholder="Select difficulty level">
-              <mat-option *ngFor="let level of difficultyLevels" [value]="level">{{ level }}</mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field appearance="fill">
-            <mat-label>Calories burned</mat-label>
-            <input matInput placeholder="Enter calories burned">
-          </mat-form-field>
-          
-          <button mat-raised-button color="primary" type="submit">Next</button>
-        </form>
-      </div>
-      
-
-      <div class="stepper-card">
-        <button mat-icon-button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">←</button>
-        <button mat-icon-button (click)="changePage(1)" [class.active]="currentPage === 1">1</button>
-        <button mat-icon-button (click)="changePage(2)" [class.active]="currentPage === 2">2</button>
-        <button mat-icon-button (click)="changePage(3)" [class.active]="currentPage === 3">3</button>
-        <button mat-icon-button (click)="changePage(currentPage + 1)" [disabled]="currentPage === 3">→</button>
-      </div>
+  <!-- Page 1: Remove a workout -->
+  <div *ngIf="currentPage === 1" class="register-card">
+    <h1>Remove a workout</h1>
+    <div class="full-width">
+      <label for="workout-name">Workout name</label>
+      <select id="workout-name">
+        <option>Select workout</option>
+      </select>
     </div>
+    <div class="buttons">
+      <button class="add">Remove</button>
+      <button class="skip" (click)="skip()">Skip</button>
+    </div>
+  </div>
+
+  <!-- Page 2: Add a workout -->
+  <div *ngIf="currentPage === 2" class="register-card">
+    <h1>Add a workout</h1>
+    <div class="full-width">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Name" />
+    </div>
+    <div class="full-width">
+      <label for="calories">Calories burned</label>
+      <input type="text" id="calories" placeholder="Calories burned" />
+    </div>
+    <div class="full-width">
+      <label for="category">Category</label>
+      <select id="category">
+        <option>Select category</option>
+      </select>
+    </div>
+    <div class="full-width">
+      <label for="difficulty">Difficulty level</label>
+      <select id="difficulty">
+        <option>Select difficulty level</option>
+      </select>
+    </div>
+    <div class="full-width">
+      <label for="exercises">Number of exercises</label>
+      <select id="exercises">
+        <option>Select a number</option>
+      </select>
+    </div>
+    <div class="buttons">
+      <button class="add">Add</button>
+      <button class="skip" (click)="skip()">Skip</button>
+    </div>
+  </div>
+
+  <!-- Page 3: Edit a workout -->
+  <div *ngIf="currentPage === 3" class="register-card">
+    <h1>Edit a workout</h1>
+    <div class="full-width">
+      <label for="edit-workout-name">Name</label>
+      <select id="edit-workout-name">
+        <option>Select a workout</option>
+      </select>
+    </div>
+    <div class="full-width">
+      <label for="edit-workout-exercises">No of exercises</label>
+      <select id="edit-workout-exercises">
+        <option>Select a no</option>
+      </select>
+    </div>
+    <div class="full-width">
+      <label for="edit-category">Change category</label>
+      <select id="edit-category">
+        <option>Select category</option>
+      </select>
+    </div>
+    <div class="full-width">
+      <label for="edit-difficulty">Change difficulty level</label>
+      <select id="edit-difficulty">
+        <option>Select difficulty level</option>
+      </select>
+    </div>
+    <div class="full-width">
+      <label for="edit-calories">Calories burned</label>
+      <input id="edit-calories" type="text" placeholder="Calories burned" />
+    </div>
+    <div class="buttons">
+      <button class="add">Next</button>
+    </div>
+  </div>
+
+  <!-- Page 4: Edit an exercise -->
+  <div *ngIf="currentPage === 4" class="register-card">
+    <h1>Edit an exercise</h1>
+    <div class="full-width">
+      <label for="exercise-name">Name</label>
+      <input id="exercise-name" type="text" placeholder="Name" />
+    </div>
+    <div class="full-width">
+      <label for="sets">Number of sets</label>
+      <select id="sets">
+        <option>Select a number</option>
+      </select>
+    </div>
+    <div class="full-width">
+      <label for="reps">Number of reps</label>
+      <select id="reps">
+        <option>Select a number</option>
+      </select>
+    </div>
+    <div class="buttons">
+      <button class="add">Edit</button>
+    </div>
+  </div>
+
+  <!-- Page 5: Success message -->
+  <div *ngIf="currentPage === 5" class="register-card">
+    <h1>Training Sessions Updated Successfully!</h1>
+    <p>Congratulations! You have successfully updated the training sessions. All the changes have been saved and are now live.</p>
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination">
+    <button (click)="goToPreviousPage()">&lt;</button>
+    <span *ngFor="let page of [1, 2, 3, 4, 5]" (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</span>
+    <button (click)="goToNextPage()">&gt;</button>
   </div>
 </div>

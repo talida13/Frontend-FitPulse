@@ -31,6 +31,8 @@ export class LoginFormComponent implements OnInit {
           this.router.navigateByUrl('Home');
         
            localStorage.setItem('jwt', user.jwtToken || '');
+           localStorage.setItem("email", user.email);
+          
         },
         error: (err) => {
           console.error('Login failed', err);
