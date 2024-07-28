@@ -1,80 +1,445 @@
-.about-us-container{
+.main-container{
+    margin-top: 30px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
+
+    .about-us-page{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+
+        .right-rectangle{
+
+            //width: 125%;
+            //height: 125%;
+            margin-left: 115%;
+            width: 648px;
+            height: 1080px;
+            background: rgba(130.83, 221.83, 167.23, 0.60);
+            border-radius: 16px;
+            margin-top: -101%;
+            
+
+        }
+
+        .left-rectangle{
+            margin-left: -105%;
+            width: 600px;
+            height: 310px;
+            background: rgba(210, 231, 218, 0.6);
+            border-radius: 16px;
+        }
+
+
+        .running-man-image{
+            //width: 50%;
+            //height: 50%;
+            //top: 540px;
+            width: 492px; 
+            height: 462px;
+
+
+            margin-left:-70%;
+            margin-top: -110%;
+
+
+            
+        }
+
+
+    }
+
+
+    .title-1{
+        color: #6EF0A2;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 28px;
+        letter-spacing: 0.25px;
+        word-wrap: break-word;
+        margin: 5px;
+        margin-left: -100%;
+        font-family: Libre Caslon Text;
+
+
+    }
+
+    .title-2{
+        color:white;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 28px;
+        letter-spacing: 0.25px;
+        word-wrap: break-word;
+        margin: 5px;
+        margin-left: -95%;
+        font-family: Libre Caslon Text;
+    }
+
+    .content-rectangle{
+        text-align: center;
+        color: #191D1A; 
+        font-size: 24px; 
+        font-family: Lato; 
+        font-weight: 700; 
+        line-height: 32px; 
+        word-wrap: break-word;
+    }
+
+    .power-challenge-box{
+        margin-left: 5%;
+        width: 144px;
+        height: 144px;
+        background: #10824B;
+        border-radius: 12px;
+    }
+    .power-challenge-content{
+        color: #192126; 
+        font-size: 16px; font-family: Lato; 
+        font-weight: 600; 
+        line-height: 32px; 
+        word-wrap: break-word;
+    }
+    .power-challenge-image{
+        width: 144px;
+        height: 96px;
+        margin-top: 10%;
+        margin-left: 20%;
+    }
+
+    .endurance-challenge-box{
+        width: 144px; 
+        height: 144px; 
+        background: #192126; 
+        border-radius: 12px;
+        margin-left: 40%;
+        margin-top: -25%;
+    }
+    .endurance-challenge-image{
+        width: 144px;
+        height: 96px;
+        margin-left: 20%;
+    }
+
+    .motivation-challenge-box{
+        width: 144px; 
+        height: 144px; 
+        background: white; 
+        border-radius: 12px;
+        margin-left: 75%;
+        margin-top: -25%;
+    }
+    .motivation-challenge-image{
+        width: 144px;
+        height: 96px;
+        margin-left: 30%;
+    }
+
+    .light-green-rectangle{
+        
+        width: 564px;
+        height: 600px;
+        background: rgba(255, 255, 255, 0.30);
+        border-radius: 48px;
+        margin-left: 5%;
+        margin-top: 15%;
+    }
+
+
+    .light-green-title{
+        //color: #24551C; 
+        //text-align: center;
+        //margin-top: 5%;
+
+
+        width: 460px; 
+        height: 48px; 
+        text-align: center; 
+        color: black; 
+        font-size: 32px; 
+        font-family: Libre Caslon Text; 
+        font-weight: 400; 
+        line-height: 32px;
+        margin-left: 10%;
+    }
+
+    .light-green-content{
+        color: #24551C; 
+        text-align: center;
+        margin-top: 5%;
+        //margin-left: 10%;
+    }
+
+
+    .iconita-1-image{
+        width: 48px;
+        height: 48px;
+        margin-left: 10%;
+        margin-top: 20%;
+        position: absolute;
+
+    }
+
+    .iconita-1-content{
+        width: 352px; 
+        text-align: center; 
+        color: #24551C; 
+        font-size: 28px; 
+        font-family: 
+        Libre Caslon Text; 
+        font-weight: 400; 
+        line-height: 28px; 
+        word-wrap: break-word;
+        margin-left: 28%;
+        margin-top: 2%;
+    }
+
+
+    .iconita-2-image{
+        width: 224px;
+        height: 224px;
+        margin-left: -5%;
+        margin-top: 25%;
+        position: absolute;
+
+    }
+
+    .iconita-2-content{
+        width: 352px; 
+        text-align: center; 
+        color: #24551C; 
+        font-size: 28px; 
+        font-family: 
+        Libre Caslon Text; 
+        font-weight: 400; 
+        line-height: 28px; 
+        word-wrap: break-word;
+        margin-left: 28%;
+        margin-top: 10%;
+    }
+
+
+    .iconita-3-image{
+        width: 48px;
+        height: 48px;
+        margin-left: 10%;
+        margin-top: 65%;
+        position: absolute;
+
+    }
+
+    .iconita-3-content{
+        width: 352px; 
+        text-align: center; 
+        color: #24551C; 
+        font-size: 28px; 
+        font-family: 
+        Libre Caslon Text; 
+        font-weight: 400; 
+        line-height: 28px; 
+        word-wrap: break-word;
+        margin-left: 25%;
+        margin-top: 5%;
+    }
+
+    .iconita-4-image{
+        width: 224px;
+        height: 224px;
+        margin-left: -5%;
+        margin-top: 70%;
+        position: absolute;
+
+    }
+
+    .iconita-4-content{
+        width: 352px; 
+        text-align: center; 
+        color: #24551C; 
+        font-size: 28px; 
+        font-family: 
+        Libre Caslon Text; 
+        font-weight: 400; 
+        line-height: 28px; 
+        word-wrap: break-word;
+        margin-left: 28%;
+        margin-top: 5%;
+    }
+
+    .title-3{
+        color: white; 
+        font-size: 24px; 
+        font-family: Poppins; 
+        font-weight: 600; 
+        word-wrap: break-word;
+    }
+
+
+    mat-card{
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        background: rgba(255, 255, 255, 0.60);
+    }
+
+
+    .card-content{
+        color: white; 
+        font-size: 12px; 
+        font-family: Poppins; 
+        font-weight: 600; 
+        word-wrap: break-word;
+        margin-left: 45%;
+        margin-top:-30%;
+        text-align: center;
+    }
+
+    .casian-card{
+            width: 400px;
+            height: 400px;
+            border-radius: 32px;
+            display: flex;
+            //flex-direction: column;
+            margin-top: 5%;
+            margin-left: -155%;
+            
+    }
+
+
+    .rectangle-card{
+        width: 300px;
+        height: 60px;
+        background: rgba(130.83, 221.83, 167.23, 0.80);
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 60px;
+        border-bottom-left-radius: 12px;
+        color:white;
+        font-weight: 700;
+        text-align: center;
+        margin-left: 10%;
+        margin-top: 15%;
+    }
+
+    .card-image{
+
+        width: 100px; 
+        height: 100px; 
+        border-radius: 100px;
+        margin-top: 20%;
+        margin-left: 10%;
+
+    }
+
+    .vlad-card{
+            width: 400px;
+            height: 400px;
+            border-radius: 32px;
+            display: flex;
+            //flex-direction: column;
+            margin-top: -62%;
+            margin-left: 0%;
+    }
+
+    .talida-card{
+
+            width: 400px;
+            height: 400px;
+            border-radius: 32px;
+            display: flex;
+            //flex-direction: column;
+            margin-top: -62%;
+            margin-left: 155%;
+
+    }
+
+
+    .teodora-card{
+
+        width: 400px;
+        height: 400px;
+        border-radius: 32px;
+        display: flex;
+        //flex-direction: column;
+        margin-top: 25%;
+        margin-left: -75%;
+
 }
 
-.about-us{
+    .matei-card{
+
+        width: 400px;
+        height: 400px;
+        border-radius: 32px;
+        display: flex;
+        //flex-direction: column;
+        margin-top: -62%;
+        margin-left: 75%;
+
+}
+
+
+.white-box {
+    
+    display: flex;
+    //border: 20px solid #ccc;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px; 
+    height: 200px; 
+    background: #EAFFF3; 
+    border-radius: 30px;
+  }
+
+
+
+  .white-box-title{
+    color:black;
+    font-size: 24px; 
     text-align: center;
-    color: white;
-   // background: linear-gradient(135deg, #1abc9c, #16a085);
-    padding: 2rem;
+  }
 
-    .intro {
-        margin-bottom: 2rem;
-    
-        h1 {
-            color: #6EF0A2;
-            font-family: "Libre Caslon Text";
-            font-size: 36px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: normal;
-        }
-    
-        p {
-            margin-bottom: 1.5rem;
-            //width: 629px;
-            //height: 318px;
-            flex-direction: column;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-    
-        .get-started {
-          background-color: #4caf50;
-          color: white;
-          border: none;
-          padding: 0.75rem 2rem;
-          cursor: pointer;
-        }
-      }
-}
+  
 
-.running-yellow-man-icon{
-    
-
-    box-sizing: border-box;
-    width: 592px;
-    height: 562px;
-    flex-shrink: 0;
-    position: absolute;
-    top:540px;
-    left:-25px;
-    bottom: 3178px;
-    right: 1353px;
-    //max-width: 100%;
-    overflow: hidden;
-   // object-fit: cover;
-   z-index: -1;
-   
-
-
-   
-
-   
-}
-
-.content{
-    z-index: 2;
-}
-
-.button{
-    left: 42px;
-    top: 4.50px;
-    position: absolute;
-    color: #047624;
-    font-size: 36px;
-    font-family: Poppins;
-    font-weight: 600;
+  .white-box-content{
+    color:black;
+    font-size: 12px; 
+    font-family: Poppins; 
+    font-weight: 600; 
     word-wrap: break-word;
+    text-align: center;
+  }
+
+
+  .green-buttons{
+    width: 20px; 
+    height: 20px; 
+    padding-left: 10px; 
+    padding-right: 10px; 
+    padding-top: 4px; 
+    padding-bottom: 4px; 
+    background: #00FF47; 
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.12); 
+    border-radius: 20px; 
+    border: 2px white solid;
+  }
+
+
+  .green-buttons-text{
+    color:#00FF47;
+    font-size: 12px;
+    font-weight: 600; 
+    text-align: center;
+    margin-top: 10%;
+
+  }
+
+  .content{
+        
+    text-align: center;
+    margin-left: -100%;
+}
+
+
 }
