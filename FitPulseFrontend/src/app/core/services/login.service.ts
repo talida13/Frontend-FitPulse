@@ -18,6 +18,13 @@ interface UserCredentials {
 
 interface User {
   username: string;
+  firstName: string;
+  lastName: string;
+  age: number;
+  height: number;
+  weight: number;
+  createdAt: string;
+  lastUpdatedAt: string;
   email: string;
   role: string;
   jwtToken?: string;

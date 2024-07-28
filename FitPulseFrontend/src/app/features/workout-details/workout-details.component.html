@@ -1,1 +1,60 @@
-<p>workout-details works!</p>
+
+<div class="principal">
+    <mat-card class="card-details">
+
+        <div class="workout-div" *ngIf="workout">
+            <h1>{{ workout.name }}</h1>
+           <!--<img [src]="'assets/' + workout.photo" alt="{{ workout.name }}">--> 
+
+           <div class="workout-info">
+              <mat-card class="category-card">
+                    <p>Category: {{ workout.category}}</p>
+              </mat-card>
+
+              <mat-card class="difficulty-card">
+                    <p>Difficulty: {{ workout.difficulty }}</p>
+              </mat-card>
+
+              <mat-card class="calories-card">
+                    <p>Calories burned: x kcal</p>
+              </mat-card>
+
+
+          </div>
+     
+           <mat-card class="author-card">
+              <p>Author: {{ workout.author }}</p>
+           </mat-card>
+
+           <p>Published Date: {{ workout.published_Date | date }}</p>
+        </div>
+         
+          <div *ngIf="!workout">
+            <p>Workout not found.</p>
+          </div>
+
+          
+
+
+    </mat-card>
+
+    <mat-card class="card-exercises">
+
+      <div class="carousel-container">
+        <button mat-icon-button (click)="previousSlide()">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+      
+        <mat-card class="carousel" *ngIf="slides[currentIndex]">
+          <img mat-card-image [src]="slides[currentIndex].image" alt="Slide">
+        </mat-card>
+      
+        <button mat-icon-button (click)="nextSlide()">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+
+
+    </mat-card>
+</div>
+
