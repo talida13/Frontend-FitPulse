@@ -1,0 +1,31 @@
+
+<div class="principal">
+    <mat-card class="card-details">
+
+        <div *ngIf="workout">
+            <h1>{{ workout.name }}</h1>
+           <!--<img [src]="'assets/' + workout.photo" alt="{{ workout.name }}">--> 
+           <div class="workout-info">
+           <mat-card class="category-card">
+                <p>Category: {{ workout.category}}</p>
+           </mat-card>
+            <p>Difficulty: {{ workout.difficulty }}</p>
+     
+            <p>Author: {{ workout.author }}</p>
+            <p>Published Date: {{ workout.published_Date | date }}</p>
+        </div>
+          </div>
+          <div *ngIf="!workout">
+            <p>Workout not found.</p>
+          </div>
+          
+
+
+    </mat-card>
+
+    <mat-card class="card-exercises">
+
+
+    </mat-card>
+</div>
+

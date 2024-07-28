@@ -130,11 +130,79 @@ mat-select {
     align-items: center;
     width: 100%;
 }
+
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.principal {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.workouts {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    padding-left: 10px;
+}
+
+.filter-card {
+    width: 300px;
+    border-radius: 35.14px;
+    background-color: rgba(255, 246, 232, 0.51);
+    height: 400px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.workouts-card {
+    border-radius: 35.14px;
+    background-color: rgba(255, 246, 232, 0.51);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Enable wrapping */
+    justify-content: flex-start; /* Align items to start */
+    width: calc(100% - 40px);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.pagination-card {
+    background-color: rgba(255, 246, 232, 0.51);
+    width: calc(100% / 2);
+    border-radius: 20px;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+}
+
 .workout-card {
     position: relative; 
     background-color: rgba(121, 141, 200, 0.9);
-    border-radius: 8px;
-    width: calc(33.33% - 40px); 
+    border-radius: 20px;
+    width: calc(33.33% - 40px); /* Ensure three items per row */
     margin: 20px;
     padding: 0; 
     box-sizing: border-box;
@@ -145,15 +213,15 @@ mat-select {
     height: 250px;
     cursor: pointer;
     overflow: hidden;
-  }
-  
-  .workout-content {
+}
+
+.workout-content {
     position: relative; 
     width: 100%;
     height: 100%;
-  }
-  
-  .workout-photo {
+}
+
+.workout-photo {
     position: absolute; 
     top: 0;
     left: 0;
@@ -161,20 +229,34 @@ mat-select {
     height: 100%;
     object-fit: cover; 
     z-index: 0;
-  }
-  
-  .workout-info {
+}
+
+.workout-info {
     position: relative; 
     z-index: 1;
     color: #fff; 
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     padding: 10px; 
-  //  background: rgba(0, 0, 0, 0.5); 
-    border-radius: 8px; 
-    
-  }
-  
+}
+
+.workout-name {
+    font-size: 24px;
+    font-family: "Rubik Mono One";
+    text-transform: uppercase;
+}
+
+.workout-difficulty {
+    position: absolute;
+    top:180px;
+    right: 10px;
+    font-size: 20px;
+    display: flex;
+    align-items: flex-end;
+    text-align: right;
+    color: #fff; 
+    margin: 0;
+}
+
+
