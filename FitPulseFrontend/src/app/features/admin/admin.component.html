@@ -4,12 +4,13 @@
     <h1>Remove a workout</h1>
     <div class="full-width">
       <label for="workout-name">Workout name</label>
-      <select id="workout-name">
+      <select id="workout-name" [(ngModel)]="selectedWorkout">
         <option>Select workout</option>
+        <option *ngFor="let workout of workouts" [value]="workout">{{ workout }}</option>
       </select>
     </div>
     <div class="buttons">
-      <button class="add">Remove</button>
+      <button class="add" (click)="removeWorkout()">Remove</button>
       <button class="skip" (click)="skip()">Skip</button>
     </div>
   </div>
@@ -19,32 +20,35 @@
     <h1>Add a workout</h1>
     <div class="full-width">
       <label for="name">Name</label>
-      <input type="text" id="name" placeholder="Name" />
+      <input type="text" id="name" placeholder="Name" [(ngModel)]="newWorkout.name"/>
     </div>
     <div class="full-width">
       <label for="calories">Calories burned</label>
-      <input type="text" id="calories" placeholder="Calories burned" />
+      <input type="text" id="calories" placeholder="Calories burned" [(ngModel)]="newWorkout.calories"/>
     </div>
     <div class="full-width">
       <label for="category">Category</label>
-      <select id="category">
+      <select id="category" [(ngModel)]="newWorkout.category">
         <option>Select category</option>
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
       </select>
     </div>
     <div class="full-width">
       <label for="difficulty">Difficulty level</label>
-      <select id="difficulty">
+      <select id="difficulty" [(ngModel)]="newWorkout.difficulty">
         <option>Select difficulty level</option>
+        <option *ngFor="let difficulty of difficulties" [value]="difficulty">{{ difficulty }}</option>
       </select>
     </div>
     <div class="full-width">
       <label for="exercises">Number of exercises</label>
-      <select id="exercises">
+      <select id="exercises" [(ngModel)]="newWorkout.exercises">
         <option>Select a number</option>
+        <option *ngFor="let number of numberOfExercises" [value]="number">{{ number }}</option>
       </select>
     </div>
     <div class="buttons">
-      <button class="add">Add</button>
+      <button class="add" (click)="addWorkout()">Add</button>
       <button class="skip" (click)="skip()">Skip</button>
     </div>
   </div>
@@ -54,34 +58,38 @@
     <h1>Edit a workout</h1>
     <div class="full-width">
       <label for="edit-workout-name">Name</label>
-      <select id="edit-workout-name">
+      <select id="edit-workout-name" [(ngModel)]="selectedEditWorkout">
         <option>Select a workout</option>
+        <option *ngFor="let workout of workouts" [value]="workout">{{ workout }}</option>
       </select>
     </div>
     <div class="full-width">
       <label for="edit-workout-exercises">No of exercises</label>
-      <select id="edit-workout-exercises">
-        <option>Select a no</option>
+      <select id="edit-workout-exercises" [(ngModel)]="editWorkout.exercises">
+        <option>Select a number</option>
+        <option *ngFor="let number of numberOfExercises" [value]="number">{{ number }}</option>
       </select>
     </div>
     <div class="full-width">
       <label for="edit-category">Change category</label>
-      <select id="edit-category">
+      <select id="edit-category" [(ngModel)]="editWorkout.category">
         <option>Select category</option>
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
       </select>
     </div>
     <div class="full-width">
       <label for="edit-difficulty">Change difficulty level</label>
-      <select id="edit-difficulty">
+      <select id="edit-difficulty" [(ngModel)]="editWorkout.difficulty">
         <option>Select difficulty level</option>
+        <option *ngFor="let difficulty of difficulties" [value]="difficulty">{{ difficulty }}</option>
       </select>
     </div>
     <div class="full-width">
       <label for="edit-calories">Calories burned</label>
-      <input id="edit-calories" type="text" placeholder="Calories burned" />
+      <input id="edit-calories" type="text" placeholder="Calories burned" [(ngModel)]="editWorkout.calories"/>
     </div>
     <div class="buttons">
-      <button class="add">Next</button>
+      <button class="add" (click)="goToNextPage()">Next</button>
     </div>
   </div>
 
@@ -90,22 +98,24 @@
     <h1>Edit an exercise</h1>
     <div class="full-width">
       <label for="exercise-name">Name</label>
-      <input id="exercise-name" type="text" placeholder="Name" />
+      <input id="exercise-name" type="text" placeholder="Name" [(ngModel)]="exerciseToEdit.name"/>
     </div>
     <div class="full-width">
       <label for="sets">Number of sets</label>
-      <select id="sets">
+      <select id="sets" [(ngModel)]="exerciseToEdit.sets">
         <option>Select a number</option>
+        <option *ngFor="let number of numberOfExercises" [value]="number">{{ number }}</option>
       </select>
     </div>
     <div class="full-width">
       <label for="reps">Number of reps</label>
-      <select id="reps">
+      <select id="reps" [(ngModel)]="exerciseToEdit.reps">
         <option>Select a number</option>
+        <option *ngFor="let number of numberOfExercises" [value]="number">{{ number }}</option>
       </select>
     </div>
     <div class="buttons">
-      <button class="add">Edit</button>
+      <button class="add" (click)="editExercise()">Edit</button>
     </div>
   </div>
 
