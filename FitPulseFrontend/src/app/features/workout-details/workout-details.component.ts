@@ -8,6 +8,20 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./workout-details.component.scss']
 })
 export class WorkoutDetailsComponent implements OnInit {
+  slides = [
+    { image: 'assets/workout1.png' },
+    { image: 'assets/images/slide2.jpg' },
+    { image: 'assets/images/slide3.jpg' }
+  ];
+  currentIndex = 0;
+
+  nextSlide() {
+    this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+  }
+
+  previousSlide() {
+    this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+  }
   workout: Workout | undefined;
 
   constructor(private route: ActivatedRoute, private workoutService: WorkoutService) { }

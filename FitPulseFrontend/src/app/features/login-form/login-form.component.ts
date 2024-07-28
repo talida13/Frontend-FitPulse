@@ -35,8 +35,14 @@ export class LoginFormComponent implements OnInit {
            localStorage.setItem("role", user.role);
            localStorage.setItem("username", user.username);
            localStorage.setItem("firstName", user.firstName);
+           localStorage.setItem("lastName", user.lastName);
 
            console.log(localStorage.getItem('firstName'));
+           console.log(localStorage.getItem('role'));
+            console.log(localStorage.getItem('email'));
+            console.log(localStorage.getItem('username'));
+            console.log(localStorage.getItem('lastName'));
+
           
 
            
