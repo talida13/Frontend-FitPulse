@@ -18,7 +18,7 @@ export class LoginFormComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(5)]]
     });
   }
 
@@ -32,6 +32,14 @@ export class LoginFormComponent implements OnInit {
         
            localStorage.setItem('jwt', user.jwtToken || '');
            localStorage.setItem("email", user.email);
+           localStorage.setItem("role", user.role);
+           localStorage.setItem("username", user.username);
+           localStorage.setItem("firstName", user.firstName);
+
+           console.log(localStorage.getItem('firstName'));
+          
+
+           
           
         },
         error: (err) => {
