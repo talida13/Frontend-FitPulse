@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WorkoutService, Workout } from '../../core/services/workout.service';
+import { ExerciseService, Exercise } from '../../core/services/exercise.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -8,12 +9,25 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./workout-details.component.scss']
 })
 export class WorkoutDetailsComponent implements OnInit {
-  slides = [
-    { image: 'assets/workout1.png' },
-    { image: 'assets/images/slide2.jpg' },
-    { image: 'assets/images/slide3.jpg' }
-  ];
+  slides: { image: string, reps: number, calories_rep: number }[] = [];
   currentIndex = 0;
+  workout: Workout | undefined;
+  exercises: Exercise[] = [];
+
+  constructor(
+    private route: ActivatedRoute,
+    private workoutService: WorkoutService,
+    private exerciseService: ExerciseService
+  ) {}
+
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      const id = Number(params.get('id'));
+      if (id) {
+        this.getWorkoutDetails(id);
+      }
+    });
+  }
 
   nextSlide() {
     this.currentIndex = (this.currentIndex + 1) % this.slides.length;
@@ -22,30 +36,36 @@ export class WorkoutDetailsComponent implements OnInit {
   previousSlide() {
     this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
   }
-  workout: Workout | undefined;
-
-  constructor(private route: ActivatedRoute, private workoutService: WorkoutService) { }
-
-  ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      const id = Number(params.get('id'));
-     // console.log(`id: ${id}`); 
-      if (id) {
-        this.getWorkoutDetails(id);
-      }
-    });
-  }
 
   getWorkoutDetails(id: number) {
     this.workoutService.getWorkoutById(id).subscribe(
       (data: Workout) => {
         this.workout = data;
+        this.loadExercises(id);
       },
       (error) => {
         console.error('Error fetching workout details:', error);
       }
     );
   }
-  
 
+  loadExercises(workoutId: number) {
+    this.exerciseService.getExercises().subscribe(
+      (data: Exercise[]) => {
+        this.exercises = data
+          .filter(exercise => exercise.workout_id === workoutId)
+          .sort((a, b) => a.id - b.id);
+
+          console.log()
+        this.slides = this.exercises.map(exercise => ({
+          image: exercise.photo,
+          reps: exercise.reps,
+          calories_rep: exercise.calories_rep
+        }));
+      },
+      (error) => {
+        console.error('Error fetching exercises:', error);
+      }
+    );
+  }
 }
