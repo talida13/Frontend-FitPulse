@@ -134,3 +134,13 @@ mat-select {
 .selector {
     width: 300px;
 }
+
+.statistics-card {
+    background-color: rgba(131, 222, 167, 0.4);
+    width: calc(100% / 5);
+    height: auto;
+    border-radius: 30px;
+    margin-left: 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
