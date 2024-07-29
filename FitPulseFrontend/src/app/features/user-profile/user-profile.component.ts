@@ -9,5 +9,5 @@ import {MatListModule} from '@angular/material/list';
 })
 
 export class UserProfileComponent {
-
+  selectedStatistic = ['Biological metrics', 'Calories burned', 'Workout history', 'Most common workouts', 'Most common excercises'];
 }

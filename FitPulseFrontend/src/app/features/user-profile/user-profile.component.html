@@ -33,4 +33,21 @@
         </mat-list>
       </mat-card>
     </div>
+
+    <div class="statistics-selector-container">
+      <mat-card class="selector-card">
+        <div class="selector-div">
+          <mat-form-field class="selector">
+            <mat-label>Select statistics</mat-label>
+            <mat-select [(value)]="selectedStatistic">
+              <mat-option value="option1">Biological metrics</mat-option>
+              <mat-option value="option2">Calories burned</mat-option>
+              <mat-option value="option3">Workout history</mat-option>
+              <mat-option value="option4">Most common workouts</mat-option>
+              <mat-option value="option5">Most common excercises</mat-option>
+            </mat-select>
+        </mat-form-field>
+        </div>
+      </mat-card>
+    </div>
   </div>
