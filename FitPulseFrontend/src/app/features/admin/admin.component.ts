@@ -20,6 +20,10 @@ export class AdminComponent implements OnInit {
   selectedExerciseId: number | null = null;
   editExerciseData: Exercise | null = null;
 
+  // Proprietăți noi adăugate
+  errorMessage: string | null = null;
+  successMessage: string | null = null;
+
   constructor(private workoutService: WorkoutService, private exerciseService: ExerciseService) {}
 
   ngOnInit(): void {
@@ -30,14 +34,20 @@ export class AdminComponent implements OnInit {
   loadWorkouts(): void {
     this.workoutService.getWorkouts().subscribe(
       (data: Workout[]) => this.workouts = data,
-      (error) => console.error(error)
+      (error) => {
+        this.errorMessage = 'Error loading workouts';  // Mesaj de eroare personalizat
+        console.error(error);
+      }
     );
   }
 
   loadExercises(): void {
     this.exerciseService.getExercises().subscribe(
       (data: Exercise[]) => this.exercises = data,
-      (error) => console.error(error)
+      (error) => {
+        this.errorMessage = 'Error loading exercises';  // Mesaj de eroare personalizat
+        console.error(error);
+      }
     );
   }
 
@@ -62,8 +72,14 @@ export class AdminComponent implements OnInit {
   deleteWorkout() {
     if (this.selectedWorkoutId !== null) {
       this.workoutService.deleteWorkout(this.selectedWorkoutId).subscribe(
-        () => this.loadWorkouts(),
-        (error) => console.error(error)
+        () => {
+          this.loadWorkouts();
+          this.successMessage = 'Workout removed successfully';
+        },
+        (error) => {
+          this.errorMessage = 'Error removing workout';
+          console.error(error);
+        }
       );
     }
   }
@@ -72,9 +88,13 @@ export class AdminComponent implements OnInit {
     this.workoutService.addWorkout(this.newWorkout).subscribe(
       () => {
         this.loadWorkouts();
+        this.successMessage = 'Workout added successfully';
         this.goToNextPage();
       },
-      (error) => console.error(error)
+      (error) => {
+        this.errorMessage = 'Error adding workout';
+        console.error(error);
+      }
     );
   }
 
@@ -90,9 +110,13 @@ export class AdminComponent implements OnInit {
       this.workoutService.updateWorkout(this.editWorkoutData).subscribe(
         () => {
           this.loadWorkouts();
+          this.successMessage = 'Workout updated successfully';
           this.goToNextPage();
         },
-        (error) => console.error(error)
+        (error) => {
+          this.errorMessage = 'Error updating workout';
+          console.error(error);
+        }
       );
     }
   }
@@ -109,9 +133,13 @@ export class AdminComponent implements OnInit {
       this.exerciseService.updateExercise(this.editExerciseData).subscribe(
         () => {
           this.loadExercises();
+          this.successMessage = 'Exercise updated successfully';
           this.goToNextPage();
         },
-        (error) => console.error(error)
+        (error) => {
+          this.errorMessage = 'Error updating exercise';
+          console.error(error);
+        }
       );
     }
   }

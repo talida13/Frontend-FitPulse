@@ -1,5 +1,13 @@
 <div class="container">
-  <!-- Page 1: Remove a workout -->
+  <!-- Mesaje de eroare și succes -->
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+  </div>
+
+  <!-- Pagina 1: Eliminare antrenament -->
   <div *ngIf="currentPage === 1" class="register-card">
     <h1>Remove a workout</h1>
     <div class="full-width">
@@ -14,7 +22,7 @@
     </div>
   </div>
 
-  <!-- Page 2: Add a workout -->
+  <!-- Pagina 2: Adăugare antrenament -->
   <div *ngIf="currentPage === 2" class="register-card">
     <h1>Add a workout</h1>
     <div class="full-width">
@@ -47,7 +55,7 @@
     </div>
   </div>
 
-  <!-- Page 3: Edit a workout -->
+  <!-- Pagina 3: Editare antrenament -->
   <div *ngIf="currentPage === 3" class="register-card">
     <h1>Edit a workout</h1>
     <div class="full-width">
@@ -87,7 +95,7 @@
     </div>
   </div>
 
-  <!-- Page 4: Edit an exercise -->
+  <!-- Pagina 4: Editare exercițiu -->
   <div *ngIf="currentPage === 4" class="register-card">
     <h1>Edit an exercise</h1>
     <div class="full-width">
@@ -101,7 +109,6 @@
         <label for="edit-exercise-name">Name</label>
         <input type="text" id="edit-exercise-name" [(ngModel)]="editExerciseData.name" placeholder="Name" />
       </div>
-    
       <div class="full-width">
         <label for="edit-reps">Number of reps</label>
         <input type="number" id="edit-reps" [(ngModel)]="editExerciseData.reps" placeholder="Reps" />
@@ -116,13 +123,13 @@
     </div>
   </div>
 
-  <!-- Page 5: Success message -->
+  <!-- Pagina 5: Mesaj de succes -->
   <div *ngIf="currentPage === 5" class="register-card">
     <h1>Training Sessions Updated Successfully!</h1>
     <p>Congratulations! You have successfully updated the training sessions. All the changes have been saved and are now live.</p>
   </div>
 
-  <!-- Pagination -->
+  <!-- Paginație -->
   <div class="pagination">
     <button (click)="goToPreviousPage()">&lt;</button>
     <span *ngFor="let page of [1, 2, 3, 4, 5]" (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</span>
