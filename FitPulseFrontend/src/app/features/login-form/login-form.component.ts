@@ -11,9 +11,11 @@ import { Router } from '@angular/router';
 export class LoginFormComponent implements OnInit {
   loginForm!: FormGroup;
 
-  constructor( private fb: FormBuilder, private loginService: LoginService, private readonly router: Router ) { 
-    
-  }
+  constructor(
+    private fb: FormBuilder,
+    private loginService: LoginService,
+    private readonly router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -25,34 +27,18 @@ export class LoginFormComponent implements OnInit {
   onLogin(): void {
     if (this.loginForm.valid) {
       const credentials = this.loginForm.value;
+      console.log('LoginFormComponent: Form is valid, attempting login with credentials:', credentials);
       this.loginService.login(credentials).subscribe({
         next: (user) => {
           console.log('Login successful', user);
           this.router.navigateByUrl('Home');
-        
-           localStorage.setItem('jwt', user.jwtToken || '');
-           localStorage.setItem("email", user.email);
-           localStorage.setItem("role", user.role);
-           localStorage.setItem("username", user.username);
-           localStorage.setItem("firstName", user.firstName);
-           localStorage.setItem("lastName", user.lastName);
-
-           console.log(localStorage.getItem('firstName'));
-           console.log(localStorage.getItem('role'));
-            console.log(localStorage.getItem('email'));
-            console.log(localStorage.getItem('username'));
-            console.log(localStorage.getItem('lastName'));
-
-          
-
-           
-          
         },
         error: (err) => {
           console.error('Login failed', err);
-      
         }
       });
+    } else {
+      console.log('LoginFormComponent: Form is invalid');
     }
   }
-}  
+}
