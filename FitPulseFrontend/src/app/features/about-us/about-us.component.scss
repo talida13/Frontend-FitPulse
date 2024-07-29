@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-family: Poppins;
 
     .about-us-page{
         display: flex;
@@ -99,7 +100,7 @@
     }
     .power-challenge-content{
         color: #192126; 
-        font-size: 16px; font-family: Lato; 
+        font-size: 16px;
         font-weight: 600; 
         line-height: 32px; 
         word-wrap: break-word;
