@@ -6,23 +6,46 @@
 
       <div class="workout-info">
         <mat-card class="category-card">
-          <p>Category: {{ workout.category }}</p>
+          <span>Category</span>
+          <div class="category-div">
+              <span style="margin-top: 20px;" >{{ workout.category }}</span>
+          </div>
+          <mat-icon>category</mat-icon>
         </mat-card>
 
         <mat-card class="difficulty-card">
-          <p>Difficulty: {{ workout.difficulty }}</p>
+          <span>Difficulty</span>
+          <div class="category-div">
+          <span style="margin-top: 20px;"> {{ workout.difficulty }}</span>
+          </div>
+          <mat-icon>star</mat-icon>
         </mat-card>
 
         <mat-card class="calories-card">
-          <p>Calories burned: x kcal</p>
+            <span>Calories burned </span>
+            <div class="category-div">
+            <span style="margin-top: 20px;">  x kcal</span>
+            </div>
+            <mat-icon>whatshot</mat-icon>
         </mat-card>
       </div>
 
-      <mat-card class="author-card">
-        <p>Author: {{ workout.author }}</p>
-      </mat-card>
+      <div class="butoane">
+      <button mat-raised-button color="primary" (click)="startWorkout()">
+        <mat-icon>play_arrow</mat-icon> Start Workout
+      </button>
+      
+      <button mat-raised-button color="accent" (click)="stopWorkout()">
+        <mat-icon>stop</mat-icon> Stop Workout
+      </button>
+      </div>
+      
+      <div class="author-date">
+        <span>Author: {{ workout.author }}</span>
+      
 
-      <p>Published Date: {{ workout.published_Date | date }}</p>
+      <span>Published Date: {{ workout.published_Date | date }}</span>
+      </div>
     </div>
     
     <div *ngIf="!workout">
@@ -37,11 +60,12 @@
       </button>
     
       <mat-card class="carousel" *ngIf="slides[currentIndex]">
-        <img mat-card-image [src]="slides[currentIndex].image" alt="Slide">
         <div class="exercise-details">
-          <p>Reps: {{ slides[currentIndex].reps }}</p>
-          <p>Calories per rep: {{ slides[currentIndex].calories_rep }}</p>
+          <p>Reps:&nbsp;{{ slides[currentIndex].reps }}</p>
+          <p>&nbsp;Calories per rep:&nbsp;{{ slides[currentIndex].calories_rep }}</p>
         </div>
+        <img mat-card-image [src]="'assets/' + slides[currentIndex].image" alt="Slide">
+       
       </mat-card>
     
       <button mat-icon-button (click)="nextSlide()">

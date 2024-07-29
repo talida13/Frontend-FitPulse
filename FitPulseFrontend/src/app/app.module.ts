@@ -9,6 +9,7 @@ import { FeaturesModule } from './features/features.module';
 import { LoginService } from './core/services/login.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     LayoutModule,
     FeaturesModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent],

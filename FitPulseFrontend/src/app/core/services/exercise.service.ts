@@ -8,7 +8,7 @@ export interface Exercise {
   id: number;
   name: string;
   photo: string;
-  workout_id: number;
+  workout_Id: number;
   reps: number;
   calories_rep: number;
 
@@ -43,7 +43,7 @@ export class ExerciseService {
     return this.http.delete<boolean>(`${this.apiUrl}/DeleteExercises/${name}`);
   }
 
-  updateWorkout(exercise: Exercise): Observable<boolean> {
+  updateExercise(exercise: Exercise): Observable<boolean> {
     return this.http.put<boolean>(`${this.apiUrl}/UpdateExercises`, exercise);
   }
 
