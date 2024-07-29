@@ -3,6 +3,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
+
 @Component({
   selector: 'app-navigation-menu-content',
   templateUrl: './navigation-menu-content.component.html',
@@ -17,9 +18,14 @@ export class NavigationMenuContentComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.isAdminOn = environment.isAdminOn;
+    //this.isAdminOn = environment.isAdminOn;
+    const userRole = localStorage.getItem('role');
+    if(userRole)
+      this.isLoggedIn = true;
+    this.isAdminOn = userRole === 'admin';
   }
- 
+  
+
   goToLogin(): void {
     this.router.navigateByUrl('Login');
     this.drawerToggle.emit();

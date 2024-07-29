@@ -11,14 +11,14 @@ import { Router } from '@angular/router';
 export class LoginFormComponent implements OnInit {
   loginForm!: FormGroup;
 
-  constructor( private fb: FormBuilder, private loginService: LoginService,private readonly router: Router ) { 
+  constructor( private fb: FormBuilder, private loginService: LoginService, private readonly router: Router ) { 
     
   }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(5)]]
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
