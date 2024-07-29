@@ -1,4 +1,11 @@
 <div class="container">
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+  </div>
+
   <!-- Page 1: Remove a workout -->
   <div *ngIf="currentPage === 1" class="register-card">
     <h1>Remove a workout</h1>
