@@ -42,6 +42,7 @@ export class WorkoutDetailsComponent implements OnInit {
       (data: Workout) => {
         this.workout = data;
         this.loadExercises(id);
+        console.log(id);
       },
       (error) => {
         console.error('Error fetching workout details:', error);
@@ -52,11 +53,14 @@ export class WorkoutDetailsComponent implements OnInit {
   loadExercises(workoutId: number) {
     this.exerciseService.getExercises().subscribe(
       (data: Exercise[]) => {
+        console.log('All exercises:', data);
+  
+        // Verifică și converteste tipurile dacă este necesar
         this.exercises = data
-          .filter(exercise => exercise.workout_id === workoutId)
-          .sort((a, b) => a.id - b.id);
-
-          console.log()
+          .filter(exercise => Number(exercise.workout_Id) === workoutId);
+  
+        console.log('Filtered exercises:', this.exercises);
+  
         this.slides = this.exercises.map(exercise => ({
           image: exercise.photo,
           reps: exercise.reps,
@@ -68,4 +72,11 @@ export class WorkoutDetailsComponent implements OnInit {
       }
     );
   }
+  startWorkout(){
+
+  }
+
+  stopWorkout(){
+  }
+  
 }
