@@ -92,22 +92,27 @@
     <h1>Edit an exercise</h1>
     <div class="full-width">
       <label for="exercise-name">Name</label>
-      <input id="exercise-name" type="text" placeholder="Name" />
-    </div>
-    <div class="full-width">
-      <label for="sets">Number of sets</label>
-      <select id="sets">
-        <option>Select a number</option>
+      <select id="exercise-name" [(ngModel)]="selectedExerciseId" (change)="selectExercise($event)">
+        <option *ngFor="let exercise of exercises" [value]="exercise.id">{{ exercise.name }}</option>
       </select>
     </div>
-    <div class="full-width">
-      <label for="reps">Number of reps</label>
-      <select id="reps">
-        <option>Select a number</option>
-      </select>
-    </div>
-    <div class="buttons">
-      <button class="add">Edit</button>
+    <div *ngIf="editExerciseData">
+      <div class="full-width">
+        <label for="edit-exercise-name">Name</label>
+        <input type="text" id="edit-exercise-name" [(ngModel)]="editExerciseData.name" placeholder="Name" />
+      </div>
+    
+      <div class="full-width">
+        <label for="edit-reps">Number of reps</label>
+        <input type="number" id="edit-reps" [(ngModel)]="editExerciseData.reps" placeholder="Reps" />
+      </div>
+      <div class="full-width">
+        <label for="edit-calories-rep">Calories per rep</label>
+        <input type="number" id="edit-calories-rep" [(ngModel)]="editExerciseData.calories_rep" placeholder="Calories per rep" />
+      </div>
+      <div class="buttons">
+        <button class="add" (click)="updateExercise()">Edit</button>
+      </div>
     </div>
   </div>
 
