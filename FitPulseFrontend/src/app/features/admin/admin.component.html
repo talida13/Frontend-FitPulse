@@ -1,89 +1,91 @@
 <div class="container">
- <!-- Page 1: Remove a workout -->
- <div *ngIf="currentPage === 1" class="register-card">
-  <h1>Remove a workout</h1>
-  <div class="full-width">
-    <label for="workout-name">Workout name</label>
-    <select id="workout-name" [(ngModel)]="selectedWorkoutId">
-      <option *ngFor="let workout of workouts" [value]="workout.id">{{ workout.name }}</option>
-    </select>
+  <!-- Page 1: Remove a workout -->
+  <div *ngIf="currentPage === 1" class="register-card">
+    <h1>Remove a workout</h1>
+    <div class="full-width">
+      <label for="workout-name">Workout name</label>
+      <select id="workout-name" [(ngModel)]="selectedWorkoutId">
+        <option *ngFor="let workout of workouts" [value]="workout.id">{{ workout.name }}</option>
+      </select>
+    </div>
+    <div class="buttons">
+      <button class="add" (click)="deleteWorkout()">Remove</button>
+      <button class="skip" (click)="skip()">Skip</button>
+    </div>
   </div>
-  <div class="buttons">
-    <button class="add" (click)="deleteWorkout()">Remove</button>
-    <button class="skip" (click)="skip()">Skip</button>
-  </div>
-</div>
 
-<!-- Page 2: Add a workout -->
-<div *ngIf="currentPage === 2" class="register-card">
-  <h1>Add a workout</h1>
-  <div class="full-width">
-    <label for="name">Name</label>
-    <input type="text" id="name" [(ngModel)]="newWorkout.name" placeholder="Name" />
+  <!-- Page 2: Add a workout -->
+  <div *ngIf="currentPage === 2" class="register-card">
+    <h1>Add a workout</h1>
+    <div class="full-width">
+      <label for="name">Name</label>
+      <input type="text" id="name" [(ngModel)]="newWorkout.name" placeholder="Name" />
+    </div>
+    <div class="full-width">
+      <label for="photo">Photo URL</label>
+      <input type="text" id="photo" [(ngModel)]="newWorkout.photo" placeholder="Photo URL" />
+    </div>
+    <div class="full-width">
+      <label for="author">Author</label>
+      <input type="text" id="author" [(ngModel)]="newWorkout.author" placeholder="Author" />
+    </div>
+    <div class="full-width">
+      <label for="published_Date">Published Date</label>
+      <input type="date" id="published_Date" [(ngModel)]="newWorkout.published_Date" />
+    </div>
+    <div class="full-width">
+      <label for="category">Category</label>
+      <input type="text" id="category" [(ngModel)]="newWorkout.category" placeholder="Category" />
+    </div>
+    <div class="full-width">
+      <label for="difficulty">Difficulty</label>
+      <input type="text" id="difficulty" [(ngModel)]="newWorkout.difficulty" placeholder="Difficulty" />
+    </div>
+    <div class="buttons">
+      <button class="add" (click)="addWorkout()">Add</button>
+      <button class="skip" (click)="skip()">Skip</button>
+    </div>
   </div>
-  <div class="full-width">
-    <label for="photo">Photo URL</label>
-    <input type="text" id="photo" [(ngModel)]="newWorkout.photo" placeholder="Photo URL" />
-  </div>
-  <div class="full-width">
-    <label for="author">Author</label>
-    <input type="text" id="author" [(ngModel)]="newWorkout.author" placeholder="Author" />
-  </div>
-  <div class="full-width">
-    <label for="published_Date">Published Date</label>
-    <input type="date" id="published_Date" [(ngModel)]="newWorkout.published_Date" />
-  </div>
-  <div class="full-width">
-    <label for="category">Category</label>
-    <input type="text" id="category" [(ngModel)]="newWorkout.category" placeholder="Category" />
-  </div>
-  <div class="full-width">
-    <label for="difficulty">Difficulty</label>
-    <input type="text" id="difficulty" [(ngModel)]="newWorkout.difficulty" placeholder="Difficulty" />
-  </div>
-  <div class="buttons">
-    <button class="add" (click)="addWorkout()">Add</button>
-    <button class="skip" (click)="skip()">Skip</button>
-  </div>
-</div>
 
-<!-- Page 3: Edit a workout -->
-<div *ngIf="currentPage === 3" class="register-card">
-  <h1>Edit a workout</h1>
-  <div class="full-width">
-    <label for="edit-workout-name">Name</label>
-    <select id="edit-workout-name" [(ngModel)]="selectedWorkoutId" (change)="selectWorkout($event.target.value)">
-      <option *ngFor="let workout of workouts" [value]="workout.id">{{ workout.name }}</option>
-    </select>
+  <!-- Page 3: Edit a workout -->
+  <div *ngIf="currentPage === 3" class="register-card">
+    <h1>Edit a workout</h1>
+    <div class="full-width">
+      <label for="edit-workout-name">Name</label>
+      <select id="edit-workout-name" [(ngModel)]="selectedWorkoutId" (change)="selectWorkout($event)">
+        <option *ngFor="let workout of workouts" [value]="workout.id">{{ workout.name }}</option>
+      </select>
+    </div>
+    <div *ngIf="editWorkoutData">
+      <div class="full-width">
+        <label for="edit-name">Name</label>
+        <input type="text" id="edit-name" [(ngModel)]="editWorkoutData.name" placeholder="Name" />
+      </div>
+      <div class="full-width">
+        <label for="edit-photo">Photo URL</label>
+        <input type="text" id="edit-photo" [(ngModel)]="editWorkoutData.photo" placeholder="Photo URL" />
+      </div>
+      <div class="full-width">
+        <label for="edit-author">Author</label>
+        <input type="text" id="edit-author" [(ngModel)]="editWorkoutData.author" placeholder="Author" />
+      </div>
+      <div class="full-width">
+        <label for="edit-published_Date">Published Date</label>
+        <input type="date" id="edit-published_Date" [(ngModel)]="editWorkoutData.published_Date" />
+      </div>
+      <div class="full-width">
+        <label for="edit-category">Category</label>
+        <input type="text" id="edit-category" [(ngModel)]="editWorkoutData.category" placeholder="Category" />
+      </div>
+      <div class="full-width">
+        <label for="edit-difficulty">Difficulty</label>
+        <input type="text" id="edit-difficulty" [(ngModel)]="editWorkoutData.difficulty" placeholder="Difficulty" />
+      </div>
+      <div class="buttons">
+        <button class="add" (click)="updateWorkout()">Update</button>
+      </div>
+    </div>
   </div>
-  <div class="full-width" *ngIf="editWorkoutData">
-    <label for="edit-name">Name</label>
-    <input type="text" id="edit-name" [(ngModel)]="editWorkoutData.name" placeholder="Name" />
-  </div>
-  <div class="full-width" *ngIf="editWorkoutData">
-    <label for="edit-photo">Photo URL</label>
-    <input type="text" id="edit-photo" [(ngModel)]="editWorkoutData.photo" placeholder="Photo URL" />
-  </div>
-  <div class="full-width" *ngIf="editWorkoutData">
-    <label for="edit-author">Author</label>
-    <input type="text" id="edit-author" [(ngModel)]="editWorkoutData.author" placeholder="Author" />
-  </div>
-  <div class="full-width" *ngIf="editWorkoutData">
-    <label for="edit-published_Date">Published Date</label>
-    <input type="date" id="edit-published_Date" [(ngModel)]="editWorkoutData.published_Date" />
-  </div>
-  <div class="full-width" *ngIf="editWorkoutData">
-    <label for="edit-category">Category</label>
-    <input type="text" id="edit-category" [(ngModel)]="editWorkoutData.category" placeholder="Category" />
-  </div>
-  <div class="full-width" *ngIf="editWorkoutData">
-    <label for="edit-difficulty">Difficulty</label>
-    <input type="text" id="edit-difficulty" [(ngModel)]="editWorkoutData.difficulty" placeholder="Difficulty" />
-  </div>
-  <div class="buttons">
-    <button class="add" (click)="updateWorkout()">Update</button>
-  </div>
-</div>
 
   <!-- Page 4: Edit an exercise -->
   <div *ngIf="currentPage === 4" class="register-card">
