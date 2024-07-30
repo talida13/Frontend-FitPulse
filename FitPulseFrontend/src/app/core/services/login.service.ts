@@ -18,7 +18,7 @@ interface UserCredentials {
   lastUpdatedAt?: string;
 }
 
-interface User {
+export interface User {
   username: string;
   firstName: string;
   lastName: string;
@@ -51,7 +51,7 @@ export class LoginService {
     .pipe(
       tap(user => {
         console.log("tap: ",user);
-        this.authService.login(user.jwtToken || '', user.role);
+        this.authService.login(user.jwtToken || '', user.role || '', user.email);
       }),
       catchError(err => {
           console.error("EROARE",err);
@@ -63,4 +63,10 @@ export class LoginService {
   register(credentials: UserCredentials): Observable<boolean> {
     return this.http.post<boolean>(`${this.apiUrl}/RegisterUser`, credentials);
   }
+  getUser(email: string): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/GetUser`, { params:{ email: email.toString() } });
+  }
 }
+
+
+

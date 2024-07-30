@@ -7,20 +7,26 @@
     {{ successMessage }}
   </div>
 
-  <!-- Pagina 1: Eliminare antrenament -->
-  <div *ngIf="currentPage === 1" class="register-card">
-    <h1>Remove a workout</h1>
-    <div class="full-width">
-      <label for="workout-name">Workout name</label>
-      <select id="workout-name" [(ngModel)]="selectedWorkoutId">
-        <option *ngFor="let workout of workouts" [value]="workout.id">{{ workout.name }}</option>
-      </select>
-    </div>
-    <div class="buttons">
-      <button class="add" (click)="deleteWorkout()">Remove</button>
-      <button class="skip" (click)="skip()">Skip</button>
-    </div>
+ <!-- Page 1: Remove a workout -->
+<div *ngIf="currentPage === 1" class="register-card">
+  <h1>Remove a workout</h1>
+  <div class="full-width">
+    <label for="workout-name">Workout name</label>
+    <select id="workout-name" [(ngModel)]="selectedWorkoutId">
+      <option *ngFor="let workout of workouts" [value]="workout.id">{{ workout.name }}</option>
+    </select>
   </div>
+  <div class="buttons">
+    <button class="add" (click)="deleteWorkout()">Remove</button>
+    <button class="skip" (click)="skip()">Skip</button>
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+  </div>
+</div>
 
   <!-- Pagina 2: Adăugare antrenament -->
   <div *ngIf="currentPage === 2" class="register-card">

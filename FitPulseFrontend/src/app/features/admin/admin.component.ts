@@ -20,7 +20,7 @@ export class AdminComponent implements OnInit {
   selectedExerciseId: number | null = null;
   editExerciseData: Exercise | null = null;
 
-  // Proprietăți noi adăugate
+  // Adaugă aceste două proprietăți
   errorMessage: string | null = null;
   successMessage: string | null = null;
 
@@ -34,20 +34,14 @@ export class AdminComponent implements OnInit {
   loadWorkouts(): void {
     this.workoutService.getWorkouts().subscribe(
       (data: Workout[]) => this.workouts = data,
-      (error) => {
-        this.errorMessage = 'Error loading workouts';  // Mesaj de eroare personalizat
-        console.error(error);
-      }
+      (error) => this.errorMessage = 'Failed to load workouts.'
     );
   }
 
   loadExercises(): void {
     this.exerciseService.getExercises().subscribe(
       (data: Exercise[]) => this.exercises = data,
-      (error) => {
-        this.errorMessage = 'Error loading exercises';  // Mesaj de eroare personalizat
-        console.error(error);
-      }
+      (error) => this.errorMessage = 'Failed to load exercises.'
     );
   }
 
@@ -56,7 +50,7 @@ export class AdminComponent implements OnInit {
       this.currentPage = page;
     }
   }
-
+  
   goToPreviousPage() {
     if (this.currentPage > 1) {
       this.currentPage--;
@@ -68,31 +62,34 @@ export class AdminComponent implements OnInit {
       this.currentPage++;
     }
   }
-
   deleteWorkout() {
     if (this.selectedWorkoutId !== null) {
+      console.log('Attempting to delete workout with ID:', this.selectedWorkoutId); // Log pentru debug
       this.workoutService.deleteWorkout(this.selectedWorkoutId).subscribe(
         () => {
-          this.loadWorkouts();
-          this.successMessage = 'Workout removed successfully';
+          console.log('Workout successfully deleted.'); // Verifică acest mesaj în consola browserului
+          this.loadWorkouts(); // Reîncarcă lista de workouts
+          this.successMessage = 'Workout removed successfully.';
+          this.selectedWorkoutId = null; // Resetează ID-ul selecționat
+          this.goToNextPage(); // Mergi la pagina următoare, dacă este cazul
         },
         (error) => {
-          this.errorMessage = 'Error removing workout';
-          console.error(error);
+          console.error('Error deleting workout:', error); // Verifică erorile în consola browserului
+          this.errorMessage = 'Failed to remove workout.';
         }
       );
     }
   }
-
+  
   addWorkout() {
     this.workoutService.addWorkout(this.newWorkout).subscribe(
       () => {
         this.loadWorkouts();
-        this.successMessage = 'Workout added successfully';
+        this.successMessage = 'Workout added successfully.';
         this.goToNextPage();
       },
       (error) => {
-        this.errorMessage = 'Error adding workout';
+        this.errorMessage = 'Failed to add workout.';
         console.error(error);
       }
     );
@@ -110,11 +107,11 @@ export class AdminComponent implements OnInit {
       this.workoutService.updateWorkout(this.editWorkoutData).subscribe(
         () => {
           this.loadWorkouts();
-          this.successMessage = 'Workout updated successfully';
+          this.successMessage = 'Workout updated successfully.';
           this.goToNextPage();
         },
         (error) => {
-          this.errorMessage = 'Error updating workout';
+          this.errorMessage = 'Failed to update workout.';
           console.error(error);
         }
       );
@@ -133,11 +130,11 @@ export class AdminComponent implements OnInit {
       this.exerciseService.updateExercise(this.editExerciseData).subscribe(
         () => {
           this.loadExercises();
-          this.successMessage = 'Exercise updated successfully';
+          this.successMessage = 'Exercise updated successfully.';
           this.goToNextPage();
         },
         (error) => {
-          this.errorMessage = 'Error updating exercise';
+          this.errorMessage = 'Failed to update exercise.';
           console.error(error);
         }
       );

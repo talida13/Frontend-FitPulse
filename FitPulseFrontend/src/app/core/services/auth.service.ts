@@ -23,9 +23,10 @@ export class AuthService {
     }
   }
 
-  login(token: string, role: string) {
+  login(token: string, role: string, email: string) {
     localStorage.setItem('jwt', token);
     localStorage.setItem('role', role);
+    localStorage.setItem('email', email);
     this.loggedIn.next(true);
     this.isAdmin.next(role === 'admin');
   }
