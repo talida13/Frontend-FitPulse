@@ -1,56 +1,80 @@
 <div class="container">
   <div class="user-container">
-      <mat-card class="profile-card">
-          <div class="user-picture">
-              <img class="profile-icon" alt="" src="assets/default-profile-picture-male.jpg">
-          </div>
-          <div class="user-name" *ngIf="user">
-              <p class="profile-name">{{ user?.firstName }} {{ user?.lastName }}</p>
-          </div>
-          <mat-list class="user-biometrics">
-              <div class="age">
-                  <p class="profile-biometrics">Age:&nbsp;</p>
-                  <p class="profile-biometrics-data">{{ user?.age }}</p>
-              </div>
-              <div class="divider">
-                  <mat-divider></mat-divider>
-              </div>
-              <div class="height">
-                  <p class="profile-biometrics">Height:&nbsp;</p>
-                  <p class="profile-biometrics-data">{{ user?.height }}</p>
-              </div>
-              <div class="divider">
-                  <mat-divider></mat-divider>
-              </div>
-              <div class="weight">
-                  <p class="profile-biometrics">Weight:&nbsp;</p>
-                  <p class="profile-biometrics-data">{{ user?.weight }}</p>
-              </div>
-          </mat-list>
-      </mat-card>
+    <mat-card class="profile-card">
+      <div class="user-picture">
+        <img class="profile-icon" alt="" src="assets/default-profile-picture-male.jpg">
+      </div>
+      <div class="user-name" *ngIf="user">
+        <p class="profile-name">{{ user.firstName }} {{ user.lastName }}</p>
+      </div>
+      <mat-list class="user-biometrics" *ngIf="user">
+        <div class="age">
+          <p class="profile-biometrics">Age:&nbsp;</p>
+          <p class="profile-biometrics-data">{{ user.age }}</p>
+        </div>
+        <div class="divider">
+          <mat-divider></mat-divider>
+        </div>
+        <div class="height">
+          <p class="profile-biometrics">Height:&nbsp;</p>
+          <p class="profile-biometrics-data">{{ user.height }}</p>
+        </div>
+        <div class="divider">
+          <mat-divider></mat-divider>
+        </div>
+        <div class="weight">
+          <p class="profile-biometrics">Weight:&nbsp;</p>
+          <p class="profile-biometrics-data">{{ user.weight }}</p>
+        </div>
+      </mat-list>
+    </mat-card>
   </div>
 
   <div class="statistics-container">
-      <mat-card class="statistics-card">
-          <mat-tab-group>
-              <mat-tab label="Statistics">
-                  <div class="statistics-selector-container">
-                      <div class="selector-div">
-                          <mat-form-field class="selector">
-                              <mat-label>Select statistics</mat-label>
-                              <mat-select [(value)]="selectedStatistic">
-                                  <mat-option value="option1">Biological metrics</mat-option>
-                                  <mat-option value="option2">Calories burned</mat-option>
-                                  <mat-option value="option3">Workout history</mat-option>
-                                  <mat-option value="option4">Most common workouts</mat-option>
-                                  <mat-option value="option5">Most common exercises</mat-option>
-                              </mat-select>
-                          </mat-form-field>
-                      </div>
-                  </div>
-              </mat-tab>
-              <mat-tab label="Edit profile"> continut2 </mat-tab>
-          </mat-tab-group>
-      </mat-card>
+    <mat-card class="statistics-card">
+      <mat-tab-group>
+        <mat-tab label="Statistics">
+          <div class="statistics-selector-container">
+            <div class="selector-div">
+              <mat-form-field class="selector">
+                <mat-label>Select statistics</mat-label>
+                <mat-select [(value)]="selectedStatistic">
+                  <mat-option *ngFor="let stat of selectedStatistic" [value]="stat">{{ stat }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Edit profile">
+          <div class="edit-profile-form">
+            <mat-card class="edit-profile-card">
+              <form *ngIf="userForm" (ngSubmit)="updateProfile()">
+                <mat-form-field class="input" appearance="fill">
+                  <mat-label>First Name</mat-label>
+                  <input matInput [(ngModel)]="userForm.firstName" name="firstName" required>
+                </mat-form-field>
+                <mat-form-field class="input" appearance="fill">
+                  <mat-label>Last Name</mat-label>
+                  <input matInput [(ngModel)]="userForm.lastName" name="lastName" required>
+                </mat-form-field>
+                <mat-form-field class="input" appearance="fill">
+                  <mat-label>Age</mat-label>
+                  <input matInput type="number" [(ngModel)]="userForm.age" name="age" required>
+                </mat-form-field>
+                <mat-form-field class="input" appearance="fill">
+                  <mat-label>Height</mat-label>
+                  <input matInput type="number" [(ngModel)]="userForm.height" name="height" required>
+                </mat-form-field>
+                <mat-form-field class="input" appearance="fill">
+                  <mat-label>Weight</mat-label>
+                  <input matInput type="number" [(ngModel)]="userForm.weight" name="weight" required>
+                </mat-form-field>
+                <button class="submit-update" color="primary" type="submit">Save</button>
+              </form>
+            </mat-card>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card>
   </div>
 </div>

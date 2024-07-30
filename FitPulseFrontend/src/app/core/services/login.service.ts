@@ -66,6 +66,9 @@ export class LoginService {
   getUser(email: string): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/GetUser`, { params:{ email: email.toString() } });
   }
+  updateUser(user: User): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/UpdateUser`, user);
+  }
 }
 
 
