@@ -19,6 +19,24 @@
   display: inline-block;
   transform-origin: 0 0;
 }
+.right-rectangle {
+  width: 385px;
+ // display: flex;
+ // justify-content: right;
+ // align-items: right;
+  
+ // position: relative;
+  background-color: rgba(131, 222, 167, 0.6);
+  height: 750px;
+  position: absolute;
+  right:0;
+  top:-80px;
+  z-index:-2;
+//  z-index: -10;
+}
+
+
+
 
 
 .homepage {
@@ -105,15 +123,61 @@ margin-top: 40px;
 }
 
 .girl-running-icon {
-  width: 470px;
+  width: 500px;
   position: absolute;
-  top: 100px;
+  top: 180px;
   right: 0;
   overflow: hidden;
-  height: 470px;
+  height: 500px;
   z-index: -1;
   transform: rotateY(180deg);
 }
+
+.back-circle-child {
+  position: absolute;
+  top: 98.5px; /* Ajustat pentru a fi mai jos cu 100px */
+  left: -1.5px;
+  filter: blur(0px);
+  border-radius: 50%;
+  border: 3px solid #00ff47;
+  box-sizing: border-box;
+  width: 380px;  /* Redus de la 544.5px */
+  height: 385px; /* Redus de la 549px */
+  z-index: -1; /* Mai mic decât imaginea */
+}
+
+.back-circle-item {
+  position: absolute;
+  top: 110.5px; /* Ajustat pentru a fi mai jos cu 100px */
+  left: 10.5px; /* Ajustat pentru poziționare corectă */
+  filter: blur(0px);
+  border-radius: 50%;
+  border: 3px solid #00ff47;
+  box-sizing: border-box;
+  width: 350px; /* Redus de la 511.5px */
+  height: 355px; /* Redus de la 515.7px */
+  z-index: -1; /* Mai mic decât imaginea */
+}
+
+.back-circle-inner {
+  position: absolute;
+  top: 125px; /* Ajustat pentru a fi mai jos cu 100px */
+  left: 25px; /* Ajustat pentru poziționare corectă */
+  filter: blur(0px);
+  border-radius: 50%;
+  border: 4.5px solid #00ff47;
+  box-sizing: border-box;
+  width: 310px; /* Redus de la 469px */
+  height: 315px; /* Redus de la 472.9px */
+  z-index: -1; /* Mai mic decât imaginea */
+}
+
+.back-circle {
+  width: 100%;
+  position: relative;
+  height: 480px;  /* Redus de la 546px pentru a acomoda mutarea */
+}
+
 
 .content {
   z-index: 2;
