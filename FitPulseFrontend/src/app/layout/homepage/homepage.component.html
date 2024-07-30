@@ -45,10 +45,23 @@
 
 
         <div class="features-div">
-            <mat-card class="features-card">
-              <p  class="features-title">Key features</p>
-            </mat-card>
+          <mat-card class="features-card">
+            <p class="features-title">Key features</p>
+
+            <div class="slideshow-container">
+              <div class="card-container" [ngStyle]="{'transform': 'translateX(' + currentFeatureIndex * -25 + '%)'}">
+                <div *ngFor="let feature of features" class="card">
+                  <div class="icon">{{feature.icon}}</div>
+                  <h3>{{feature.title}}</h3>
+                  <p>{{feature.description}}</p>
+                </div>
+              </div>
+            </div>
+            
+
+          </mat-card>
         </div>
+        
 
     </div>
 </div>

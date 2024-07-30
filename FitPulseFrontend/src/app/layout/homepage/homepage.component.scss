@@ -27,7 +27,7 @@
   
  // position: relative;
   background-color: rgba(131, 222, 167, 0.6);
-  height: 750px;
+  height: 680px;
   position: absolute;
   right:0;
   top:-80px;
@@ -218,4 +218,50 @@ margin-top: 40px;
 
 .motto {
   text-align: left;
+}
+.features-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.features-card {
+  width: 50%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  background-color: rgba(131, 222, 167, 0.4);
+}
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-container {
+  display: flex;
+  transition: transform 1s ease-in-out;
+  width: calc(100% * 5); /* Ajustați pentru numărul de carduri */
+}
+
+.card {
+  width: 25%; /* Ajustați pentru a afișa 4 carduri simultan */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.card .icon {
+  font-size: 50px;
+  margin-bottom: 20px;
 }
