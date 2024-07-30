@@ -1,4 +1,16 @@
 <div class="container">
+  <!-- Lateral Navbar -->
+  <nav class="sidebar">
+    <ul>
+      <li (click)="goToPage(1)" [class.active]="currentPage === 1">Remove a workout</li>
+      <li (click)="goToPage(2)" [class.active]="currentPage === 2">Add a workout</li>
+      <li (click)="goToPage(3)" [class.active]="currentPage === 3">Edit a workout</li>
+      <li (click)="goToPage(4)" [class.active]="currentPage === 4">Edit an exercise</li>
+      <li (click)="goToPage(5)" [class.active]="currentPage === 5">Success</li>
+    </ul>
+  </nav>
+
+<div class="container">
   <!-- Mesaje de eroare și succes -->
   <div *ngIf="errorMessage" class="alert alert-danger">
     {{ errorMessage }}
