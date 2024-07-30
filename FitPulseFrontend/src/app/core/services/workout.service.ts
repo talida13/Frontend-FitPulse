@@ -44,8 +44,9 @@ export class WorkoutService {
     return this.http.delete<boolean>(`${this.apiUrl}/DeleteWorkout/${id}`);
   }*/
     deleteWorkout(id: number): Observable<void> {
-      return this.http.delete<void>(`${this.apiUrl}/${id}`);
+      return this.http.delete<void>(`${this.apiUrl}/DeleteWorkout/${id}`);
     }
+    
   
   updateWorkout(workout: Workout): Observable<boolean> {
     return this.http.put<boolean>(`${this.apiUrl}/UpdateWorkout`, workout);
