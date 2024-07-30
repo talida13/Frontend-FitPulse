@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,10 +6,51 @@ import { Router } from '@angular/router';
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
-export class HomepageComponent {
-  constructor( private router: Router) { }
-  goToWorkouts()
-  {
+export class HomepageComponent implements OnInit, OnDestroy {
+  features = [
+    {
+      icon: '💰',
+      title: 'Pricing',
+      description: 'Enjoy all the features of FitPulse without any cost. Get started on your fitness journey with free access to workout plans, tracking tools, and more.'
+    },
+    {
+      icon: '🏋️‍♂️',
+      title: 'Workout plans',
+      description: 'From beginners to advanced levels, we have plans for everyone designed by expert trainers to help you achieve your fitness targets.'
+    },
+    {
+      icon: '📊',
+      title: 'Statistics',
+      description: 'Monitor your fitness journey with comprehensive statistics. Track your workouts, calories burned, and progress over time with detailed graphs.'
+    },
+    {
+      icon: '📈',
+      title: 'Progress tracking',
+      description: 'Keep an eye on your fitness progress in real-time. Log your workouts, track your performance, and stay motivated with instant feedback on your achievements.'
+    }
+  ];
+
+  currentFeatureIndex = 0;
+  private intervalId: any;
+
+  constructor(private router: Router) { }
+
+  ngOnInit() {
+    this.startSlideshow();
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.intervalId);
+  }
+
+  startSlideshow() {
+    this.intervalId = setInterval(() => {
+      console.log(`Current index: ${this.currentFeatureIndex}`); // Debugging
+      this.currentFeatureIndex = (this.currentFeatureIndex + 1) % this.features.length;
+    }, 3000);
+  }
+  
+  goToWorkouts() {
     this.router.navigate(['/Workouts']);
   }
 }

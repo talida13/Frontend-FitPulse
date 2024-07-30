@@ -11,6 +11,9 @@ export interface Workout {
   published_Date: Date;
   category: string;
   difficulty: string;
+  timeInterval?: string; 
+  scope?: string; 
+  muscleGroup?: string; 
 }
 
 @Injectable({

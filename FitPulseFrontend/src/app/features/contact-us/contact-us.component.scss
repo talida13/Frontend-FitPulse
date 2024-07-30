@@ -118,3 +118,14 @@ mat-card{
     --mdc-outlined-card-container-shape: 0px; 
     --mdc-outlined-card-outline-width: 0px;
 }
+
+
+::ng-deep .cdk-overlay-pane {
+    background-color: #53F393;
+    border-radius: 8px;
+}
+
+::ng-deep .mat-select-panel {
+    background-color: #53F393;
+    border-radius: 8px;
+}
