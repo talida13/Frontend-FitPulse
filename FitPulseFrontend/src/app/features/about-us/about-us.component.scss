@@ -20,8 +20,8 @@
             width: 648px;
             height: 1080px;
             background: rgba(130.83, 221.83, 167.23, 0.60);
-            border-radius: 16px;
-            margin-top: -101%;
+            border-radius: 32px;
+            margin-top: -99%;
             
 
         }
@@ -31,7 +31,7 @@
             width: 600px;
             height: 310px;
             background: rgba(210, 231, 218, 0.6);
-            border-radius: 16px;
+            border-radius: 32px;
         }
 
 
@@ -50,20 +50,30 @@
             
         }
 
+        .green-line{
+            width: 100%; 
+            height: 50%; 
+            border: 2px #53F393 solid;
+            margin-top: 55px;
+            
+        }
+
 
     }
 
 
     .title-1{
+        text-align: center;
         color: #6EF0A2;
-        font-size: 18px;
+        font-size: 32px;
+        //size: 500px;
         font-weight: 600;
         line-height: 28px;
-        letter-spacing: 0.25px;
-        word-wrap: break-word;
-        margin: 5px;
-        margin-left: -100%;
-        font-family: Libre Caslon Text;
+        //letter-spacing: 0.25px;
+        //word-wrap: break-word;
+        //margin: 5px;
+        //margin-left: -100%;
+        //font-family: Libre Caslon Text;
 
 
     }
@@ -77,17 +87,17 @@
         word-wrap: break-word;
         margin: 5px;
         margin-left: -95%;
-        font-family: Libre Caslon Text;
+        //font-family: Libre Caslon Text;
     }
 
     .content-rectangle{
         text-align: center;
-        color: #191D1A; 
-        font-size: 24px; 
-        font-family: Lato; 
-        font-weight: 700; 
-        line-height: 32px; 
-        word-wrap: break-word;
+        //color: #191D1A; 
+        font-size: 18px; 
+        //font-family: Lato; 
+        //font-weight: 700; 
+        //line-height: 32px; 
+        //word-wrap: break-word;
     }
 
     .power-challenge-box{
@@ -95,11 +105,11 @@
         width: 144px;
         height: 144px;
         background: #10824B;
-        border-radius: 12px;
+        border-radius: 20px;
     }
     .power-challenge-content{
         color: #192126; 
-        font-size: 16px; font-family: Lato; 
+        font-size: 16px;
         font-weight: 600; 
         line-height: 32px; 
         word-wrap: break-word;
@@ -115,7 +125,7 @@
         width: 144px; 
         height: 144px; 
         background: #192126; 
-        border-radius: 12px;
+        border-radius: 20px;
         margin-left: 40%;
         margin-top: -25%;
     }
@@ -129,7 +139,7 @@
         width: 144px; 
         height: 144px; 
         background: white; 
-        border-radius: 12px;
+        border-radius: 20px;
         margin-left: 75%;
         margin-top: -25%;
     }
@@ -142,10 +152,10 @@
     .light-green-rectangle{
         
         width: 564px;
-        height: 600px;
+        height: 650px;
         background: rgba(255, 255, 255, 0.30);
         border-radius: 48px;
-        margin-left: 5%;
+        margin-left: 6%;
         margin-top: 15%;
     }
 
@@ -161,7 +171,7 @@
         text-align: center; 
         color: black; 
         font-size: 32px; 
-        font-family: Libre Caslon Text; 
+        //font-family: Libre Caslon Text; 
         font-weight: 400; 
         line-height: 32px;
         margin-left: 10%;
@@ -189,8 +199,6 @@
         text-align: center; 
         color: #24551C; 
         font-size: 28px; 
-        font-family: 
-        Libre Caslon Text; 
         font-weight: 400; 
         line-height: 28px; 
         word-wrap: break-word;
@@ -213,13 +221,11 @@
         text-align: center; 
         color: #24551C; 
         font-size: 28px; 
-        font-family: 
-        Libre Caslon Text; 
         font-weight: 400; 
         line-height: 28px; 
         word-wrap: break-word;
         margin-left: 28%;
-        margin-top: 10%;
+        margin-top: 5%;
     }
 
 
@@ -237,8 +243,6 @@
         text-align: center; 
         color: #24551C; 
         font-size: 28px; 
-        font-family: 
-        Libre Caslon Text; 
         font-weight: 400; 
         line-height: 28px; 
         word-wrap: break-word;
@@ -250,7 +254,7 @@
         width: 224px;
         height: 224px;
         margin-left: -5%;
-        margin-top: 70%;
+        margin-top: 75%;
         position: absolute;
 
     }
@@ -260,8 +264,6 @@
         text-align: center; 
         color: #24551C; 
         font-size: 28px; 
-        font-family: 
-        Libre Caslon Text; 
         font-weight: 400; 
         line-height: 28px; 
         word-wrap: break-word;
@@ -272,7 +274,7 @@
     .title-3{
         color: white; 
         font-size: 24px; 
-        font-family: Poppins; 
+        //font-family: Poppins; 
         font-weight: 600; 
         word-wrap: break-word;
     }
@@ -286,12 +288,12 @@
 
     .card-content{
         color: white; 
-        font-size: 12px; 
-        font-family: Poppins; 
+        font-size: 16px; 
+        //font-family: Poppins; 
         font-weight: 600; 
-        word-wrap: break-word;
-        margin-left: 45%;
-        margin-top:-30%;
+        //word-wrap: break-word;
+        //margin-left: 45%;
+        margin-top:-240px;
         text-align: center;
     }
 
@@ -308,8 +310,8 @@
 
 
     .rectangle-card{
-        width: 300px;
-        height: 60px;
+        //width: 300px;
+        //height: 60px;
         background: rgba(130.83, 221.83, 167.23, 0.80);
         border-top-left-radius: 12px;
         border-top-right-radius: 12px;
@@ -318,17 +320,21 @@
         color:white;
         font-weight: 700;
         text-align: center;
-        margin-left: 10%;
-        margin-top: 15%;
+        margin-left: 15%;
+        margin-right: 15%;
+        //margin-top: 5%;
+        padding: 15px;
+        //border: 3px solid green;
+        
     }
 
     .card-image{
 
-        width: 100px; 
-        height: 100px; 
+        width: 160px; 
+        height: 160px; 
         border-radius: 100px;
-        margin-top: 20%;
-        margin-left: 10%;
+        margin-top: 110px;
+        margin-left: 120px;
 
     }
 
@@ -338,7 +344,7 @@
             border-radius: 32px;
             display: flex;
             //flex-direction: column;
-            margin-top: -62%;
+            margin-top: -61%;
             margin-left: 0%;
     }
 
@@ -349,7 +355,7 @@
             border-radius: 32px;
             display: flex;
             //flex-direction: column;
-            margin-top: -62%;
+            margin-top: -60%;
             margin-left: 155%;
 
     }
@@ -374,7 +380,7 @@
         border-radius: 32px;
         display: flex;
         //flex-direction: column;
-        margin-top: -62%;
+        margin-top: -60%;
         margin-left: 75%;
 
 }
@@ -383,56 +389,46 @@
 .white-box {
     
     display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    
+    
+  }
+
+  .white-box > div {
     //border: 20px solid #ccc;
     align-items: center;
     justify-content: space-between;
-    width: 200px; 
-    height: 200px; 
+    width: 180px; 
+    height: 180px; 
     background: #EAFFF3; 
     border-radius: 30px;
+    font-size: 12px;
+    margin: 10px;
+    text-align: center;
+    color:black;
+    font-size: 16px; 
+    //font-family: Poppins; 
+    font-weight: 600; 
+    word-wrap: break-word;
+    padding: 10px;
+    
+    
   }
 
 
 
   .white-box-title{
-    color:black;
-    font-size: 24px; 
+    
     text-align: center;
   }
 
   
 
   .white-box-content{
-    color:black;
-    font-size: 12px; 
-    font-family: Poppins; 
-    font-weight: 600; 
-    word-wrap: break-word;
+    
+    
     text-align: center;
-  }
-
-
-  .green-buttons{
-    width: 20px; 
-    height: 20px; 
-    padding-left: 10px; 
-    padding-right: 10px; 
-    padding-top: 4px; 
-    padding-bottom: 4px; 
-    background: #00FF47; 
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.12); 
-    border-radius: 20px; 
-    border: 2px white solid;
-  }
-
-
-  .green-buttons-text{
-    color:#00FF47;
-    font-size: 12px;
-    font-weight: 600; 
-    text-align: center;
-    margin-top: 10%;
-
   }
 
   .content{
