@@ -1,15 +1,54 @@
 
 .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   min-height: 100vh;
   color: white;
   font-family: Poppins;
   margin-top: 50px;
 }
+.sidebar {
+  background-color: #002233;
+  padding: 1rem;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-direction;
 
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    li {
+      margin: 1rem 0;
+      width: 100%;
+      padding: 10px;
+      cursor: pointer;
+      color: white;
+      text-align: left;
+      transition: background-color 0.3s, color 0.3s;
+
+      &:hover, &.active {
+        background-color: #00ff99;
+        color: #002233;
+      }
+    }
+  }
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .register-card {
   padding: 40px;
   background: rgba(131, 222, 167, 0.2);

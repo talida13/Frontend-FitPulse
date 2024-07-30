@@ -1,31 +1,76 @@
-
 <div class="principal">
-    <mat-card class="card-details">
+  <mat-card class="card-details">
+    <div class="workout-div" *ngIf="workout">
+      <h1>{{ workout.name }}</h1>
+      <!--<img [src]="'assets/' + workout.photo" alt="{{ workout.name }}">--> 
 
-        <div *ngIf="workout">
-            <h1>{{ workout.name }}</h1>
-           <!--<img [src]="'assets/' + workout.photo" alt="{{ workout.name }}">--> 
-           <div class="workout-info">
-           <mat-card class="category-card">
-                <p>Category: {{ workout.category}}</p>
-           </mat-card>
-            <p>Difficulty: {{ workout.difficulty }}</p>
-     
-            <p>Author: {{ workout.author }}</p>
-            <p>Published Date: {{ workout.published_Date | date }}</p>
+      <div class="workout-info">
+        <mat-card class="category-card">
+          <span>Category</span>
+          <div class="category-div">
+              <span style="margin-top: 20px;" >{{ workout.category }}</span>
+          </div>
+          <mat-icon>category</mat-icon>
+        </mat-card>
+
+        <mat-card class="difficulty-card">
+          <span>Difficulty</span>
+          <div class="category-div">
+          <span style="margin-top: 20px;"> {{ workout.difficulty }}</span>
+          </div>
+          <mat-icon>star</mat-icon>
+        </mat-card>
+
+        <mat-card class="calories-card">
+            <span>Calories burned </span>
+            <div class="category-div">
+            <span style="margin-top: 20px;">  x kcal</span>
+            </div>
+            <mat-icon>whatshot</mat-icon>
+        </mat-card>
+      </div>
+
+      <div class="butoane">
+      <button mat-raised-button color="primary" (click)="startWorkout()">
+        <mat-icon>play_arrow</mat-icon> Start Workout
+      </button>
+      
+      <button mat-raised-button color="accent" (click)="stopWorkout()">
+        <mat-icon>stop</mat-icon> Stop Workout
+      </button>
+      </div>
+      
+      <div class="author-date">
+        <span>Author: {{ workout.author }}</span>
+      
+
+      <span>Published Date: {{ workout.published_Date | date }}</span>
+      </div>
+    </div>
+    
+    <div *ngIf="!workout">
+      <p>Workout not found.</p>
+    </div>
+  </mat-card>
+
+  <mat-card class="card-exercises">
+    <div class="carousel-container">
+      <button mat-icon-button (click)="previousSlide()">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+    
+      <mat-card class="carousel" *ngIf="slides[currentIndex]">
+        <div class="exercise-details">
+          <p>Reps:&nbsp;{{ slides[currentIndex].reps }}</p>
+          <p>&nbsp;Calories per rep:&nbsp;{{ slides[currentIndex].calories_rep }}</p>
         </div>
-          </div>
-          <div *ngIf="!workout">
-            <p>Workout not found.</p>
-          </div>
-          
-
-
-    </mat-card>
-
-    <mat-card class="card-exercises">
-
-
-    </mat-card>
+        <img mat-card-image [src]="'assets/exercises/' + slides[currentIndex].image" alt="Slide">
+       
+      </mat-card>
+    
+      <button mat-icon-button (click)="nextSlide()">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+  </mat-card>
 </div>
-

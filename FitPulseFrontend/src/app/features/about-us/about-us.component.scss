@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-family: Poppins;
 
     .about-us-page{
         display: flex;
@@ -88,6 +89,7 @@
         margin: 5px;
         margin-left: -95%;
         //font-family: Libre Caslon Text;
+        //font-family: Libre Caslon Text;
     }
 
     .content-rectangle{
@@ -109,6 +111,7 @@
     }
     .power-challenge-content{
         color: #192126; 
+        font-size: 16px;
         font-size: 16px;
         font-weight: 600; 
         line-height: 32px; 
@@ -171,6 +174,7 @@
         text-align: center; 
         color: black; 
         font-size: 32px; 
+        //font-family: Libre Caslon Text; 
         //font-family: Libre Caslon Text; 
         font-weight: 400; 
         line-height: 32px;

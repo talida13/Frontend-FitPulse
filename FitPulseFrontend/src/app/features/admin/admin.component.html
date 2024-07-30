@@ -1,121 +1,153 @@
 <div class="container">
-  <!-- Page 1: Remove a workout -->
-  <div *ngIf="currentPage === 1" class="register-card">
-    <h1>Remove a workout</h1>
-    <div class="full-width">
-      <label for="workout-name">Workout name</label>
-      <select id="workout-name">
-        <option>Select workout</option>
-      </select>
-    </div>
-    <div class="buttons">
-      <button class="add">Remove</button>
-      <button class="skip" (click)="skip()">Skip</button>
-    </div>
+  <!-- Lateral Navbar -->
+  <nav class="sidebar">
+    <ul>
+      <li (click)="goToPage(1)" [class.active]="currentPage === 1">Remove a workout</li>
+      <li (click)="goToPage(2)" [class.active]="currentPage === 2">Add a workout</li>
+      <li (click)="goToPage(3)" [class.active]="currentPage === 3">Edit a workout</li>
+      <li (click)="goToPage(4)" [class.active]="currentPage === 4">Edit an exercise</li>
+      <li (click)="goToPage(5)" [class.active]="currentPage === 5">Success</li>
+    </ul>
+  </nav>
+
+<div class="container">
+  <!-- Mesaje de eroare și succes -->
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
   </div>
 
-  <!-- Page 2: Add a workout -->
+ <!-- Page 1: Remove a workout -->
+<div *ngIf="currentPage === 1" class="register-card">
+  <h1>Remove a workout</h1>
+  <div class="full-width">
+    <label for="workout-name">Workout name</label>
+    <select id="workout-name" [(ngModel)]="selectedWorkoutId">
+      <option *ngFor="let workout of workouts" [value]="workout.id">{{ workout.name }}</option>
+    </select>
+  </div>
+  <div class="buttons">
+    <button class="add" (click)="deleteWorkout()">Remove</button>
+    <button class="skip" (click)="skip()">Skip</button>
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+  </div>
+</div>
+
+  <!-- Pagina 2: Adăugare antrenament -->
   <div *ngIf="currentPage === 2" class="register-card">
     <h1>Add a workout</h1>
     <div class="full-width">
       <label for="name">Name</label>
-      <input type="text" id="name" placeholder="Name" />
+      <input type="text" id="name" [(ngModel)]="newWorkout.name" placeholder="Name" />
     </div>
     <div class="full-width">
-      <label for="calories">Calories burned</label>
-      <input type="text" id="calories" placeholder="Calories burned" />
+      <label for="photo">Photo URL</label>
+      <input type="text" id="photo" [(ngModel)]="newWorkout.photo" placeholder="Photo URL" />
+    </div>
+    <div class="full-width">
+      <label for="author">Author</label>
+      <input type="text" id="author" [(ngModel)]="newWorkout.author" placeholder="Author" />
+    </div>
+    <div class="full-width">
+      <label for="published_Date">Published Date</label>
+      <input type="date" id="published_Date" [(ngModel)]="newWorkout.published_Date" />
     </div>
     <div class="full-width">
       <label for="category">Category</label>
-      <select id="category">
-        <option>Select category</option>
-      </select>
+      <input type="text" id="category" [(ngModel)]="newWorkout.category" placeholder="Category" />
     </div>
     <div class="full-width">
-      <label for="difficulty">Difficulty level</label>
-      <select id="difficulty">
-        <option>Select difficulty level</option>
-      </select>
-    </div>
-    <div class="full-width">
-      <label for="exercises">Number of exercises</label>
-      <select id="exercises">
-        <option>Select a number</option>
-      </select>
+      <label for="difficulty">Difficulty</label>
+      <input type="text" id="difficulty" [(ngModel)]="newWorkout.difficulty" placeholder="Difficulty" />
     </div>
     <div class="buttons">
-      <button class="add">Add</button>
+      <button class="add" (click)="addWorkout()">Add</button>
       <button class="skip" (click)="skip()">Skip</button>
     </div>
   </div>
 
-  <!-- Page 3: Edit a workout -->
+  <!-- Pagina 3: Editare antrenament -->
   <div *ngIf="currentPage === 3" class="register-card">
     <h1>Edit a workout</h1>
     <div class="full-width">
       <label for="edit-workout-name">Name</label>
-      <select id="edit-workout-name">
-        <option>Select a workout</option>
+      <select id="edit-workout-name" [(ngModel)]="selectedWorkoutId" (change)="selectWorkout($event)">
+        <option *ngFor="let workout of workouts" [value]="workout.id">{{ workout.name }}</option>
       </select>
     </div>
-    <div class="full-width">
-      <label for="edit-workout-exercises">No of exercises</label>
-      <select id="edit-workout-exercises">
-        <option>Select a no</option>
-      </select>
-    </div>
-    <div class="full-width">
-      <label for="edit-category">Change category</label>
-      <select id="edit-category">
-        <option>Select category</option>
-      </select>
-    </div>
-    <div class="full-width">
-      <label for="edit-difficulty">Change difficulty level</label>
-      <select id="edit-difficulty">
-        <option>Select difficulty level</option>
-      </select>
-    </div>
-    <div class="full-width">
-      <label for="edit-calories">Calories burned</label>
-      <input id="edit-calories" type="text" placeholder="Calories burned" />
-    </div>
-    <div class="buttons">
-      <button class="add">Next</button>
+    <div *ngIf="editWorkoutData">
+      <div class="full-width">
+        <label for="edit-name">Name</label>
+        <input type="text" id="edit-name" [(ngModel)]="editWorkoutData.name" placeholder="Name" />
+      </div>
+      <div class="full-width">
+        <label for="edit-photo">Photo URL</label>
+        <input type="text" id="edit-photo" [(ngModel)]="editWorkoutData.photo" placeholder="Photo URL" />
+      </div>
+      <div class="full-width">
+        <label for="edit-author">Author</label>
+        <input type="text" id="edit-author" [(ngModel)]="editWorkoutData.author" placeholder="Author" />
+      </div>
+      <div class="full-width">
+        <label for="edit-published_Date">Published Date</label>
+        <input type="date" id="edit-published_Date" [(ngModel)]="editWorkoutData.published_Date" />
+      </div>
+      <div class="full-width">
+        <label for="edit-category">Category</label>
+        <input type="text" id="edit-category" [(ngModel)]="editWorkoutData.category" placeholder="Category" />
+      </div>
+      <div class="full-width">
+        <label for="edit-difficulty">Difficulty</label>
+        <input type="text" id="edit-difficulty" [(ngModel)]="editWorkoutData.difficulty" placeholder="Difficulty" />
+      </div>
+      <div class="buttons">
+        <button class="add" (click)="updateWorkout()">Update</button>
+      </div>
     </div>
   </div>
 
-  <!-- Page 4: Edit an exercise -->
+  <!-- Pagina 4: Editare exercițiu -->
   <div *ngIf="currentPage === 4" class="register-card">
     <h1>Edit an exercise</h1>
     <div class="full-width">
       <label for="exercise-name">Name</label>
-      <input id="exercise-name" type="text" placeholder="Name" />
-    </div>
-    <div class="full-width">
-      <label for="sets">Number of sets</label>
-      <select id="sets">
-        <option>Select a number</option>
+      <select id="exercise-name" [(ngModel)]="selectedExerciseId" (change)="selectExercise($event)">
+        <option *ngFor="let exercise of exercises" [value]="exercise.id">{{ exercise.name }}</option>
       </select>
     </div>
-    <div class="full-width">
-      <label for="reps">Number of reps</label>
-      <select id="reps">
-        <option>Select a number</option>
-      </select>
-    </div>
-    <div class="buttons">
-      <button class="add">Edit</button>
+    <div *ngIf="editExerciseData">
+      <div class="full-width">
+        <label for="edit-exercise-name">Name</label>
+        <input type="text" id="edit-exercise-name" [(ngModel)]="editExerciseData.name" placeholder="Name" />
+      </div>
+      <div class="full-width">
+        <label for="edit-reps">Number of reps</label>
+        <input type="number" id="edit-reps" [(ngModel)]="editExerciseData.reps" placeholder="Reps" />
+      </div>
+      <div class="full-width">
+        <label for="edit-calories-rep">Calories per rep</label>
+        <input type="number" id="edit-calories-rep" [(ngModel)]="editExerciseData.calories_rep" placeholder="Calories per rep" />
+      </div>
+      <div class="buttons">
+        <button class="add" (click)="updateExercise()">Edit</button>
+      </div>
     </div>
   </div>
 
-  <!-- Page 5: Success message -->
+  <!-- Pagina 5: Mesaj de succes -->
   <div *ngIf="currentPage === 5" class="register-card">
     <h1>Training Sessions Updated Successfully!</h1>
     <p>Congratulations! You have successfully updated the training sessions. All the changes have been saved and are now live.</p>
   </div>
 
-  <!-- Pagination -->
+  <!-- Paginație -->
   <div class="pagination">
     <button (click)="goToPreviousPage()">&lt;</button>
     <span *ngFor="let page of [1, 2, 3, 4, 5]" (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</span>

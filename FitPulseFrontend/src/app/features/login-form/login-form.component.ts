@@ -11,42 +11,34 @@ import { Router } from '@angular/router';
 export class LoginFormComponent implements OnInit {
   loginForm!: FormGroup;
 
-  constructor( private fb: FormBuilder, private loginService: LoginService,private readonly router: Router ) { 
-    
-  }
+  constructor(
+    private fb: FormBuilder,
+    private loginService: LoginService,
+    private readonly router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(5)]]
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
   onLogin(): void {
     if (this.loginForm.valid) {
       const credentials = this.loginForm.value;
+      console.log('LoginFormComponent: Form is valid, attempting login with credentials:', credentials);
       this.loginService.login(credentials).subscribe({
         next: (user) => {
           console.log('Login successful', user);
           this.router.navigateByUrl('Home');
-        
-           localStorage.setItem('jwt', user.jwtToken || '');
-           localStorage.setItem("email", user.email);
-           localStorage.setItem("role", user.role);
-           localStorage.setItem("username", user.username);
-           localStorage.setItem("firstName", user.firstName);
-
-           console.log(localStorage.getItem('firstName'));
-          
-
-           
-          
         },
         error: (err) => {
           console.error('Login failed', err);
-      
         }
       });
+    } else {
+      console.log('LoginFormComponent: Form is invalid');
     }
   }
-}  
+}
