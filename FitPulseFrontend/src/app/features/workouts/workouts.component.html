@@ -61,7 +61,7 @@
     <mat-card class="workouts-card">
       <mat-card class="workout-card" (click)="navigateToWorkout(workout.id)" *ngFor="let workout of pagedWorkouts">
         <div class="workout-content">
-          <img class="workout-photo" [src]="'assets/' + workout.photo" alt="workout photo">
+          <img class="workout-photo" [src]="'assets/workouts/' + workout.photo" alt="workout photo">
           <div class="workout-info">
             <div class="workout-name">{{ workout.name }}</div>
            <!-- <div class="workout-category">{{ workout.category }}</div>-->
