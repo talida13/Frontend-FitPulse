@@ -6,11 +6,17 @@
         <mat-label>E-mail</mat-label>
         <mat-form-field class="input">
           <input matInput formControlName="email" placeholder="Enter your e-mail address">
+          <mat-error class="mat-error">
+            E-mail is required!
+          </mat-error>
         </mat-form-field>
         <mat-label>Password</mat-label>
         <mat-form-field class="input">
           <input matInput type="password" formControlName="password" placeholder="Enter your password">
         </mat-form-field>
+        <p class="mat-error" *ngIf="loginError" style="margin-top: -13%">
+          E-mail does not exist or password is not correct!
+        </p>
         <button mat-raised-button color="primary" class="Login">Login</button>
         <p class="signup-link">Don't have an account? <a href="/Register">Signup here</a></p>
       </form>
