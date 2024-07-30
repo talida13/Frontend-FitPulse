@@ -1,4 +1,16 @@
 <div class="container">
+  <!-- Lateral Navbar -->
+  <nav class="sidebar">
+    <ul>
+      <li (click)="goToPage(1)" [class.active]="currentPage === 1">Remove a workout</li>
+      <li (click)="goToPage(2)" [class.active]="currentPage === 2">Add a workout</li>
+      <li (click)="goToPage(3)" [class.active]="currentPage === 3">Edit a workout</li>
+      <li (click)="goToPage(4)" [class.active]="currentPage === 4">Edit an exercise</li>
+      <li (click)="goToPage(5)" [class.active]="currentPage === 5">Success</li>
+    </ul>
+  </nav>
+
+<div class="container">
   <!-- Mesaje de eroare și succes -->
   <div *ngIf="errorMessage" class="alert alert-danger">
     {{ errorMessage }}
@@ -7,20 +19,26 @@
     {{ successMessage }}
   </div>
 
-  <!-- Pagina 1: Eliminare antrenament -->
-  <div *ngIf="currentPage === 1" class="register-card">
-    <h1>Remove a workout</h1>
-    <div class="full-width">
-      <label for="workout-name">Workout name</label>
-      <select id="workout-name" [(ngModel)]="selectedWorkoutId">
-        <option *ngFor="let workout of workouts" [value]="workout.id">{{ workout.name }}</option>
-      </select>
-    </div>
-    <div class="buttons">
-      <button class="add" (click)="deleteWorkout()">Remove</button>
-      <button class="skip" (click)="skip()">Skip</button>
-    </div>
+ <!-- Page 1: Remove a workout -->
+<div *ngIf="currentPage === 1" class="register-card">
+  <h1>Remove a workout</h1>
+  <div class="full-width">
+    <label for="workout-name">Workout name</label>
+    <select id="workout-name" [(ngModel)]="selectedWorkoutId">
+      <option *ngFor="let workout of workouts" [value]="workout.id">{{ workout.name }}</option>
+    </select>
   </div>
+  <div class="buttons">
+    <button class="add" (click)="deleteWorkout()">Remove</button>
+    <button class="skip" (click)="skip()">Skip</button>
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+  </div>
+</div>
 
   <!-- Pagina 2: Adăugare antrenament -->
   <div *ngIf="currentPage === 2" class="register-card">
