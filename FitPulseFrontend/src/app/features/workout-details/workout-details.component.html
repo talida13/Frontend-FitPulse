@@ -22,7 +22,7 @@
         <mat-card class="stopwatch-card">
           <div class="stopwatch-time">
             <p class="stopwatch">Stopwatch</p>
-            <p class="actual-stopwatch">00:00:000</p>
+            <p class="actual-stopwatch">{{ displayTime }}</p>
           </div>
         </mat-card>
       </div>
@@ -45,6 +45,15 @@
       <p>Workout not found.</p>
     </div>
   </mat-card>
+
+  <div *ngIf="showPopup" class="popup-overlay">
+    <div class="popup-content">
+      <p>{{ popupMessage }}</p>
+      <div class="popup-button">
+        <button mat-raised-button (click)="closePopup()">Close</button>
+      </div>
+    </div>
+  </div>
 
   <mat-card class="card-exercises">
     <div class="carousel-container">

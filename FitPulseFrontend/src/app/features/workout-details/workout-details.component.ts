@@ -13,6 +13,11 @@ export class WorkoutDetailsComponent implements OnInit {
   currentIndex = 0;
   workout: Workout | undefined;
   exercises: Exercise[] = [];
+  timer: any;
+  elapsedTime = 0; // Time in milliseconds
+  displayTime = '00:00:00'; // Format for display
+  showPopup = false; // Flag to control popup visibility
+  popupMessage = ''; // Message to display in the popup
 
   constructor(
     private route: ActivatedRoute,
@@ -73,11 +78,41 @@ export class WorkoutDetailsComponent implements OnInit {
       }
     );
   }
-  startWorkout(){
 
+  startWorkout() {
+    this.elapsedTime = 0; // Reset the elapsed time
+    this.timer = setInterval(() => {
+      this.elapsedTime += 1; // Increment by 1 second
+      this.updateDisplayTime();
+    }, 1000); // Update every second
   }
 
-  stopWorkout(){
+
+  stopWorkout() {
+    if (this.timer) {
+      clearInterval(this.timer);
+      this.timer = null;
+      this.popupMessage = `Well done! Your session lasted ${this.displayTime}.`;
+      this.showPopup = true; // Show the popup
+    }
+  }
+
+  updateDisplayTime() {
+    const hours = Math.floor(this.elapsedTime / 3600);
+    const minutes = Math.floor((this.elapsedTime % 3600) / 60);
+    const seconds = this.elapsedTime % 60;
+
+    this.displayTime = `${this.pad(hours, 2)}:${this.pad(minutes, 2)}:${this.pad(seconds, 2)}`;
+  }
+
+  pad(num: number, size: number) {
+    let s = String(num);
+    while (s.length < size) s = '0' + s;
+    return s;
+  }
+
+  closePopup() {
+    this.showPopup = false; // Hide the popup
   }
   
 }
