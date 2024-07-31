@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { WorkoutService, Workout } from '../../core/services/workout.service';
 import { ExerciseService, Exercise } from '../../core/services/exercise.service';
@@ -12,7 +13,18 @@ export class AdminComponent implements OnInit {
   totalPages = 5;
 
   workouts: Workout[] = [];
-  newWorkout: Workout = { id: 0, name: '', photo: '', author: '', published_Date: new Date(), category: '', difficulty: '' };
+  newWorkout: Workout = {
+    id: 0,
+    name: '',
+    photo: '',
+    author: '',
+    published_Date: new Date(),
+    category: '',
+    difficulty: '',
+    timeInterval: '',
+    muscleGroup: '',
+    scope: ''
+  };
   selectedWorkoutId: number | null = null;
   editWorkoutData: Workout | null = null;
 
@@ -20,7 +32,6 @@ export class AdminComponent implements OnInit {
   selectedExerciseId: number | null = null;
   editExerciseData: Exercise | null = null;
 
-  // Adaugă aceste două proprietăți
   errorMessage: string | null = null;
   successMessage: string | null = null;
 
@@ -50,7 +61,7 @@ export class AdminComponent implements OnInit {
       this.currentPage = page;
     }
   }
-  
+
   goToPreviousPage() {
     if (this.currentPage > 1) {
       this.currentPage--;
@@ -62,25 +73,23 @@ export class AdminComponent implements OnInit {
       this.currentPage++;
     }
   }
+
   deleteWorkout() {
     if (this.selectedWorkoutId !== null) {
-      console.log('Attempting to delete workout with ID:', this.selectedWorkoutId); // Log pentru debug
       this.workoutService.deleteWorkout(this.selectedWorkoutId).subscribe(
         () => {
-          console.log('Workout successfully deleted.'); // Verifică acest mesaj în consola browserului
-          this.loadWorkouts(); // Reîncarcă lista de workouts
+          this.loadWorkouts();
           this.successMessage = 'Workout removed successfully.';
-          this.selectedWorkoutId = null; // Resetează ID-ul selecționat
-          this.goToNextPage(); // Mergi la pagina următoare, dacă este cazul
+          this.selectedWorkoutId = null;
+          this.goToNextPage();
         },
         (error) => {
-          console.error('Error deleting workout:', error); // Verifică erorile în consola browserului
           this.errorMessage = 'Failed to remove workout.';
         }
       );
     }
   }
-  
+
   addWorkout() {
     this.workoutService.addWorkout(this.newWorkout).subscribe(
       () => {
@@ -90,7 +99,6 @@ export class AdminComponent implements OnInit {
       },
       (error) => {
         this.errorMessage = 'Failed to add workout.';
-        console.error(error);
       }
     );
   }
@@ -112,7 +120,6 @@ export class AdminComponent implements OnInit {
         },
         (error) => {
           this.errorMessage = 'Failed to update workout.';
-          console.error(error);
         }
       );
     }
@@ -135,7 +142,6 @@ export class AdminComponent implements OnInit {
         },
         (error) => {
           this.errorMessage = 'Failed to update exercise.';
-          console.error(error);
         }
       );
     }

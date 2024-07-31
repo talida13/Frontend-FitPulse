@@ -11,9 +11,9 @@ export interface Workout {
   published_Date: Date;
   category: string;
   difficulty: string;
-  timeInterval?: string; 
-  scope?: string; 
-  muscleGroup?: string; 
+  timeInterval?: string; // Proprietăți opționale
+  scope?: string;
+  muscleGroup?: string;
 }
 
 @Injectable({
@@ -44,9 +44,8 @@ export class WorkoutService {
     return this.http.delete<boolean>(`${this.apiUrl}/DeleteWorkout/${id}`);
   }*/
     deleteWorkout(id: number): Observable<void> {
-      return this.http.delete<void>(`${this.apiUrl}/DeleteWorkout/${id}`);
+      return this.http.delete<void>(`${this.apiUrl}/${id}`);
     }
-    
   
   updateWorkout(workout: Workout): Observable<boolean> {
     return this.http.put<boolean>(`${this.apiUrl}/UpdateWorkout`, workout);
