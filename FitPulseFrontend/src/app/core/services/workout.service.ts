@@ -40,12 +40,13 @@ export class WorkoutService {
     return this.http.post<boolean>(`${this.apiUrl}/AddWorkout`, workout);
   }
 
- /* deleteWorkout(id: number): Observable<boolean> {
-    return this.http.delete<boolean>(`${this.apiUrl}/DeleteWorkout/${id}`);
-  }*/
-    deleteWorkout(id: number): Observable<void> {
+   /* deleteWorkout(id: number): Observable<void> {
       return this.http.delete<void>(`${this.apiUrl}/${id}`);
-    }
+    }*/
+      deleteWorkout(id: number): Observable<void> {
+        console.log(`Attempting to delete workout with ID: ${id}`); // Log ID-ul workout-ului
+        return this.http.delete<void>(`${this.apiUrl}/DeleteWorkout`, { params: { id: id.toString() } });
+      }
   
   updateWorkout(workout: Workout): Observable<boolean> {
     return this.http.put<boolean>(`${this.apiUrl}/UpdateWorkout`, workout);
