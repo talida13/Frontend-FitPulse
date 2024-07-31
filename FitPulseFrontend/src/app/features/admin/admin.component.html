@@ -40,78 +40,148 @@
   </div>
 </div>
 
-  <!-- Pagina 2: Adăugare antrenament -->
-  <div *ngIf="currentPage === 2" class="register-card">
-    <h1>Add a workout</h1>
-    <div class="full-width">
-      <label for="name">Name</label>
-      <input type="text" id="name" [(ngModel)]="newWorkout.name" placeholder="Name" />
-    </div>
-    <div class="full-width">
-      <label for="photo">Photo URL</label>
-      <input type="text" id="photo" [(ngModel)]="newWorkout.photo" placeholder="Photo URL" />
-    </div>
-    <div class="full-width">
-      <label for="author">Author</label>
-      <input type="text" id="author" [(ngModel)]="newWorkout.author" placeholder="Author" />
-    </div>
-    <div class="full-width">
-      <label for="published_Date">Published Date</label>
-      <input type="date" id="published_Date" [(ngModel)]="newWorkout.published_Date" />
-    </div>
-    <div class="full-width">
-      <label for="category">Category</label>
-      <input type="text" id="category" [(ngModel)]="newWorkout.category" placeholder="Category" />
-    </div>
-    <div class="full-width">
-      <label for="difficulty">Difficulty</label>
-      <input type="text" id="difficulty" [(ngModel)]="newWorkout.difficulty" placeholder="Difficulty" />
-    </div>
-    <div class="buttons">
-      <button class="add" (click)="addWorkout()">Add</button>
-      <button class="skip" (click)="skip()">Skip</button>
-    </div>
+<!-- Pagina 2: Adăugare antrenament -->
+<div *ngIf="currentPage === 2" class="register-card">
+  <h1>Add a workout</h1>
+  <div class="full-width">
+    <label for="name">Name</label>
+    <input type="text" id="name" [(ngModel)]="newWorkout.name" placeholder="Name" />
+  </div>
+  <div class="full-width">
+    <label for="photo">Photo URL</label>
+    <input type="text" id="photo" [(ngModel)]="newWorkout.photo" placeholder="Photo URL" />
+  </div>
+  <div class="full-width">
+    <label for="author">Author</label>
+    <input type="text" id="author" [(ngModel)]="newWorkout.author" placeholder="Author" />
+  </div>
+  <div class="full-width">
+    <label for="published_Date">Published Date</label>
+    <input type="date" id="published_Date" [(ngModel)]="newWorkout.published_Date" />
+  </div>
+  <div class="full-width">
+    <label for="category">Category</label>
+    <select id="category" [(ngModel)]="newWorkout.category">
+      <option value="time-based">Time-based</option>
+      <option value="muscle-based">Muscle-based</option>
+      <option value="scope-based">Scope-based</option>
+    </select>
   </div>
 
-  <!-- Pagina 3: Editare antrenament -->
-  <div *ngIf="currentPage === 3" class="register-card">
-    <h1>Edit a workout</h1>
+  <!-- Selectori adiționali în funcție de categorie -->
+  <div *ngIf="newWorkout.category === 'time-based'" class="full-width">
+    <label for="time-interval">Time Interval</label>
+    <select id="time-interval" [(ngModel)]="newWorkout.timeInterval">
+      <option value="Short">Short</option>
+      <option value="Medium">Medium</option>
+      <option value="Long">Long</option>
+    </select>
+  </div>
+  <div *ngIf="newWorkout.category === 'muscle-based'" class="full-width">
+    <label for="muscle-group">Muscle Group</label>
+    <select id="muscle-group" [(ngModel)]="newWorkout.muscleGroup">
+      <option value="Upper Body">Upper Body</option>
+      <option value="Lower Body">Lower Body</option>
+    </select>
+  </div>
+  <div *ngIf="newWorkout.category === 'scope-based'" class="full-width">
+    <label for="scope">Scope</label>
+    <select id="scope" [(ngModel)]="newWorkout.scope">
+      <option value="Endurance">Endurance</option>
+      <option value="Flexibility">Flexibility</option>
+      <option value="Strength">Strength</option>
+    </select>
+  </div>
+
+  <div class="full-width">
+    <label for="difficulty">Difficulty</label>
+    <select id="difficulty" [(ngModel)]="newWorkout.difficulty">
+      <option value="Beginner">Beginner</option>
+      <option value="Intermediate">Intermediate</option>
+      <option value="Advanced">Advanced</option>
+    </select>
+  </div>
+  <div class="buttons">
+    <button class="add" (click)="addWorkout()">Add</button>
+    <button class="skip" (click)="skip()">Skip</button>
+  </div>
+</div>
+
+
+<!-- Pagina 3: Editare antrenament -->
+<div *ngIf="currentPage === 3" class="register-card">
+  <h1>Edit a workout</h1>
+  <div class="full-width">
+    <label for="edit-workout-name">Name</label>
+    <select id="edit-workout-name" [(ngModel)]="selectedWorkoutId" (change)="selectWorkout($event)">
+      <option *ngFor="let workout of workouts" [value]="workout.id">{{ workout.name }}</option>
+    </select>
+  </div>
+  <div *ngIf="editWorkoutData">
     <div class="full-width">
-      <label for="edit-workout-name">Name</label>
-      <select id="edit-workout-name" [(ngModel)]="selectedWorkoutId" (change)="selectWorkout($event)">
-        <option *ngFor="let workout of workouts" [value]="workout.id">{{ workout.name }}</option>
+      <label for="edit-name">Name</label>
+      <input type="text" id="edit-name" [(ngModel)]="editWorkoutData.name" placeholder="Name" />
+    </div>
+    <div class="full-width">
+      <label for="edit-photo">Photo URL</label>
+      <input type="text" id="edit-photo" [(ngModel)]="editWorkoutData.photo" placeholder="Photo URL" />
+    </div>
+    <div class="full-width">
+      <label for="edit-author">Author</label>
+      <input type="text" id="edit-author" [(ngModel)]="editWorkoutData.author" placeholder="Author" />
+    </div>
+    <div class="full-width">
+      <label for="edit-published_Date">Published Date</label>
+      <input type="date" id="edit-published_Date" [(ngModel)]="editWorkoutData.published_Date" />
+    </div>
+    <div class="full-width">
+      <label for="edit-category">Category</label>
+      <select id="edit-category" [(ngModel)]="editWorkoutData.category">
+        <option value="time-based">Time-based</option>
+        <option value="muscle-based">Muscle-based</option>
+        <option value="scope-based">Scope-based</option>
       </select>
     </div>
-    <div *ngIf="editWorkoutData">
-      <div class="full-width">
-        <label for="edit-name">Name</label>
-        <input type="text" id="edit-name" [(ngModel)]="editWorkoutData.name" placeholder="Name" />
-      </div>
-      <div class="full-width">
-        <label for="edit-photo">Photo URL</label>
-        <input type="text" id="edit-photo" [(ngModel)]="editWorkoutData.photo" placeholder="Photo URL" />
-      </div>
-      <div class="full-width">
-        <label for="edit-author">Author</label>
-        <input type="text" id="edit-author" [(ngModel)]="editWorkoutData.author" placeholder="Author" />
-      </div>
-      <div class="full-width">
-        <label for="edit-published_Date">Published Date</label>
-        <input type="date" id="edit-published_Date" [(ngModel)]="editWorkoutData.published_Date" />
-      </div>
-      <div class="full-width">
-        <label for="edit-category">Category</label>
-        <input type="text" id="edit-category" [(ngModel)]="editWorkoutData.category" placeholder="Category" />
-      </div>
-      <div class="full-width">
-        <label for="edit-difficulty">Difficulty</label>
-        <input type="text" id="edit-difficulty" [(ngModel)]="editWorkoutData.difficulty" placeholder="Difficulty" />
-      </div>
-      <div class="buttons">
-        <button class="add" (click)="updateWorkout()">Update</button>
-      </div>
+
+    <!-- Selectori adiționali în funcție de categorie -->
+    <div *ngIf="editWorkoutData.category === 'time-based'" class="full-width">
+      <label for="edit-time-interval">Time Interval</label>
+      <select id="edit-time-interval" [(ngModel)]="editWorkoutData.timeInterval">
+        <option value="Short">Short</option>
+        <option value="Medium">Medium</option>
+        <option value="Long">Long</option>
+      </select>
+    </div>
+    <div *ngIf="editWorkoutData.category === 'muscle-based'" class="full-width">
+      <label for="edit-muscle-group">Muscle Group</label>
+      <select id="edit-muscle-group" [(ngModel)]="editWorkoutData.muscleGroup">
+        <option value="Upper Body">Upper Body</option>
+        <option value="Lower Body">Lower Body</option>
+      </select>
+    </div>
+    <div *ngIf="editWorkoutData.category === 'scope-based'" class="full-width">
+      <label for="edit-scope">Scope</label>
+      <select id="edit-scope" [(ngModel)]="editWorkoutData.scope">
+        <option value="Endurance">Endurance</option>
+        <option value="Flexibility">Flexibility</option>
+        <option value="Strength">Strength</option>
+      </select>
+    </div>
+
+    <div class="full-width">
+      <label for="edit-difficulty">Difficulty</label>
+      <select id="edit-difficulty" [(ngModel)]="editWorkoutData.difficulty">
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+      </select>
+    </div>
+    <div class="buttons">
+      <button class="add" (click)="updateWorkout()">Update</button>
     </div>
   </div>
+</div>
+
 
   <!-- Pagina 4: Editare exercițiu -->
   <div *ngIf="currentPage === 4" class="register-card">
