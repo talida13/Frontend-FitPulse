@@ -5,40 +5,39 @@
       <!--<img [src]="'assets/' + workout.photo" alt="{{ workout.name }}">--> 
 
       <div class="workout-info">
-        <mat-card class="category-card">
-          <span>Category</span>
-          <div class="category-div">
-              <span style="margin-top: 20px;" >{{ workout.category }}</span>
+        <mat-card class="workout-details-card">
+          <div class="workout-details">
+            <p>Category: {{ workout.category }}</p>
+            <p>Difficulty: {{ workout.difficulty }}</p>
+            <p>Calories burned: x kcal </p>
           </div>
+        </mat-card>
+        <mat-card class="workout-author-card">
+          <div class="workout-author">
+            <p>Author: {{ workout.author }}</p>
+            <p>Published Date: {{ workout.published_Date | date }}</p>
+          </div>
+        </mat-card>
 
-          <span>Difficulty</span>
-          <div class="category-div">
-          <span style="margin-top: 20px;"> {{ workout.difficulty }}</span>
+        <mat-card class="stopwatch-card">
+          <div class="stopwatch-time">
+            <p class="stopwatch">Stopwatch</p>
+            <p class="actual-stopwatch">00:00:000</p>
           </div>
-          
-          <span>Calories burned </span>
-          <div class="category-div">
-          <span style="margin-top: 20px;">  x kcal</span>
-          </div>
-
         </mat-card>
       </div>
 
-      <div class="butoane">
-      <button mat-raised-button color="primary" (click)="startWorkout()">
-        <mat-icon>play_arrow</mat-icon> Start Workout
-      </button>
-      
-      <button mat-raised-button color="accent" (click)="stopWorkout()">
-        <mat-icon>stop</mat-icon> Stop Workout
-      </button>
-      </div>
-      
-      <div class="author-date">
-        <span>Author: {{ workout.author }}</span>
-      
-
-      <span>Published Date: {{ workout.published_Date | date }}</span>
+      <div class="buttons">
+        <div class="button-start">
+          <button mat-raised-button (click)="startWorkout()">
+            <mat-icon>play_arrow</mat-icon>Start workout
+          </button>
+        </div>  
+        <div class="button-stop">
+          <button mat-raised-button (click)="stopWorkout()">
+            <mat-icon>stop</mat-icon>Stop workout
+          </button>
+        </div>
       </div>
     </div>
     
