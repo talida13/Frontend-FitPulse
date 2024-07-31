@@ -1,7 +1,7 @@
 <div class="principal">
   <mat-card class="card-details">
     <div class="workout-div" *ngIf="workout">
-      <h1>{{ workout.name }}</h1>
+      <h1 class="workout-name">{{ workout.name }}</h1>
       <!--<img [src]="'assets/' + workout.photo" alt="{{ workout.name }}">--> 
 
       <div class="workout-info">
@@ -61,8 +61,11 @@
     
       <mat-card class="carousel" *ngIf="slides[currentIndex]">
         <div class="exercise-details">
-          <p>Reps:&nbsp;{{ slides[currentIndex].reps }}</p>
-          <p>&nbsp;Calories per rep:&nbsp;{{ slides[currentIndex].calories_rep }}</p>
+          <h1 class="exercise-name">{{ slides[currentIndex].name }}</h1>
+          <div class="exercise-calories">
+            <p>Reps:&nbsp;{{ slides[currentIndex].reps }}</p>
+            <p>Calories per rep:&nbsp;{{ slides[currentIndex].calories_rep }}</p>
+          </div>
         </div>
         <img mat-card-image [src]="'assets/exercises/' + slides[currentIndex].image" alt="Slide">
        
