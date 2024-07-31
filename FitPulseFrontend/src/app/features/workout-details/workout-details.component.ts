@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./workout-details.component.scss']
 })
 export class WorkoutDetailsComponent implements OnInit {
-  slides: { image: string, reps: number, calories_rep: number }[] = [];
+  slides: { name: string, image: string, reps: number, calories_rep: number }[] = [];
   currentIndex = 0;
   workout: Workout | undefined;
   exercises: Exercise[] = [];
@@ -62,6 +62,7 @@ export class WorkoutDetailsComponent implements OnInit {
         console.log('Filtered exercises:', this.exercises);
   
         this.slides = this.exercises.map(exercise => ({
+          name: exercise.name,
           image: exercise.photo,
           reps: exercise.reps,
           calories_rep: exercise.calories_rep

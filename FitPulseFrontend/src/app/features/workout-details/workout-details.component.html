@@ -1,7 +1,7 @@
 <div class="principal">
   <mat-card class="card-details">
     <div class="workout-div" *ngIf="workout">
-      <h1>{{ workout.name }}</h1>
+      <h1 class="workout-name">{{ workout.name }}</h1>
       <!--<img [src]="'assets/' + workout.photo" alt="{{ workout.name }}">--> 
 
       <div class="workout-info">
@@ -10,23 +10,17 @@
           <div class="category-div">
               <span style="margin-top: 20px;" >{{ workout.category }}</span>
           </div>
-          <mat-icon>category</mat-icon>
-        </mat-card>
 
-        <mat-card class="difficulty-card">
           <span>Difficulty</span>
           <div class="category-div">
           <span style="margin-top: 20px;"> {{ workout.difficulty }}</span>
           </div>
-          <mat-icon>star</mat-icon>
-        </mat-card>
+          
+          <span>Calories burned </span>
+          <div class="category-div">
+          <span style="margin-top: 20px;">  x kcal</span>
+          </div>
 
-        <mat-card class="calories-card">
-            <span>Calories burned </span>
-            <div class="category-div">
-            <span style="margin-top: 20px;">  x kcal</span>
-            </div>
-            <mat-icon>whatshot</mat-icon>
         </mat-card>
       </div>
 
@@ -61,8 +55,11 @@
     
       <mat-card class="carousel" *ngIf="slides[currentIndex]">
         <div class="exercise-details">
-          <p>Reps:&nbsp;{{ slides[currentIndex].reps }}</p>
-          <p>&nbsp;Calories per rep:&nbsp;{{ slides[currentIndex].calories_rep }}</p>
+          <h3 class="exercise-name">{{ slides[currentIndex].name }}</h3>
+          <div class="exercise-calories">
+            <p>Reps:&nbsp;{{ slides[currentIndex].reps }}</p>
+            <p>Calories per rep:&nbsp;{{ slides[currentIndex].calories_rep }}</p>
+          </div>
         </div>
         <img mat-card-image [src]="'assets/exercises/' + slides[currentIndex].image" alt="Slide">
        

@@ -38,12 +38,29 @@
             <div class="selector-div">
               <mat-form-field class="selector">
                 <mat-label>Select statistics</mat-label>
-                <mat-select [(value)]="selectedStatistic">
+                <mat-select [(value)]="selectedMetric">
                   <mat-option *ngFor="let stat of selectedStatistic" [value]="stat">{{ stat }}</mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
+            <div class="selector-div">
+              <mat-form-field class="selector">
+                <mat-label>Select period</mat-label>
+                <mat-select [(value)]="selectedPeriod" (selectionChange)="onPeriodChange($event.value)">
+                  <mat-option [value]="7">Last 7 days</mat-option>
+                  <mat-option [value]="30">Last 30 days</mat-option>
+                  <mat-option [value]="60">Last 60 days</mat-option>
+                  <mat-option [value]="90">Last 90 days</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
           </div>
+
+          <div class="chart-container">
+            <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>
+          </div>
+          
+          
         </mat-tab>
         <mat-tab label="Edit profile">
           <div class="edit-profile-form">
