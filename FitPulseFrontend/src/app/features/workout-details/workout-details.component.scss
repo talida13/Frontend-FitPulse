@@ -14,7 +14,7 @@
 .workout-name{
     font-family: Poppins;
     color: #f5f5f5;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 800;
     margin-left: 20px;
     position: relative;
@@ -87,7 +87,7 @@
 mat-card img {
  // width: 100%;
   height: auto;
-  width: 480px;
+  width: 440px;
 }
 
 .exercise-details{
@@ -169,29 +169,24 @@ button {
     font-weight: 700;
     //left: 20px;
     position: relative;
-   // text-align: left;
-   margin-right: 50px;
+    // text-align: left;
+    margin-right: 50px;
+    margin-bottom: 0px;
 }
 
 .exercise-calories {
-  font-family: Poppins;
+    font-family: Poppins;
     color: #f5f5f5;
     font-size: 15px;
     font-weight: 400;
     //left: 20px;
     position: relative;
     margin: 0px;
-   // text-align: left;
+    // text-align: left;
+    margin-top: 20px;
+    //background-color: red;
 }
+
 p{
   margin: 0;
-}
-.exercise-calories{
-  margin-top: 20px;
- // margin-left: 80px;
- background-color: red;
- //display: flex;
- //justify-content: right;
- //text-align: right;
- // width: 100%;
 }
