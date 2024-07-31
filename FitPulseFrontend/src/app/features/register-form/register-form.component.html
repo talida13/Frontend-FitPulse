@@ -9,26 +9,41 @@
           <mat-form-field class="full-width">
             
             <input matInput formControlName="firstName" placeholder="First name">
+            <mat-error class="mat-error">
+              First name required!
+            </mat-error>
           </mat-form-field>
           <mat-label>Last name</mat-label>
           <mat-form-field class="full-width">
            
             <input matInput formControlName="lastName" placeholder="Last name">
+            <mat-error class="mat-error">
+              Last name required!
+            </mat-error>
           </mat-form-field>
           <mat-label>Age</mat-label>
           <mat-form-field class="full-width">
            
-            <input matInput formControlName="age" placeholder="Your age">
+            <input matInput formControlName="age" type="number" placeholder="Your age">
+            <mat-error class="mat-error">
+              Age required!
+            </mat-error>
           </mat-form-field>
           <mat-label>Weight</mat-label>
           <mat-form-field class="full-width">
          
-            <input matInput formControlName="weight" placeholder="Your weight">
+            <input matInput formControlName="weight" type="number" placeholder="Your weight">
+            <mat-error class="mat-error">
+              Weight required!
+            </mat-error>
           </mat-form-field>
           <mat-label>Height</mat-label>
           <mat-form-field class="full-width">
            
-            <input matInput formControlName="height" placeholder="Your height">
+            <input matInput formControlName="height" type="number" placeholder="Your height">
+            <mat-error class="mat-error">
+              Height required!
+            </mat-error>
           </mat-form-field>
           <mat-label>Gender</mat-label>
           <mat-form-field class="full-width">
@@ -38,6 +53,7 @@
               <mat-option value="male">Male</mat-option>
               <mat-option value="female">Female</mat-option>
               <mat-option value="other">Other</mat-option>
+
             </mat-select>
           </mat-form-field>
           <button mat-raised-button color="primary" class="Login" type="submit">Next</button>
@@ -47,19 +63,31 @@
         <div *ngIf="stepper.selectedIndex === 1">
           <mat-label>E-mail</mat-label>
           <mat-form-field class="full-width">
-            
             <input matInput formControlName="email" placeholder="Enter your e-mail address">
+            <mat-error class="mat-error">
+              E-mail required!
+            </mat-error>
           </mat-form-field>
+          <p class="mat-error" *ngIf="emailTaken" style="margin-top: -13%">
+            Email already taken!
+          </p>
           <mat-label>Username</mat-label>
           <mat-form-field class="full-width">
-            
             <input matInput formControlName="username" placeholder="Choose your username">
+            <mat-error class="mat-error">
+              Username is required!
+            </mat-error>
           </mat-form-field>
+          <p class="mat-error" *ngIf="usernameTaken" style="margin-top: -13%">
+            Username already taken!
+          </p>
           <mat-label>Password</mat-label>
           <mat-form-field class="full-width">
-           
             <input matInput type="password" formControlName="password" placeholder="Create a password">
           </mat-form-field>
+          <p class="mat-error" *ngIf="secondFormGroup.get('password')?.value != secondFormGroup.get('confirmPassword')?.value" style="margin-top: -13%">
+            Passwords do not match!
+          </p>
           <mat-label>Confirm password</mat-label>
           <mat-form-field class="full-width">
           

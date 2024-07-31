@@ -88,7 +88,9 @@ button{
   background-color: #53F393;
 }
 
-
+.mat-error{
+  color: rgb(228, 94, 94);
+}
 
 ::ng-deep .mat-step-header .mat-step-icon-selected {
   background-color: #5389F3; 
