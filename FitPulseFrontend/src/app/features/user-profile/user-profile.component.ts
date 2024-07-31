@@ -175,116 +175,132 @@ export class UserProfileComponent implements OnInit {
 
   renderChart(): void {
     if (this.selectedMetric === 'Most common workouts') {
-      this.chartOptions = {
-        animationEnabled: true,
-        theme: "light2",
-        title: {
-          text: "Most Common Workouts"
-        },
-        data: [{
-          type: "pie",
-          indexLabel: "{name}: {y}%",
-          indexLabelFormatter: (e: any) => {
-            return `${e.dataPoint.name}: ${e.dataPoint.y.toFixed(2)}%`;
+      if (this.commonWorkoutsData.length === 0) {
+        this.chartOptions = {}; // Or handle this case separately
+      } else {
+        this.chartOptions = {
+          animationEnabled: true,
+          theme: "light2",
+          title: {
+            text: "Most Common Workouts"
           },
-          dataPoints: this.commonWorkoutsData
-        }]
-      };
+          data: [{
+            type: "pie",
+            indexLabel: "{name}: {y}%",
+            indexLabelFormatter: (e: any) => {
+              return `${e.dataPoint.name}: ${e.dataPoint.y.toFixed(2)}%`;
+            },
+            dataPoints: this.commonWorkoutsData
+          }]
+        };
+      }
     } else if (this.selectedMetric === 'Most common exercises') {
-      this.chartOptions = {
-        animationEnabled: true,
-        theme: "light2",
-        title: {
-          text: "Most Common Exercises"
-        },
-        data: [{
-          type: "pie",
-          indexLabel: "{name}: {y}%",
-          indexLabelFormatter: (e: any) => {
-            return `${e.dataPoint.name}: ${e.dataPoint.y.toFixed(2)}%`;
+      if (this.commonExercisesData.length === 0) {
+        this.chartOptions = {}; // Or handle this case separately
+      } else {
+        this.chartOptions = {
+          animationEnabled: true,
+          theme: "light2",
+          title: {
+            text: "Most Common Exercises"
           },
-          dataPoints: this.commonExercisesData
-        }]
-      };
+          data: [{
+            type: "pie",
+            indexLabel: "{name}: {y}%",
+            indexLabelFormatter: (e: any) => {
+              return `${e.dataPoint.name}: ${e.dataPoint.y.toFixed(2)}%`;
+            },
+            dataPoints: this.commonExercisesData
+          }]
+        };
+      }
     } else {
-      // Handle other metrics
       let dataPoints: any[] = [];
-  
+      
       if (this.selectedMetric === 'Biological metrics') {
         dataPoints = this.filterWeightData(this.selectedPeriod);
-        this.chartOptions = {
-          animationEnabled: true,
-          theme: "light2",
-          title: {
-            text: `Weight for the Last ${this.selectedPeriod} Days`
-          },
-          axisX: {
-            valueFormatString: "DD MMM",
-            crosshair: {
-              enabled: true,
-              snapToDataPoint: true
+        if (dataPoints.length === 0) {
+          this.chartOptions = {}; // Or handle this case separately
+        } else {
+          this.chartOptions = {
+            animationEnabled: true,
+            theme: "light2",
+            title: {
+              text: `Weight for the Last ${this.selectedPeriod} Days`
             },
-            interval: Math.max(1, Math.floor(dataPoints.length / 10)),
-            intervalType: "day",
-            labelAngle: -45,
-            minimum: new Date(new Date().getTime() - this.selectedPeriod * 24 * 60 * 60 * 1000),
-            maximum: new Date()
-          },
-          axisY: {
-            title: "Weight (kg)",
-            includeZero: false,
-            crosshair: {
-              enabled: true
-            }
-          },
-          data: [{
-            type: "line",
-            xValueFormatString: "DD MMM",
-            yValueFormatString: "#,##0.0 kg",
-            dataPoints: dataPoints
-          }]
-        };
+            axisX: {
+              valueFormatString: "DD MMM",
+              crosshair: {
+                enabled: true,
+                snapToDataPoint: true
+              },
+              interval: Math.max(1, Math.floor(dataPoints.length / 10)),
+              intervalType: "day",
+              labelAngle: -45,
+              minimum: new Date(new Date().getTime() - this.selectedPeriod * 24 * 60 * 60 * 1000),
+              maximum: new Date()
+            },
+            axisY: {
+              title: "Weight (kg)",
+              includeZero: false,
+              crosshair: {
+                enabled: true
+              }
+            },
+            data: [{
+              type: "line",
+              xValueFormatString: "DD MMM",
+              yValueFormatString: "#,##0.0 kg",
+              dataPoints: dataPoints
+            }]
+          };
+        }
       } else if (this.selectedMetric === 'Calories burned') {
         dataPoints = this.filterCaloriesData(this.selectedPeriod);
-        this.chartOptions = {
-          animationEnabled: true,
-          theme: "light2",
-          title: {
-            text: `Calories Burned for the Last ${this.selectedPeriod} Days`
-          },
-          axisX: {
-            valueFormatString: "DD MMM",
-            crosshair: {
-              enabled: true,
-              snapToDataPoint: true
+        if (dataPoints.length === 0) {
+          this.chartOptions = {}; // Or handle this case separately
+        } else {
+          this.chartOptions = {
+            animationEnabled: true,
+            theme: "light2",
+            title: {
+              text: `Calories Burned for the Last ${this.selectedPeriod} Days`
             },
-            interval: Math.max(1, Math.floor(dataPoints.length / 10)),
-            intervalType: "day",
-            labelAngle: -45,
-            minimum: new Date(new Date().getTime() - this.selectedPeriod * 24 * 60 * 60 * 1000),
-            maximum: new Date()
-          },
-          axisY: {
-            title: "Calories Burned",
-            includeZero: false,
-            crosshair: {
-              enabled: true
-            }
-          },
-          data: [{
-            type: "column",
-            xValueFormatString: "DD MMM",
-            yValueFormatString: "#,##0 calories",
-            dataPoints: dataPoints
-          }]
-        };
+            axisX: {
+              valueFormatString: "DD MMM",
+              crosshair: {
+                enabled: true,
+                snapToDataPoint: true
+              },
+              interval: Math.max(1, Math.floor(dataPoints.length / 10)),
+              intervalType: "day",
+              labelAngle: -45,
+              minimum: new Date(new Date().getTime() - this.selectedPeriod * 24 * 60 * 60 * 1000),
+              maximum: new Date()
+            },
+            axisY: {
+              title: "Calories Burned",
+              includeZero: false,
+              crosshair: {
+                enabled: true
+              }
+            },
+            data: [{
+              type: "column",
+              xValueFormatString: "DD MMM",
+              yValueFormatString: "#,##0 calories",
+              dataPoints: dataPoints
+            }]
+          };
+        }
       } else if (this.selectedMetric === 'Workout duration') {
-        // Add handling for Workout duration if needed
+        // Handle Workout duration if needed
       }
     }
   
     this.cdr.detectChanges();
   }
+  
   
 
   onPeriodChange(period: number): void {
