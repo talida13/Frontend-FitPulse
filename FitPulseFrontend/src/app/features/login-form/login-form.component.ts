@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent implements OnInit {
   loginForm!: FormGroup;
+  loginError : boolean = false;
+
 
   constructor(
     private fb: FormBuilder,
@@ -20,24 +22,27 @@ export class LoginFormComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['']
     });
   }
 
   onLogin(): void {
     if (this.loginForm.valid) {
       const credentials = this.loginForm.value;
-      console.log('LoginFormComponent: Form is valid, attempting login with credentials:', credentials);
+      //console.log('LoginFormComponent: Form is valid, attempting login with credentials:', credentials);
       this.loginService.login(credentials).subscribe({
         next: (user) => {
-          console.log('Login successful', user);
+          //console.log('Login successful', user);
           this.router.navigateByUrl('Home');
         },
         error: (err) => {
-          console.error('Login failed', err);
+          this.loginError = true;
+          console.log('Log in Error')
+          console.log(this.loginError);
         }
       });
     } else {
+      
       console.log('LoginFormComponent: Form is invalid');
     }
   }

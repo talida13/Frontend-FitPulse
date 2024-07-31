@@ -48,6 +48,10 @@ import { CdkMenuModule } from '@angular/cdk/menu';
 import { DialogModule } from '@angular/cdk/dialog';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+//import { NgChartsModule } from 'ng2-charts';
+//import { ChartsModule } from 'ng2-charts';
 //import { HeaderComponent } from '../layout/header/header.component';
 
 @NgModule({
@@ -60,6 +64,7 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
  //   HeaderComponent,
+ CanvasJSAngularChartsModule,
     RouterModule,
     A11yModule,
     CdkAccordionModule,
