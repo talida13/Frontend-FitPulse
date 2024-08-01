@@ -63,7 +63,7 @@ export class WorkoutDetailsComponent implements OnInit {
       (data: Exercise[]) => {
         console.log('All exercises:', data);
   
-        // Verifică și converteste tipurile dacă este necesar
+   
         this.exercises = data
           .filter(exercise => Number(exercise.workout_Id) === workoutId);
   
@@ -83,11 +83,11 @@ export class WorkoutDetailsComponent implements OnInit {
   }
 
   startWorkout() {
-    this.elapsedTime = 0; // Reset the elapsed time
+    this.elapsedTime = 0; 
     this.timer = setInterval(() => {
-      this.elapsedTime += 1; // Increment by 1 second
+      this.elapsedTime += 1; 
       this.updateDisplayTime();
-    }, 1000); // Update every second
+    }, 1000); 
   }
 
   stopWorkout() {

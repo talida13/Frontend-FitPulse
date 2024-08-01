@@ -24,8 +24,8 @@
   <h1>Remove a workout</h1>
   <div class="full-width">
     <label for="workout-name">Workout name</label>
-    <select id="workout-name" [(ngModel)]="selectedWorkoutId">
-      <option *ngFor="let workout of workouts" [value]="workout.id">{{ workout.name }}</option>
+    <select id="workout-name" [(ngModel)]="selectedWorkoutName">
+      <option *ngFor="let workout of workouts" [value]="workout.name">{{ workout.name }}</option>
     </select>
   </div>
   <div class="buttons">
@@ -113,8 +113,8 @@
   <h1>Edit a workout</h1>
   <div class="full-width">
     <label for="edit-workout-name">Name</label>
-    <select id="edit-workout-name" [(ngModel)]="selectedWorkoutId" (change)="selectWorkout($event)">
-      <option *ngFor="let workout of workouts" [value]="workout.id">{{ workout.name }}</option>
+    <select id="edit-workout-name" [(ngModel)]="selectedWorkoutName" (change)="selectWorkout($event)">
+      <option *ngFor="let workout of workouts" [value]="workout.name">{{ workout.name }}</option>
     </select>
   </div>
   <div *ngIf="editWorkoutData">

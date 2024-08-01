@@ -127,7 +127,7 @@ mat-select {
     width: 100%;
     background-color: white;
     text-align: center;
-    color: black; /* Schimbă textul selectorului la negru */
+    color: black; 
 }
 
 .mat-option .mat-option-text {
@@ -135,7 +135,7 @@ mat-select {
     display: flex;
     align-items: center;
     width: 100%;
-    color: black; /* Text negru pentru opțiuni */
+    color: black; 
 }
 
 ::ng-deep .mdc-line-ripple {
@@ -187,9 +187,9 @@ mat-tab-group {
 
 .edit-profile-form {
     display: flex;
-    justify-content: center; /* Centrează formularul pe orizontală */
-    align-items: center; /* Centrează formularul pe verticală */
-    height: 100%; /* Asigură-te că formularul ocupă întreaga înălțime disponibilă */
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
     margin: 0;
 }
 
@@ -265,6 +265,6 @@ button.submit-update:hover {
 .chart-container {
     width: 100%;
     height: 360px;
-    border: 1px solid #ddd; /* Adaugă un contur pentru a verifica dacă graficul este vizibil */
+    border: 1px solid #ddd;
   }
   
