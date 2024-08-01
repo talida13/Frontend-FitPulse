@@ -56,7 +56,7 @@
 
             </mat-select>
           </mat-form-field>
-          <button mat-raised-button color="primary" class="Login" type="submit">Next</button>
+          <button id="nextId" mat-raised-button color="primary" class="Login" type="submit">Next</button>
         </div>
       </form>
       <form [formGroup]="secondFormGroup" (ngSubmit)="onSubmit()">
@@ -94,7 +94,7 @@
             <input  id="confirmPasswordId" matInput type="password" formControlName="confirmPassword" placeholder="Confirm created password">
           </mat-form-field>
           <button mat-raised-button color="primary" class="Login" (click)="stepper.previous()">Back</button>
-          <button mat-raised-button color="primary" class="Login" type="submit">Register</button>
+          <button id="registerId" mat-raised-button color="primary" class="Login" type="submit">Register</button>
         </div>
       </form>
       <p class="signup-link">Already have an account? <a href="#">Login here</a></p>

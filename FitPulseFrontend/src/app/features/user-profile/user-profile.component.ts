@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { WeightTrackingService } from 'src/app/core/services/weight-tracking.service';
-import { LoginService, User } from 'src/app/core/services/login.service';
+import { LoginService, User, CompleteUser } from 'src/app/core/services/login.service';
 import { UsersWorkoutsService } from 'src/app/core/services/users-workouts.service';
 import { ExerciseService, Exercise } from 'src/app/core/services/exercise.service';
 
@@ -23,6 +23,7 @@ export class UserProfileComponent implements OnInit {
   commonExercisesData: any[] = [];
   chartOptions: any;
   newWeight: number | undefined;
+  completeUser!: CompleteUser;
 
   constructor(
     private loginService: LoginService,
@@ -37,12 +38,15 @@ export class UserProfileComponent implements OnInit {
     this.getWeightTrackingData();
     this.getExercises();
     this.getWorkoutsData();
-    if(this.getWeightTrackingData.length>0)
-      setInterval(() => this.getWeightTrackingData(), 50);
-    if(this.getExercises.length>0)
-      setInterval(() => this.getExercises(), 50);
-    if(this.getWorkoutsData.length>0)
-      setInterval(() => this.getWorkoutsData(), 50);
+  //  console.log(this.exercisesData);
+  
+    
+  //  if(this.weightTrackingData.length > 0)
+      setInterval(() => this.getWeightTrackingData(), 100);
+   // if(this.exercisesData.length>0)
+      setInterval(() => this.getExercises(), 100);
+ //   if(this.workoutsData.length>0)
+      setInterval(() => this.getWorkoutsData(), 100);
   }
 
   getUserProfile(): void {
@@ -344,6 +348,12 @@ export class UserProfileComponent implements OnInit {
   onPeriodChange(period: number): void {
     this.selectedPeriod = period;
     this.renderChart();
+    if(this.getWeightTrackingData.length>0)
+      setInterval(() => this.getWeightTrackingData(), 50);
+    if(this.getExercises.length>0)
+      setInterval(() => this.getExercises(), 50);
+    if(this.getWorkoutsData.length>0)
+      setInterval(() => this.getWorkoutsData(), 50);
   }
   getLastWeightTrackingId(): void {
     this.weightTrackingService.getAllWeightTrackings().subscribe(
@@ -386,7 +396,7 @@ export class UserProfileComponent implements OnInit {
     if (this.userForm && this.newWeight !== undefined) {
       this.userForm.weight = this.newWeight; 
   
-      this.loginService.updateUser(this.userForm).subscribe(
+      /*this.loginService.updateUser(this.userForm).subscribe(
         () => {
           this.user = { ...this.userForm! }; 
           console.log('User profile updated successfully');
@@ -394,7 +404,7 @@ export class UserProfileComponent implements OnInit {
         error => {
           console.error('Error updating user profile', error);
         }
-      );
+      );*/
     }
   }
   
@@ -409,18 +419,41 @@ export class UserProfileComponent implements OnInit {
     
   }
   
-  
 
   updateProfile(): void {
+
+    const email = localStorage.getItem('email') || ' ';
+
     if (this.userForm) {
-      this.loginService.updateUser(this.userForm).subscribe(
+    /*  this.loginService.updateUser(this.userForm).subscribe(
         () => {
-          this.user = { ...this.userForm! };
+          this.user = { ...this.userForm!, resetCode: ''};
         },
         error => {
           console.error('Error updating profile', error);
         }
       );
+
+
+
+
+      this.loginService.getUser(email).subscribe(
+        user =>{
+        this.completeUser = {...user}
+        console.log(this.resetForm.value.password);
+        this.loginService.updateUser(this.completeUser).subscribe(
+          next =>{
+            console.log('Pasword updated');
+            this.router.navigateByUrl('Login');
+          },
+          error =>{
+            console.log('Pasword updated error');
+          }
+        )
+        },
+        error =>{
+          console.log('Error update password');
+        }*/
     }
   }
 }
