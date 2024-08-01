@@ -27,13 +27,8 @@
     text-align: center; 
     font-size: 25px;
     font-weight: 700;
-}
-
-.title-right-rectangle {
     color: #F5F5F5;
-    text-align: center; 
-    font-size: 25px;
-    font-weight: 700;
+    text-align: center;
 }
 
 .description-left-rectangle {
@@ -44,19 +39,11 @@
     text-align: left;
 }
 
-.left-rectangle {
+.rectangle {
     margin: 20px;
     width: 50%;
     background: rgba(210, 231, 218, 0.6);
     border-radius: 32px;
-}
-
-.right-rectangle {
-    width: 50%;
-    background: rgba(210, 231, 218, 0.6);
-    //background: rgba(130.83, 221.83, 167.23, 0.60);
-    border-radius: 32px;
-    margin: 20px;
 }
 
 .challenges-div {
