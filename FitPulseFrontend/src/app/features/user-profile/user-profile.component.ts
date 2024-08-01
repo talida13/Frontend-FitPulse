@@ -400,9 +400,14 @@ export class UserProfileComponent implements OnInit {
     }
   }
   updateUserProfileWithNewWeight(): void {
-    if (this.userForm && this.newWeight !== undefined) {
 
+    if (this.userForm && this.newWeight !== undefined) {
+    
+
+     this.editCredentials = {...this.userForm}
       this.editCredentials.weight = this.newWeight
+  
+      
       this.loginService.editProfile(this.editCredentials).subscribe(
         () => {
           console.log('User profile updated successfully');
