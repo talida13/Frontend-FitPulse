@@ -10,7 +10,7 @@ import { WorkoutsComponent } from './features/workouts/workouts.component';
 import { AdminComponent } from './features/admin/admin.component';
 import { UserProfileComponent } from './features/user-profile/user-profile.component';
 import { WorkoutDetailsComponent } from './features/workout-details/workout-details.component';
-
+import { ResetPasswordComponent } from './features/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -23,7 +23,8 @@ const routes: Routes = [
       { path: 'Workouts', component: WorkoutsComponent },
       { path: 'Workout/:id', component: WorkoutDetailsComponent },
       { path: 'Admin', component: AdminComponent },
-      {path: 'Profile', component: UserProfileComponent},
+      { path: 'Profile', component: UserProfileComponent},
+      { path:'Reset', component: ResetPasswordComponent},
       { path: '', redirectTo: 'Home', pathMatch: 'full' }
     ]
   }

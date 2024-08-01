@@ -19,7 +19,8 @@
         </p>
         <button mat-raised-button color="primary" class="Login">Login</button>
         <p class="signup-link">Don't have an account? <a href="/Register">Signup here</a></p>
+        <p class="signup-link" *ngIf="loginError">Forgot your password?<a href="/Reset"> Reset password</a></p>
       </form>
     </mat-card>
   </div>
-</div>
+</div>  
