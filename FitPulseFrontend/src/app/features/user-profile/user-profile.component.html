@@ -2,7 +2,9 @@
   <div class="user-container">
     <mat-card class="profile-card">
       <div class="user-picture">
-        <img class="profile-icon" alt="" src="assets/default-profile-picture-male.jpg">
+        <div class="user-name" *ngIf="user">
+        <img class="profile-icon" alt="workout photo" [src]="'assets/profile-pictures/' + user.gender">
+        </div>
       </div>
       <div class="user-name" *ngIf="user">
         <p class="profile-name">{{ user.firstName }} {{ user.lastName }}</p>
@@ -80,7 +82,7 @@
             </div>
           </div>
           <ng-template #noData>
-        
+            
           </ng-template>
 
           <div *ngIf="selectedMetric === 'Most common exercises' && commonExercisesData.length > 0; else noData">
