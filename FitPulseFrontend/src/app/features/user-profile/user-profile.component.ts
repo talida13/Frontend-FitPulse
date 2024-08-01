@@ -344,9 +344,9 @@ export class UserProfileComponent implements OnInit {
   getLastWeightTrackingId(): void {
     this.weightTrackingService.getAllWeightTrackings().subscribe(
       data => {
-        // Găsește ultimul ID în baza de date
+  
         const lastId = data.length > 0 ? Math.max(...data.map((entry: any) => entry.id)) : 0;
-        this.addNewWeightTracking(lastId + 1); // Adaugă 1 la ultimul ID
+        this.addNewWeightTracking(lastId + 1); 
       },
       error => {
         console.error('Error fetching weight tracking data', error);
@@ -365,9 +365,9 @@ export class UserProfileComponent implements OnInit {
       this.weightTrackingService.addWeightTracking(newWeightEntry).subscribe(
         response => {
           console.log('Weight logged successfully', response);
-          this.updateUserProfileWithNewWeight(); // Actualizează profilul utilizatorului
-          this.getWeightTrackingData(); // Actualizează datele de greutate
-          this.newWeight = undefined; // Resetează greutatea nouă
+          this.updateUserProfileWithNewWeight(); 
+          this.getWeightTrackingData(); 
+          this.newWeight = undefined; 
         },
         error => {
           console.error('Error logging weight', error);
@@ -380,11 +380,11 @@ export class UserProfileComponent implements OnInit {
   }
   updateUserProfileWithNewWeight(): void {
     if (this.userForm && this.newWeight !== undefined) {
-      this.userForm.weight = this.newWeight; // Actualizează greutatea în profilul utilizatorului
+      this.userForm.weight = this.newWeight; 
   
       this.loginService.updateUser(this.userForm).subscribe(
         () => {
-          this.user = { ...this.userForm! }; // Actualizează variabila `user` cu noile date
+          this.user = { ...this.userForm! }; 
           console.log('User profile updated successfully');
         },
         error => {

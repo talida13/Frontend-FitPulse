@@ -45,7 +45,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   startSlideshow() {
     this.intervalId = setInterval(() => {
-      console.log(`Current index: ${this.currentFeatureIndex}`); // Debugging
+      console.log(`Current index: ${this.currentFeatureIndex}`); 
       this.currentFeatureIndex = (this.currentFeatureIndex + 1) % this.features.length;
     }, 3000);
   }

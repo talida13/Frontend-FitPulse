@@ -14,10 +14,10 @@ export class WorkoutDetailsComponent implements OnInit {
   workout: Workout | undefined;
   exercises: Exercise[] = [];
   timer: any;
-  elapsedTime = 0; // Time in milliseconds
-  displayTime = '00:00:00'; // Format for display
-  showPopup = false; // Flag to control popup visibility
-  popupMessage = ''; // Message to display in the popup
+  elapsedTime = 0; 
+  displayTime = '00:00:00';
+  showPopup = false; 
+  popupMessage = ''; 
 
   constructor(
     private route: ActivatedRoute,
@@ -60,7 +60,7 @@ export class WorkoutDetailsComponent implements OnInit {
       (data: Exercise[]) => {
         console.log('All exercises:', data);
   
-        // Verifică și converteste tipurile dacă este necesar
+   
         this.exercises = data
           .filter(exercise => Number(exercise.workout_Id) === workoutId);
   
@@ -80,11 +80,11 @@ export class WorkoutDetailsComponent implements OnInit {
   }
 
   startWorkout() {
-    this.elapsedTime = 0; // Reset the elapsed time
+    this.elapsedTime = 0; 
     this.timer = setInterval(() => {
-      this.elapsedTime += 1; // Increment by 1 second
+      this.elapsedTime += 1; 
       this.updateDisplayTime();
-    }, 1000); // Update every second
+    }, 1000); 
   }
 
 
@@ -93,7 +93,7 @@ export class WorkoutDetailsComponent implements OnInit {
       clearInterval(this.timer);
       this.timer = null;
       this.popupMessage = `Well done! Your session lasted ${this.displayTime}.`;
-      this.showPopup = true; // Show the popup
+      this.showPopup = true;
     }
   }
 
@@ -112,7 +112,7 @@ export class WorkoutDetailsComponent implements OnInit {
   }
 
   closePopup() {
-    this.showPopup = false; // Hide the popup
+    this.showPopup = false; 
   }
   
 }

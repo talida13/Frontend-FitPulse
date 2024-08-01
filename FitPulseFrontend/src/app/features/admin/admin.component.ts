@@ -175,7 +175,7 @@ export class AdminComponent implements OnInit {
     published_Date: new Date(),
     category: '',
     difficulty: '',
-    timeInterval: '', // Asigură-te că aceste proprietăți sunt opționale
+    timeInterval: '', 
     muscleGroup: '',
     scope: ''
   };
@@ -230,16 +230,16 @@ export class AdminComponent implements OnInit {
 
   deleteWorkout() {
     if (this.selectedWorkoutName !== null) {
-      console.log(`Deleting workout with ID: ${this.selectedWorkoutName}`); // Debugging log
+      console.log(`Deleting workout with ID: ${this.selectedWorkoutName}`); 
       this.workoutService.deleteWorkout(this.selectedWorkoutName).subscribe(
         () => {
           this.loadWorkouts();
           this.successMessage = 'Workout removed successfully.';
-          this.selectedWorkoutName = null; // Reset selectedWorkoutId
+          this.selectedWorkoutName = null; 
           this.goToNextPage();
         },
         (error) => {
-          console.error('Error removing workout:', error); // Debugging log
+          console.error('Error removing workout:', error); 
           this.errorMessage = 'Failed to remove workout.';
         }
       );
@@ -256,7 +256,7 @@ export class AdminComponent implements OnInit {
         this.goToNextPage();
       },
       (error) => {
-        console.error('Error adding workout:', error); // Debugging log
+        console.error('Error adding workout:', error); 
         this.errorMessage = 'Failed to add workout.';
       }
     );
@@ -278,7 +278,7 @@ export class AdminComponent implements OnInit {
           this.goToNextPage();
         },
         (error) => {
-          console.error('Error updating workout:', error); // Debugging log
+          console.error('Error updating workout:', error); 
           this.errorMessage = 'Failed to update workout.';
         }
       );
@@ -301,7 +301,7 @@ export class AdminComponent implements OnInit {
           this.goToNextPage();
         },
         (error) => {
-          console.error('Error updating exercise:', error); // Debugging log
+          console.error('Error updating exercise:', error); 
           this.errorMessage = 'Failed to update exercise.';
         }
       );
