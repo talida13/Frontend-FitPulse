@@ -50,6 +50,14 @@ export interface CompleteUser{ //toate campurile pentru Update user
   gender?: string;
 }
 
+export interface EditCredentials{
+  firstName: string;
+  lastName: string;
+  age: number;
+  height: number;
+  weight: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -91,8 +99,8 @@ export class LoginService {
     return this.http.put<void>(`${this.apiUrl}/UpdateUser`, CompleteUser);
   }
   
-  updateUserStats(User: User): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/UpdateUser`, User);
+  editProfile(editCredentials : EditCredentials): Observable<void>{
+    return this.http.patch<void>(`${this.apiUrl}/EditProfile`, editCredentials);
   }
 }
 
