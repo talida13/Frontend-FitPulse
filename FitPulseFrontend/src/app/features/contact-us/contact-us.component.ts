@@ -12,6 +12,7 @@ export class ContactUsComponent {
   contactForm: FormGroup;
 
   constructor(private fb: FormBuilder, private emailService: EmailService, private readonly router: Router ) {
+    //window.location.reload();
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -20,7 +21,7 @@ export class ContactUsComponent {
       heardAboutUs: ['', Validators.required]
     });
   }
-
+  
   onSubmit() {
     //console.log("Buton");
     if (this.contactForm.valid) {

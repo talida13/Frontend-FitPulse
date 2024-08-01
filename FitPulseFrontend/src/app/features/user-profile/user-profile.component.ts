@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { WeightTrackingService } from 'src/app/core/services/weight-tracking.service';
-import { LoginService, User, CompleteUser } from 'src/app/core/services/login.service';
+import { LoginService, User, EditCredentials } from 'src/app/core/services/login.service';
 import { UsersWorkoutsService } from 'src/app/core/services/users-workouts.service';
 import { ExerciseService, Exercise } from 'src/app/core/services/exercise.service';
 
@@ -23,7 +23,7 @@ export class UserProfileComponent implements OnInit {
   commonExercisesData: any[] = [];
   chartOptions: any;
   newWeight: number | undefined;
-  completeUser!: CompleteUser;
+  editCredentials!:  EditCredentials;
 
   constructor(
     private loginService: LoginService,
@@ -401,66 +401,38 @@ export class UserProfileComponent implements OnInit {
   }
   updateUserProfileWithNewWeight(): void {
     if (this.userForm && this.newWeight !== undefined) {
-      this.userForm.weight = this.newWeight; 
-  
-      /*this.loginService.updateUser(this.userForm).subscribe(
+
+      this.editCredentials.weight = this.newWeight
+      this.loginService.editProfile(this.editCredentials).subscribe(
         () => {
-          this.user = { ...this.userForm! }; 
           console.log('User profile updated successfully');
         },
         error => {
           console.error('Error updating user profile', error);
         }
-      );*/
+      );
     }
   }
   
-  
-  
-  
   logWeight(): void {
- 
-
       this.getLastWeightTrackingId();
-    
-    
   }
-  
 
   updateProfile(): void {
 
     const email = localStorage.getItem('email') || ' ';
 
     if (this.userForm) {
-    /*  this.loginService.updateUser(this.userForm).subscribe(
-        () => {
-          this.user = { ...this.userForm!, resetCode: ''};
-        },
-        error => {
-          console.error('Error updating profile', error);
-        }
-      );
-
-
-
-
-      this.loginService.getUser(email).subscribe(
-        user =>{
-        this.completeUser = {...user}
-        console.log(this.resetForm.value.password);
-        this.loginService.updateUser(this.completeUser).subscribe(
+        this.editCredentials = {...this.userForm}
+        console.log(this.editCredentials);
+        this.loginService.editProfile(this.editCredentials).subscribe(
           next =>{
             console.log('Pasword updated');
-            this.router.navigateByUrl('Login');
           },
           error =>{
             console.log('Pasword updated error');
           }
-        )
-        },
-        error =>{
-          console.log('Error update password');
-        }*/
+        );
     }
   }
 }
