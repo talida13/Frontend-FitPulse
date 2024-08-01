@@ -5,6 +5,8 @@
     align-items: center;
     flex-direction: column;
     font-family: Poppins;
+    z-index: 1;
+    position: relative;
 }
 
 .about-us-page {
@@ -31,7 +33,7 @@
     text-align: center;
 }
 
-.description-left-rectangle {
+.description-rectangle {
     text-align: center;
     font-size: 18px;
     font-weight: 400;
@@ -77,142 +79,24 @@
     margin-right: 40px;
 }
 
-
-
-.running-man-image {
-    //width: 50%;
-    //height: 50%;
-    //top: 540px;
-    width: 492px;
-    height: 462px;
-     margin-left: -70%;
-    margin-top: -110%;
+.benefits-icon {
+    width: 40px;
+    height: 40px;
 }
 
-.green-line {
-    width: 100%;
-    height: 50%;
-    border: 2px #53F393 solid;
-    margin-top: 55px;
-}
-
-.light-green-rectangle {
-
-    width: 564px;
-    height: 650px;
-    background: rgba(255, 255, 255, 0.30);
-    border-radius: 48px;
-    margin-left: 6%;
-    margin-top: 15%;
-}
-
-
-.light-green-title {
-    //color: #24551C; 
-    //text-align: center;
-    //margin-top: 5%;
-    width: 460px;
-    height: 48px;
-    text-align: center;
-    color: black;
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 32px;
-    margin-left: 10%;
-}
-
-.light-green-content {
+.benefits-content {
+    text-align: left;
     color: #24551C;
-    text-align: center;
-    margin-top: 5%;
-    //margin-left: 10%;
+    font-size: 22px;
+    font-weight: 500;
+    margin: 20px;
 }
 
-
-.iconita-1-image {
-    width: 48px;
-    height: 48px;
-    margin-left: 10%;
-    margin-top: 20%;
-    position: absolute;
-
-}
-
-.iconita-1-content {
-    width: 352px;
-    text-align: center;
-    color: #24551C;
-    font-size: 28px;
-    font-weight: 400;
-    line-height: 28px;
-    word-wrap: break-word;
-    margin-left: 28%;
-    margin-top: 2%;
-}
-
-
-.iconita-2-image {
-    width: 224px;
-    height: 224px;
-    margin-left: -5%;
-    margin-top: 25%;
-    position: absolute;
-
-}
-
-.iconita-2-content {
-    width: 352px;
-    text-align: center;
-    color: #24551C;
-    font-size: 28px;
-    font-weight: 400;
-    line-height: 28px;
-    word-wrap: break-word;
-    margin-left: 28%;
-    margin-top: 5%;
-}
-
-
-.iconita-3-image {
-    width: 48px;
-    height: 48px;
-    margin-left: 10%;
-    margin-top: 65%;
-    position: absolute;
-
-}
-
-.iconita-3-content {
-    width: 352px;
-    text-align: center;
-    color: #24551C;
-    font-size: 28px;
-    font-weight: 400;
-    line-height: 28px;
-    word-wrap: break-word;
-    margin-left: 25%;
-    margin-top: 5%;
-}
-
-.iconita-4-image {
-    width: 224px;
-    height: 224px;
-    margin-left: -5%;
-    margin-top: 75%;
-    position: absolute;
-
-}
-
-.iconita-4-content {
-    width: 352px;
-    text-align: center;
-    color: #24551C;
-    font-size: 28px;
-    font-weight: 400;
-    line-height: 28px;
-    word-wrap: break-word;
-    margin-left: 28%;
-    margin-top: 5%;
+.benefit-div {
+    margin: 30px;
+    display: flex;
+    //justify-content: center;
+    align-items: center;
 }
 
 .title-3 {
@@ -222,101 +106,88 @@
     word-wrap: break-word;
 }
 
+.running-man-image {
+    position: absolute;
+    width: 567px;
+    margin-right: 1000px;
+    z-index: -1;
+}
+
+.running-girl-image {
+    position: absolute;
+    width: 567px;
+    transform: scaleX(-1);
+    margin-bottom: 700px;
+    margin-left: 1000px;
+    z-index: -1;
+}
 
 mat-card {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     background: rgba(255, 255, 255, 0.60);
 }
 
+.members-div {
+    width: 100%; 
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+}
+
+.team-member-div {
+    flex: 1 1 45%; 
+    max-width: 45%; 
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 32px;
+    background: rgba(0, 0, 0, 0.308);
+    padding: 10px;
+    width: 100%; 
+    box-sizing: border-box;
+}
 
 .card-content {
     color: white;
     font-size: 16px;
     font-weight: 600;
-    //word-wrap: break-word;
-    //margin-left: 45%;
-    margin-top: -240px;
-    text-align: center;
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 0px;
 }
 
-.casian-card {
-    width: 400px;
-    height: 400px;
+.members-rectangle {
+    margin: 20px auto;
+    width: 50%; 
+    max-height: 1240px;
+    background: rgba(210, 231, 218, 0.6);
     border-radius: 32px;
-    display: flex;
-    //flex-direction: column;
-    margin-top: 5%;
-    margin-left: -155%;
-
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .rectangle-card {
-    //width: 300px;
-    //height: 60px;
-    background: rgba(130.83, 221.83, 167.23, 0.80);
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 60px;
-    border-bottom-left-radius: 12px;
+    background: rgba(130, 221, 167, 0.8);
+    border-radius: 8px 8px 30px 8px;
     color: white;
     font-weight: 700;
+    padding: 10px;
+    margin: 0px;
     text-align: center;
-    margin-left: 15%;
-    margin-right: 15%;
-    //margin-top: 5%;
-    padding: 15px;
-    //border: 3px solid green;
-
 }
 
 .card-image {
+    margin: 10px;
     width: 160px;
     height: 160px;
     border-radius: 100px;
-    margin-top: 110px;
-    margin-left: 120px;
-
-}
-
-.vlad-card {
-    width: 400px;
-    height: 400px;
-    border-radius: 32px;
-    display: flex;
-    //flex-direction: column;
-    margin-top: -61%;
-    margin-left: 0%;
-}
-
-.talida-card {
-    width: 400px;
-    height: 400px;
-    border-radius: 32px;
-    display: flex;
-    //flex-direction: column;
-    margin-top: -60%;
-    margin-left: 155%;
-}
-
-
-.teodora-card {
-    width: 400px;
-    height: 400px;
-    border-radius: 32px;
-    display: flex;
-    //flex-direction: column;
-    margin-top: 25%;
-    margin-left: -75%;
-}
-
-.matei-card {
-    width: 400px;
-    height: 400px;
-    border-radius: 32px;
-    display: flex;
-    //flex-direction: column;
-    margin-top: -60%;
-    margin-left: 75%;
 }
 
 
@@ -351,9 +222,4 @@ mat-card {
 
 .white-box-content {
     text-align: center;
-}
-
-.content {
-    text-align: center;
-    margin-left: -100%;
 }
