@@ -16,6 +16,7 @@ interface UserCredentials {
   weight?: number;
   createdAt?: string;
   lastUpdatedAt?: string;
+  gender?: string;
 }
 
 export interface User {
@@ -27,6 +28,7 @@ export interface User {
   weight: number;
   createdAt: string;
   lastUpdatedAt: string;
+  gender: string;
   email: string;
   role: string;
   jwtToken?: string;

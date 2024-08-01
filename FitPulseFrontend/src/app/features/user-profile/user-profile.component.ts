@@ -14,6 +14,7 @@ export class UserProfileComponent implements OnInit {
   selectedMetric: string = 'Biological metrics';
   selectedPeriod: number = 7;
   user: User | undefined;
+
   userForm: User | undefined;
   weightTrackingData: any[] = [];
   workoutsData: any[] = [];

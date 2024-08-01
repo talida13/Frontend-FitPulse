@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WorkoutService, Workout } from '../../core/services/workout.service';
 import { ExerciseService, Exercise } from '../../core/services/exercise.service';
 import { ActivatedRoute } from '@angular/router';
+import { UsersWorkoutsService } from 'src/app/core/services/users-workouts.service';
 
 @Component({
   selector: 'app-workout-details',
@@ -14,15 +15,17 @@ export class WorkoutDetailsComponent implements OnInit {
   workout: Workout | undefined;
   exercises: Exercise[] = [];
   timer: any;
-  elapsedTime = 0; 
-  displayTime = '00:00:00';
-  showPopup = false; 
-  popupMessage = ''; 
+  elapsedTime = 0; // Time in milliseconds
+  displayTime = '00:00:00'; // Format for display
+  showPopup = false; // Flag to control popup visibility
+  popupMessage = ''; // Message to display in the popup
+  startTime: string | null = null; // Start time of the workout session
 
   constructor(
     private route: ActivatedRoute,
     private workoutService: WorkoutService,
-    private exerciseService: ExerciseService
+    private exerciseService: ExerciseService,
+    private usersWorkoutsService: UsersWorkoutsService, // Injectează serviciul
   ) {}
 
   ngOnInit() {
@@ -87,14 +90,16 @@ export class WorkoutDetailsComponent implements OnInit {
     }, 1000); 
   }
 
-
   stopWorkout() {
     if (this.timer) {
       clearInterval(this.timer);
       this.timer = null;
-      this.popupMessage = `Well done! Your session lasted ${this.displayTime}.`;
-      this.showPopup = true;
+      const endTime = new Date().toISOString(); // Set end time
+      this.popupMessage = `Great job! Your workout duration was ${this.displayTime}`;
+      this.showPopup = true; // Show the popup
+      this.saveWorkoutSession(this.startTime, endTime);
     }
+    this.displayTime = '00:00:00';
   }
 
   updateDisplayTime() {
@@ -112,7 +117,28 @@ export class WorkoutDetailsComponent implements OnInit {
   }
 
   closePopup() {
-    this.showPopup = false; 
+    this.showPopup = false; // Hide the popup
+  }
+
+  saveWorkoutSession(startTime: string | null = null, endTime: string) {
+    if (startTime === null) {
+      startTime = '';
+    }
+    const userEmail = localStorage.getItem('email'); // Obține emailul din localStorage
+    if (userEmail && this.workout) {
+      this.usersWorkoutsService.addUserWorkout(
+        userEmail,
+        this.workout.id,
+        startTime,
+        endTime,
+        new Date().toISOString() // Date of the session
+      ).subscribe(
+        () => console.log('Workout session saved successfully'),
+        (error) => console.error('Error saving workout session:', error)
+      );
+    } else {
+      console.error('User email or workout information is missing');
+    }
   }
   
 }
