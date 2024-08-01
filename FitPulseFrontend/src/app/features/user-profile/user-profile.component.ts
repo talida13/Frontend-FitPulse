@@ -42,11 +42,11 @@ export class UserProfileComponent implements OnInit {
   
     
   //  if(this.weightTrackingData.length > 0)
-      setInterval(() => this.getWeightTrackingData(), 100);
+     // setInterval(() => this.getWeightTrackingData(), 100);
    // if(this.exercisesData.length>0)
-      setInterval(() => this.getExercises(), 100);
+      //setInterval(() => this.getExercises(), 100);
  //   if(this.workoutsData.length>0)
-      setInterval(() => this.getWorkoutsData(), 100);
+      //setInterval(() => this.getWorkoutsData(), 100);
   }
 
   getUserProfile(): void {
@@ -347,13 +347,20 @@ export class UserProfileComponent implements OnInit {
 
   onPeriodChange(period: number): void {
     this.selectedPeriod = period;
+    this.getWeightTrackingData();
+   
+    this.getExercises();
+  
+    this.getWorkoutsData();
     this.renderChart();
-    if(this.getWeightTrackingData.length>0)
-      setInterval(() => this.getWeightTrackingData(), 50);
-    if(this.getExercises.length>0)
-      setInterval(() => this.getExercises(), 50);
-    if(this.getWorkoutsData.length>0)
-      setInterval(() => this.getWorkoutsData(), 50);
+ 
+   
+  }
+  refresh(): void {
+    this.getWeightTrackingData();
+    this.getExercises();
+    this.getWorkoutsData();
+    this.renderChart();
   }
   getLastWeightTrackingId(): void {
     this.weightTrackingService.getAllWeightTrackings().subscribe(

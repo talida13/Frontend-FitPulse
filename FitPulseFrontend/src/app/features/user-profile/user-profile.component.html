@@ -42,7 +42,7 @@
             <div class="selector-div">
               <mat-form-field class="selector">
                 <mat-label>Select statistics</mat-label>
-                <mat-select [(value)]="selectedMetric">
+                <mat-select [(value)]="selectedMetric" (selectionChange)="refresh()">
                   <mat-option *ngFor="let stat of selectedStatistic" [value]="stat">{{ stat }}</mat-option>
                 </mat-select>
               </mat-form-field>
