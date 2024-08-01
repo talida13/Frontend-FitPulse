@@ -32,7 +32,6 @@ export interface User {
   email: string;
   role: string;
   jwtToken?: string;
-  gender: string;
   resetCode: string;
 }
 
