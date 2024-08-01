@@ -1,445 +1,359 @@
-.main-container{
+.main-container {
     margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     font-family: Poppins;
+}
 
-    .about-us-page{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+.about-us-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
+.title {
+    text-align: center;
+    color: #6EF0A2;
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 28px;
+    margin-bottom: 80px;
+}
 
-        .right-rectangle{
+.title-rectangle {
+    text-align: center; 
+    font-size: 25px;
+    font-weight: 700;
+    color: #F5F5F5;
+    text-align: center;
+}
 
-            //width: 125%;
-            //height: 125%;
-            margin-left: 115%;
-            width: 648px;
-            height: 1080px;
-            background: rgba(130.83, 221.83, 167.23, 0.60);
-            border-radius: 32px;
-            margin-top: -99%;
-            
+.description-left-rectangle {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 15px;
+    text-align: left;
+}
 
-        }
+.rectangle {
+    margin: 20px;
+    width: 50%;
+    background: rgba(210, 231, 218, 0.6);
+    border-radius: 32px;
+}
 
-        .left-rectangle{
-            margin-left: -105%;
-            width: 600px;
-            height: 310px;
-            background: rgba(210, 231, 218, 0.6);
-            border-radius: 32px;
-        }
+.challenges-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px;
+    justify-content: space-evenly;
+}
 
+.challenge-box {
+    width: 200px;
+    height: 200px;
+    background: rgba(0, 100, 33, 0.392);
+    border-radius: 20px;
+}
 
-        .running-man-image{
-            //width: 50%;
-            //height: 50%;
-            //top: 540px;
-            width: 492px; 
-            height: 462px;
+.challenge-image {
+    width: 100px;
+    margin-left: 50px;
+    margin-top: 0px;
+}
 
-
-            margin-left:-70%;
-            margin-top: -110%;
-
-
-            
-        }
-
-        .green-line{
-            width: 100%; 
-            height: 50%; 
-            border: 2px #53F393 solid;
-            margin-top: 55px;
-            
-        }
-
-
-    }
-
-
-    .title-1{
-        text-align: center;
-        color: #6EF0A2;
-        font-size: 32px;
-        //size: 500px;
-        font-weight: 600;
-        line-height: 28px;
-        //letter-spacing: 0.25px;
-        //word-wrap: break-word;
-        //margin: 5px;
-        //margin-left: -100%;
-        //font-family: Libre Caslon Text;
-
-
-    }
-
-    .title-2{
-        color:white;
-        font-size: 24px;
-        font-weight: 600;
-        line-height: 28px;
-        letter-spacing: 0.25px;
-        word-wrap: break-word;
-        margin: 5px;
-        margin-left: -95%;
-        //font-family: Libre Caslon Text;
-        //font-family: Libre Caslon Text;
-    }
-
-    .content-rectangle{
-        text-align: center;
-        //color: #191D1A; 
-        font-size: 18px; 
-        //font-family: Lato; 
-        //font-weight: 700; 
-        //line-height: 32px; 
-        //word-wrap: break-word;
-    }
-
-    .power-challenge-box{
-        margin-left: 5%;
-        width: 144px;
-        height: 144px;
-        background: #10824B;
-        border-radius: 20px;
-    }
-    .power-challenge-content{
-        color: #192126; 
-        font-size: 16px;
-        font-size: 16px;
-        font-weight: 600; 
-        line-height: 32px; 
-        word-wrap: break-word;
-    }
-    .power-challenge-image{
-        width: 144px;
-        height: 96px;
-        margin-top: 10%;
-        margin-left: 20%;
-    }
-
-    .endurance-challenge-box{
-        width: 144px; 
-        height: 144px; 
-        background: #192126; 
-        border-radius: 20px;
-        margin-left: 40%;
-        margin-top: -25%;
-    }
-    .endurance-challenge-image{
-        width: 144px;
-        height: 96px;
-        margin-left: 20%;
-    }
-
-    .motivation-challenge-box{
-        width: 144px; 
-        height: 144px; 
-        background: white; 
-        border-radius: 20px;
-        margin-left: 75%;
-        margin-top: -25%;
-    }
-    .motivation-challenge-image{
-        width: 144px;
-        height: 96px;
-        margin-left: 30%;
-    }
-
-    .light-green-rectangle{
-        
-        width: 564px;
-        height: 650px;
-        background: rgba(255, 255, 255, 0.30);
-        border-radius: 48px;
-        margin-left: 6%;
-        margin-top: 15%;
-    }
+.challenge-title{
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 5px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
 
 
-    .light-green-title{
-        //color: #24551C; 
-        //text-align: center;
-        //margin-top: 5%;
+
+.running-man-image {
+    //width: 50%;
+    //height: 50%;
+    //top: 540px;
+    width: 492px;
+    height: 462px;
+     margin-left: -70%;
+    margin-top: -110%;
+}
+
+.green-line {
+    width: 100%;
+    height: 50%;
+    border: 2px #53F393 solid;
+    margin-top: 55px;
+}
+
+.light-green-rectangle {
+
+    width: 564px;
+    height: 650px;
+    background: rgba(255, 255, 255, 0.30);
+    border-radius: 48px;
+    margin-left: 6%;
+    margin-top: 15%;
+}
 
 
-        width: 460px; 
-        height: 48px; 
-        text-align: center; 
-        color: black; 
-        font-size: 32px; 
-        //font-family: Libre Caslon Text; 
-        //font-family: Libre Caslon Text; 
-        font-weight: 400; 
-        line-height: 32px;
-        margin-left: 10%;
-    }
+.light-green-title {
+    //color: #24551C; 
+    //text-align: center;
+    //margin-top: 5%;
+    width: 460px;
+    height: 48px;
+    text-align: center;
+    color: black;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 32px;
+    margin-left: 10%;
+}
 
-    .light-green-content{
-        color: #24551C; 
-        text-align: center;
-        margin-top: 5%;
-        //margin-left: 10%;
-    }
-
-
-    .iconita-1-image{
-        width: 48px;
-        height: 48px;
-        margin-left: 10%;
-        margin-top: 20%;
-        position: absolute;
-
-    }
-
-    .iconita-1-content{
-        width: 352px; 
-        text-align: center; 
-        color: #24551C; 
-        font-size: 28px; 
-        font-weight: 400; 
-        line-height: 28px; 
-        word-wrap: break-word;
-        margin-left: 28%;
-        margin-top: 2%;
-    }
+.light-green-content {
+    color: #24551C;
+    text-align: center;
+    margin-top: 5%;
+    //margin-left: 10%;
+}
 
 
-    .iconita-2-image{
-        width: 224px;
-        height: 224px;
-        margin-left: -5%;
-        margin-top: 25%;
-        position: absolute;
-
-    }
-
-    .iconita-2-content{
-        width: 352px; 
-        text-align: center; 
-        color: #24551C; 
-        font-size: 28px; 
-        font-weight: 400; 
-        line-height: 28px; 
-        word-wrap: break-word;
-        margin-left: 28%;
-        margin-top: 5%;
-    }
-
-
-    .iconita-3-image{
-        width: 48px;
-        height: 48px;
-        margin-left: 10%;
-        margin-top: 65%;
-        position: absolute;
-
-    }
-
-    .iconita-3-content{
-        width: 352px; 
-        text-align: center; 
-        color: #24551C; 
-        font-size: 28px; 
-        font-weight: 400; 
-        line-height: 28px; 
-        word-wrap: break-word;
-        margin-left: 25%;
-        margin-top: 5%;
-    }
-
-    .iconita-4-image{
-        width: 224px;
-        height: 224px;
-        margin-left: -5%;
-        margin-top: 75%;
-        position: absolute;
-
-    }
-
-    .iconita-4-content{
-        width: 352px; 
-        text-align: center; 
-        color: #24551C; 
-        font-size: 28px; 
-        font-weight: 400; 
-        line-height: 28px; 
-        word-wrap: break-word;
-        margin-left: 28%;
-        margin-top: 5%;
-    }
-
-    .title-3{
-        color: white; 
-        font-size: 24px; 
-        //font-family: Poppins; 
-        font-weight: 600; 
-        word-wrap: break-word;
-    }
-
-
-    mat-card{
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        background: rgba(255, 255, 255, 0.60);
-    }
-
-
-    .card-content{
-        color: white; 
-        font-size: 16px; 
-        //font-family: Poppins; 
-        font-weight: 600; 
-        //word-wrap: break-word;
-        //margin-left: 45%;
-        margin-top:-240px;
-        text-align: center;
-    }
-
-    .casian-card{
-            width: 400px;
-            height: 400px;
-            border-radius: 32px;
-            display: flex;
-            //flex-direction: column;
-            margin-top: 5%;
-            margin-left: -155%;
-            
-    }
-
-
-    .rectangle-card{
-        //width: 300px;
-        //height: 60px;
-        background: rgba(130.83, 221.83, 167.23, 0.80);
-        border-top-left-radius: 12px;
-        border-top-right-radius: 12px;
-        border-bottom-right-radius: 60px;
-        border-bottom-left-radius: 12px;
-        color:white;
-        font-weight: 700;
-        text-align: center;
-        margin-left: 15%;
-        margin-right: 15%;
-        //margin-top: 5%;
-        padding: 15px;
-        //border: 3px solid green;
-        
-    }
-
-    .card-image{
-
-        width: 160px; 
-        height: 160px; 
-        border-radius: 100px;
-        margin-top: 110px;
-        margin-left: 120px;
-
-    }
-
-    .vlad-card{
-            width: 400px;
-            height: 400px;
-            border-radius: 32px;
-            display: flex;
-            //flex-direction: column;
-            margin-top: -61%;
-            margin-left: 0%;
-    }
-
-    .talida-card{
-
-            width: 400px;
-            height: 400px;
-            border-radius: 32px;
-            display: flex;
-            //flex-direction: column;
-            margin-top: -60%;
-            margin-left: 155%;
-
-    }
-
-
-    .teodora-card{
-
-        width: 400px;
-        height: 400px;
-        border-radius: 32px;
-        display: flex;
-        //flex-direction: column;
-        margin-top: 25%;
-        margin-left: -75%;
+.iconita-1-image {
+    width: 48px;
+    height: 48px;
+    margin-left: 10%;
+    margin-top: 20%;
+    position: absolute;
 
 }
 
-    .matei-card{
+.iconita-1-content {
+    width: 352px;
+    text-align: center;
+    color: #24551C;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 28px;
+    word-wrap: break-word;
+    margin-left: 28%;
+    margin-top: 2%;
+}
 
-        width: 400px;
-        height: 400px;
-        border-radius: 32px;
-        display: flex;
-        //flex-direction: column;
-        margin-top: -60%;
-        margin-left: 75%;
 
+.iconita-2-image {
+    width: 224px;
+    height: 224px;
+    margin-left: -5%;
+    margin-top: 25%;
+    position: absolute;
+
+}
+
+.iconita-2-content {
+    width: 352px;
+    text-align: center;
+    color: #24551C;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 28px;
+    word-wrap: break-word;
+    margin-left: 28%;
+    margin-top: 5%;
+}
+
+
+.iconita-3-image {
+    width: 48px;
+    height: 48px;
+    margin-left: 10%;
+    margin-top: 65%;
+    position: absolute;
+
+}
+
+.iconita-3-content {
+    width: 352px;
+    text-align: center;
+    color: #24551C;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 28px;
+    word-wrap: break-word;
+    margin-left: 25%;
+    margin-top: 5%;
+}
+
+.iconita-4-image {
+    width: 224px;
+    height: 224px;
+    margin-left: -5%;
+    margin-top: 75%;
+    position: absolute;
+
+}
+
+.iconita-4-content {
+    width: 352px;
+    text-align: center;
+    color: #24551C;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 28px;
+    word-wrap: break-word;
+    margin-left: 28%;
+    margin-top: 5%;
+}
+
+.title-3 {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+
+mat-card {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.60);
+}
+
+
+.card-content {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    //word-wrap: break-word;
+    //margin-left: 45%;
+    margin-top: -240px;
+    text-align: center;
+}
+
+.casian-card {
+    width: 400px;
+    height: 400px;
+    border-radius: 32px;
+    display: flex;
+    //flex-direction: column;
+    margin-top: 5%;
+    margin-left: -155%;
+
+}
+
+.rectangle-card {
+    //width: 300px;
+    //height: 60px;
+    background: rgba(130.83, 221.83, 167.23, 0.80);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 60px;
+    border-bottom-left-radius: 12px;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+    //margin-top: 5%;
+    padding: 15px;
+    //border: 3px solid green;
+
+}
+
+.card-image {
+    width: 160px;
+    height: 160px;
+    border-radius: 100px;
+    margin-top: 110px;
+    margin-left: 120px;
+
+}
+
+.vlad-card {
+    width: 400px;
+    height: 400px;
+    border-radius: 32px;
+    display: flex;
+    //flex-direction: column;
+    margin-top: -61%;
+    margin-left: 0%;
+}
+
+.talida-card {
+    width: 400px;
+    height: 400px;
+    border-radius: 32px;
+    display: flex;
+    //flex-direction: column;
+    margin-top: -60%;
+    margin-left: 155%;
+}
+
+
+.teodora-card {
+    width: 400px;
+    height: 400px;
+    border-radius: 32px;
+    display: flex;
+    //flex-direction: column;
+    margin-top: 25%;
+    margin-left: -75%;
+}
+
+.matei-card {
+    width: 400px;
+    height: 400px;
+    border-radius: 32px;
+    display: flex;
+    //flex-direction: column;
+    margin-top: -60%;
+    margin-left: 75%;
 }
 
 
 .white-box {
-    
     display: flex;
     justify-content: center;
     justify-content: space-between;
-    
-    
-  }
+}
 
-  .white-box > div {
+.white-box>div {
     //border: 20px solid #ccc;
     align-items: center;
     justify-content: space-between;
-    width: 180px; 
-    height: 180px; 
-    background: #EAFFF3; 
+    width: 180px;
+    height: 180px;
+    background: #EAFFF3;
     border-radius: 30px;
     font-size: 12px;
     margin: 10px;
     text-align: center;
-    color:black;
-    font-size: 16px; 
+    color: black;
+    font-size: 16px;
     //font-family: Poppins; 
-    font-weight: 600; 
+    font-weight: 600;
     word-wrap: break-word;
     padding: 10px;
-    
-    
-  }
-
-
-
-  .white-box-title{
-    
-    text-align: center;
-  }
-
-  
-
-  .white-box-content{
-    
-    
-    text-align: center;
-  }
-
-  .content{
-        
-    text-align: center;
-    margin-left: -100%;
 }
 
+.white-box-title {
+    text-align: center;
+}
 
+.white-box-content {
+    text-align: center;
+}
+
+.content {
+    text-align: center;
+    margin-left: -100%;
 }
