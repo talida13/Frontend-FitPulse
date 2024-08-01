@@ -83,20 +83,21 @@ export class WorkoutDetailsComponent implements OnInit {
   }
 
   startWorkout() {
-    this.elapsedTime = 0; 
+    this.elapsedTime = 0;
+    this.startTime = new Date().toISOString(); 
     this.timer = setInterval(() => {
-      this.elapsedTime += 1; 
+      this.elapsedTime += 1;
       this.updateDisplayTime();
-    }, 1000); 
+    }, 1000);
   }
 
   stopWorkout() {
     if (this.timer) {
       clearInterval(this.timer);
       this.timer = null;
-      const endTime = new Date().toISOString(); // Set end time
+      const endTime = new Date().toISOString(); 
       this.popupMessage = `Great job! Your workout duration was ${this.displayTime}`;
-      this.showPopup = true; // Show the popup
+      this.showPopup = true;
       this.saveWorkoutSession(this.startTime, endTime);
     }
     this.displayTime = '00:00:00';
@@ -126,19 +127,35 @@ export class WorkoutDetailsComponent implements OnInit {
     }
     const userEmail = localStorage.getItem('email'); // Obține emailul din localStorage
     if (userEmail && this.workout) {
+      const workoutSession = {
+        user_email: userEmail,
+        workout_id: this.workout.id,
+        start_time: startTime,
+        end_time: endTime,
+        date: new Date().toISOString() // Date of the session
+      };
+  
+      console.log('Sending workout session data:', workoutSession);
+  
       this.usersWorkoutsService.addUserWorkout(
         userEmail,
         this.workout.id,
         startTime,
         endTime,
-        new Date().toISOString() // Date of the session
+        new Date().toISOString()
       ).subscribe(
         () => console.log('Workout session saved successfully'),
-        (error) => console.error('Error saving workout session:', error)
+        (error) => {
+          console.error('Error saving workout session:', error);
+          if (error.error && error.error.errors) {
+            console.error('Validation errors:', error.error.errors);
+          }
+        }
       );
     } else {
       console.error('User email or workout information is missing');
     }
   }
+  
   
 }

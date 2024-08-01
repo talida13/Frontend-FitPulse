@@ -277,3 +277,36 @@ mat-select {
     align-items: flex-end;
 }
 
+
+::ng-deep .mat-mdc-select 
+  {background-color: white;}
+  
+
+::ng-deep .mat-mdc-form-field .mdc-text-field--filled:not(.mdc-text-field--disabled).mat-mdc-text-field-wrapper{
+    background-color: transparent; 
+}
+::ng-deep .mat-select{
+    background-color: white;
+}
+::ng-deep .mat-mdc-select{
+    background-color: white;
+}
+
+mat-select{
+    background-color: white !important;
+    border-radius: 3px;
+}
+
+::ng-deep .mat-mdc-select-value {
+    text-align: center;
+}
+
+::ng-deep .mat-mdc-select-flex {
+    border-radius: 20px;
+}
+
+
+::ng-deep .mat-mdc-form-field:not(.mat-form-field-disabled) .mat-mdc-floating-label.mdc-floating-label {
+    margin-top: 3px;
+    margin-left: 2px;
+}
