@@ -11,6 +11,7 @@ import { SharedModule } from '../shared/shared.module';
 import { LayoutModule } from '../layout/layout.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { WorkoutDetailsComponent } from './workout-details/workout-details.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 ///import { SharedModule } from './shared/shared.module';
 
 
@@ -24,7 +25,8 @@ import { WorkoutDetailsComponent } from './workout-details/workout-details.compo
     AdminComponent,
     ContactUsComponent,
     UserProfileComponent,
-    WorkoutDetailsComponent
+    WorkoutDetailsComponent,
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,

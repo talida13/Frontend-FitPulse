@@ -14,13 +14,16 @@ interface EmailModel{
 })
 
 export class EmailService {
-  private apiUrl = `${environment.apiBaseUrl}/Email/SendEmail/send-email`;
+  private apiUrl = `${environment.apiBaseUrl}/Email`;
 
 
   constructor(private http: HttpClient) { }
 
   sendEmail(data: EmailModel): Observable<JSON> {
-    return this.http.post<JSON>(this.apiUrl, data);
+    return this.http.post<JSON>(`${this.apiUrl}/SendEmail/send-email`, data);
   }
 
+  sendResetEmail(data: EmailModel): Observable<JSON>{
+    return this.http.post<JSON>(`${this.apiUrl}/SendResetEmail`, data);
+  }
 }
