@@ -90,6 +90,10 @@ export class LoginService {
   updateUser(CompleteUser: CompleteUser): Observable<void> {
     return this.http.put<void>(`${this.apiUrl}/UpdateUser`, CompleteUser);
   }
+  
+  updateUserStats(User: User): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/UpdateUser`, User);
+  }
 }
 
 
