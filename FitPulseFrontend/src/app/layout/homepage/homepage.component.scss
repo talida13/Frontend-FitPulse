@@ -27,17 +27,14 @@
   
  // position: relative;
   background-color: rgba(131, 222, 167, 0.6);
-  height: 680px;
+  height: 600px;
   position: absolute;
   right:0;
-  top:-80px;
+  //top:-80px;
   z-index:-2;
+  border-radius: 30px 0px 0px 30px;
 //  z-index: -10;
 }
-
-
-
-
 
 .homepage {
   text-align: left;
@@ -219,6 +216,9 @@ margin-top: 40px;
 .motto {
   text-align: left;
 }
+
+// carousel cu 4 informatii - bun - mai jos
+
 .features-div {
   width: 100%;
   display: flex;
@@ -226,15 +226,17 @@ margin-top: 40px;
 }
 
 .features-card {
-  width: 50%;
+  height: 380px;
+  width: 80%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
   background-color: rgba(131, 222, 167, 0.4);
 }
+
 .slideshow-container {
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 350px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -243,12 +245,13 @@ margin-top: 40px;
 
 .card-container {
   display: flex;
-  transition: transform 1s ease-in-out;
-  width: calc(100% * 5); 
+  //animation: slide 20s linear infinite;
+  width: calc(100% * 4);
+  //width: fit-content;
 }
 
 .card {
-  width: 25%;
+  width: 25%; 
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -257,11 +260,61 @@ margin-top: 40px;
   text-align: center;
   padding: 20px;
   box-sizing: border-box;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.1);
 }
 
-.card .icon {
-  font-size: 50px;
-  margin-bottom: 20px;
+.card .feature-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.1); 
+}
+
+.feature-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px; 
+  background-color: rgba(0, 0, 0, 0.1); 
+}
+
+.features-title {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.feature-card p {
+  margin: 15px;
+  text-align: left;
+}
+
+.feature-card h3 {
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+// @keyframes slide {
+//   0% {
+//     left: translateX(0);
+//   }
+//   100% {
+//     transform: translateX(-100%);
+//   }
+// }
+
+.card:hover {
+  transform: scale(1.05);
+  z-index: 1; 
+}
+
+.feature-card:hover {
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
 }
