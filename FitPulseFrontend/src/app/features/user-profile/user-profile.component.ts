@@ -36,9 +36,12 @@ export class UserProfileComponent implements OnInit {
     this.getWeightTrackingData();
     this.getExercises();
     this.getWorkoutsData();
-    setInterval(() => this.getWeightTrackingData(), 50);
-    setInterval(() => this.getExercises(), 50);
-    setInterval(() => this.getWorkoutsData(), 50);
+    if(this.getWeightTrackingData.length>0)
+      setInterval(() => this.getWeightTrackingData(), 50);
+    if(this.getExercises.length>0)
+      setInterval(() => this.getExercises(), 50);
+    if(this.getWorkoutsData.length>0)
+      setInterval(() => this.getWorkoutsData(), 50);
   }
 
   getUserProfile(): void {
