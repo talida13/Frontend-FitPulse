@@ -3,7 +3,8 @@
     <mat-card class="profile-card">
       <div class="user-picture">
         <div class="user-name" *ngIf="user">
-        <img class="profile-icon" alt="workout photo" [src]="'assets/profile-pictures/' + user.gender">
+        <img class="profile-icon" alt="workout photo" [src]="'assets/profile-pictures/' + user.gender +'.jpg'">
+       
         </div>
       </div>
       <div class="user-name" *ngIf="user">
