@@ -9,26 +9,24 @@ import { Router } from '@angular/router';
 export class HomepageComponent implements OnInit, OnDestroy {
   features = [
     {
-      icon: '💰',
-      title: 'Pricing',
+      title: '💰 Pricing ',
       description: 'Enjoy all the features of FitPulse without any cost. Get started on your fitness journey with free access to workout plans, tracking tools, and more.'
     },
     {
-      icon: '🏋️‍♂️',
-      title: 'Workout plans',
+      title: '🏋️‍♂️ Workout plans',
       description: 'From beginners to advanced levels, we have plans for everyone designed by expert trainers to help you achieve your fitness targets.'
     },
     {
-      icon: '📊',
-      title: 'Statistics',
+      title: '📊 Statistics',
       description: 'Monitor your fitness journey with comprehensive statistics. Track your workouts, calories burned, and progress over time with detailed graphs.'
     },
     {
-      icon: '📈',
-      title: 'Progress tracking',
+      title: '📈 Progress tracking',
       description: 'Keep an eye on your fitness progress in real-time. Log your workouts, track your performance, and stay motivated with instant feedback on your achievements.'
     }
   ];
+  
+  
 
   currentFeatureIndex = 0;
   private intervalId: any;
