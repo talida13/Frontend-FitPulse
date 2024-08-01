@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 import {catchError, tap } from 'rxjs/operators';
 
-interface UserCredentials {
+export interface UserCredentials {
   email: string;
   password: string;
   username?: string;
@@ -30,6 +30,12 @@ export interface User {
   email: string;
   role: string;
   jwtToken?: string;
+  gender: string;
+  resetCode: string;
+}
+
+export interface CompleteUser{ //toate campurile pentru Update user
+
 }
 
 @Injectable({
@@ -59,15 +65,20 @@ export class LoginService {
       })
     );
   }
-
   register(credentials: UserCredentials): Observable<boolean> {
     return this.http.post<boolean>(`${this.apiUrl}/RegisterUser`, credentials);
   }
+  
   getUser(email: string): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/GetUser`, { params:{ email: email.toString() } });
   }
+  
   updateUser(user: User): Observable<void> {
     return this.http.put<void>(`${this.apiUrl}/UpdateUser`, user);
+  }
+
+  updateUserCredentials(userCredentials : UserCredentials): Observable<void>{
+    return this.http.put<void>(`${this.apiUrl}/UpdateUser`, userCredentials);
   }
 }
 
