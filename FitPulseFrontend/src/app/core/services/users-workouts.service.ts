@@ -12,6 +12,20 @@ export class UsersWorkoutsService {
 
   constructor(private http: HttpClient) { }
 
+  addUserWorkout(userEmail: string, workoutId: number, startTime: string, endTime: string, date: string): Observable<any> {
+    const body = {
+      user_email: userEmail,
+      workout_id: workoutId,
+      start_time: startTime,
+      end_time: endTime,
+      date: date
+    };
+    return this.http.post(`${this.apiUrl}/AddUserWorkout`, body)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+  
   getUserWorkouts(userEmail: string): Observable<any[]> {
     const params = new HttpParams().set('userEmail', userEmail);
     return this.http.get<any[]>(`${this.apiUrl}/GetUserWorkoutsAll`, { params })

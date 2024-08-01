@@ -2,7 +2,10 @@
   <div class="user-container">
     <mat-card class="profile-card">
       <div class="user-picture">
-        <img class="profile-icon" alt="" src="assets/default-profile-picture-male.jpg">
+        <div class="user-name" *ngIf="user">
+        <img class="profile-icon" alt="workout photo" [src]="'assets/profile-pictures/' + user.gender +'.jpg'">
+       
+        </div>
       </div>
       <div class="user-name" *ngIf="user">
         <p class="profile-name">{{ user.firstName }} {{ user.lastName }}</p>
@@ -33,6 +36,7 @@
   <div class="statistics-container">
     <mat-card class="statistics-card">
       <mat-tab-group>
+        
         <mat-tab label="Statistics">
           <div class="statistics-selector-container">
             <div class="selector-div">
@@ -43,7 +47,7 @@
                 </mat-select>
               </mat-form-field>
             </div>
-            <div *ngIf="selectedMetric !== 'Most common workouts'" class="selector-div">
+            <div *ngIf="selectedMetric !== 'Most common workouts' && selectedMetric !== 'Most common exercises' && selectedMetric !== 'Workout duration'" class="selector-div">
               <mat-form-field class="selector">
                 <mat-label>Select period</mat-label>
                 <mat-select [(value)]="selectedPeriod" (selectionChange)="onPeriodChange($event.value)">
@@ -51,6 +55,17 @@
                   <mat-option [value]="30">Last 30 days</mat-option>
                   <mat-option [value]="60">Last 60 days</mat-option>
                   <mat-option [value]="90">Last 90 days</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div *ngIf=" selectedMetric== 'Workout duration'">
+              <mat-form-field class="selector">
+                <mat-label>Select period</mat-label>
+                <mat-select [(value)]="selectedPeriod" (selectionChange)="onPeriodChange($event.value)">
+                  <mat-option [value]="7">Per day</mat-option>
+                  <mat-option [value]="30">Per week</mat-option>
+                  <mat-option [value]="60">Per month</mat-option>
+                  <mat-option [value]="90">Per year</mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
@@ -80,7 +95,7 @@
             </div>
           </div>
           <ng-template #noData>
-        
+            
           </ng-template>
 
           <div *ngIf="selectedMetric === 'Most common exercises' && commonExercisesData.length > 0; else noData">
@@ -92,7 +107,34 @@
          
           </ng-template>
           
+      
+          <div *ngIf="selectedMetric === 'Workout duration' && workoutsData.length > 0">
+            <div class="chart-container">
+              <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>
+            </div>
+          </div>
+          <ng-template #noData>
+        
+          </ng-template>
+          
         </mat-tab>
+        <ng-template #noDataStatistics>
+            
+        </ng-template>
+        <mat-tab label="Log weight">
+          <div class="log-weight-form">
+            <mat-card class="log-weight-card">
+              <form (ngSubmit)="logWeight()">
+                <mat-form-field class="input" appearance="fill">
+                  <mat-label>Weight</mat-label>
+                  <input matInput type="number" [(ngModel)]="newWeight" name="weight" required>
+                </mat-form-field>
+                <button class="submit-log-weight" color="primary" type="submit">Log Weight</button>
+              </form>
+            </mat-card>
+          </div>
+        </mat-tab>
+
         <mat-tab label="Edit profile">
           <div class="edit-profile-form">
             <mat-card class="edit-profile-card">

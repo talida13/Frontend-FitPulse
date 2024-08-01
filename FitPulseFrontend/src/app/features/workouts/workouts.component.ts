@@ -35,7 +35,7 @@ export class WorkoutsComponent implements OnInit {
   fetchWorkouts() {
     this.workoutService.getWorkouts().subscribe((data: Workout[]) => {
       this.workouts = data;
-      this.authors = [...new Set(data.map(workout => workout.author))]; // Extract unique authors
+      this.authors = [...new Set(data.map(workout => workout.author))]; 
       this.applyFilters();
     });
   }
@@ -66,11 +66,11 @@ export class WorkoutsComponent implements OnInit {
   onMainCategoryChange() {
     this.selectedSubCategory = 'all';
     if (this.selectedMainCategory === 'time-based') {
-      this.subCategories = ['Short', 'Medium', 'Long']; // Example intervals
+      this.subCategories = ['Short', 'Medium', 'Long']; 
     } else if (this.selectedMainCategory === 'scope-based') {
-      this.subCategories = ['Strength', 'Endurance', 'Flexibility']; // Example scopes
+      this.subCategories = ['Strength', 'Endurance', 'Flexibility'];
     } else if (this.selectedMainCategory === 'muscle-based') {
-      this.subCategories = ['Upper Body', 'Lower Body', 'Full Body']; // Example muscle groups
+      this.subCategories = ['Upper Body', 'Lower Body', 'Full Body']; 
     } else {
       this.subCategories = [];
     }

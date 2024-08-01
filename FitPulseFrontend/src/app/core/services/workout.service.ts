@@ -11,7 +11,7 @@ export interface Workout {
   published_Date: Date;
   category: string;
   difficulty: string;
-  timeInterval?: string; // Proprietăți opționale
+  timeInterval?: string; 
   scope?: string;
   muscleGroup?: string;
 }
@@ -43,9 +43,9 @@ export class WorkoutService {
    /* deleteWorkout(id: number): Observable<void> {
       return this.http.delete<void>(`${this.apiUrl}/${id}`);
     }*/
-      deleteWorkout(id: number): Observable<void> {
-        console.log(`Attempting to delete workout with ID: ${id}`); // Log ID-ul workout-ului
-        return this.http.delete<void>(`${this.apiUrl}/DeleteWorkout`, { params: { id: id.toString() } });
+      deleteWorkout(name: string): Observable<void> {
+        console.log(`Attempting to delete workout with ID: ${name}`); 
+        return this.http.delete<void>(`${this.apiUrl}/DeleteWorkout`, { params: { name: name } });
       }
   
   updateWorkout(workout: Workout): Observable<boolean> {

@@ -16,10 +16,17 @@ export class WeightTrackingService {
     const params = new HttpParams().set('userEmail', userEmail);
     return this.http.get<any>(`${this.apiUrl}/GetWeightTracking`, { params })
       .pipe(
-        tap(data => console.log('Fetched weight tracking:', data)),
+       // tap(data => console.log('Fetched weight tracking:', data)),
         catchError(this.handleError)
       );
   }
+  getAllWeightTrackings(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/GetAllWeightTracking`)
+      .pipe(
+        tap(data => console.log('Fetched all weight tracking:', data)),
+        catchError(this.handleError)
+      );
+    }
 
   addWeightTracking(weightTracking: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/AddWeightTracking`, weightTracking)
