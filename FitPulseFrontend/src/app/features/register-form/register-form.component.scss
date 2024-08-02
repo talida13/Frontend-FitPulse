@@ -89,7 +89,8 @@ button{
 }
 
 .mat-error{
-  color: rgb(228, 94, 94);
+  color: rgb(255 0 0);
+  text-shadow: 1px 1px 10px #F5F5F5;
 }
 
 ::ng-deep .mat-step-header .mat-step-icon-selected {
