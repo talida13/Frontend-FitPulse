@@ -413,6 +413,7 @@ export class UserProfileComponent implements OnInit {
   
       this.loginService.editProfile(this.editCredentials).subscribe(
         () => {
+          window.location.reload();
           console.log('User profile updated successfully');
         },
         error => {
@@ -438,7 +439,7 @@ export class UserProfileComponent implements OnInit {
         this.loginService.editProfile(this.editCredentials).subscribe(
           next =>{
             this.getUserProfile();
-            console.log('Pasword updated');
+            console.log('Profile updated');
             this.cdr.detectChanges();
           },
           error =>{

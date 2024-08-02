@@ -82,10 +82,10 @@
           <mat-label>Confirm password</mat-label>
           <mat-form-field class="full-width">
             <input  id="confirmPasswordId" matInput type="password" formControlName="confirmPassword" placeholder="Confirm created password">
-            <mat-error class="mat-error" *ngIf="secondFormGroup.get('password')?.value != secondFormGroup.get('confirmPassword')?.value" style="margin-top: -13%">
-              Passwords do not match!
-            </mat-error>
           </mat-form-field>
+          <p class="mat-error" *ngIf="secondFormGroup.get('password')?.value != secondFormGroup.get('confirmPassword')?.value" style="margin-top: -13%">
+            Passwords do not match!
+          </p>
           <button mat-raised-button color="primary" class="Login" (click)="stepper.previous()">Back</button>
           <button id="registerId" mat-raised-button color="primary" class="Login" type="submit">Register</button>
         </div>
