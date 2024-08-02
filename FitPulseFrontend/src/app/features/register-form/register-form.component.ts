@@ -53,6 +53,7 @@ export class RegisterFormComponent implements OnInit {
         age: this.firstFormGroup.value.age,
         height: this.firstFormGroup.value.height,
         weight: this.firstFormGroup.value.weight,
+        gender: this.firstFormGroup.value.gender
       };
 
       this.loginService.register(formData).subscribe(

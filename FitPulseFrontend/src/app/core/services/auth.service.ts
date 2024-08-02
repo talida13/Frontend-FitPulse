@@ -34,6 +34,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem('jwt');
     localStorage.removeItem('role');
+    localStorage.removeItem('email');
     this.loggedIn.next(false);
     this.isAdmin.next(false);
   }

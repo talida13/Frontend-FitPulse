@@ -356,6 +356,7 @@ export class UserProfileComponent implements OnInit {
  
    
   }
+  
   refresh(): void {
     this.getWeightTrackingData();
     this.getExercises();
@@ -373,7 +374,9 @@ export class UserProfileComponent implements OnInit {
         console.error('Error fetching weight tracking data', error);
       }
     );
-  }addNewWeightTracking(newId: number): void {
+  }
+  
+  addNewWeightTracking(newId: number): void {
     if (this.newWeight) {
       const email = localStorage.getItem('email') ?? '';
       const newWeightEntry = {
@@ -382,7 +385,8 @@ export class UserProfileComponent implements OnInit {
         weight: this.newWeight,
         date_weight: new Date().toISOString()
       };
-  
+      console.log(newWeightEntry.weight);
+
       this.weightTrackingService.addWeightTracking(newWeightEntry).subscribe(
         response => {
           console.log('Weight logged successfully', response);
@@ -399,8 +403,11 @@ export class UserProfileComponent implements OnInit {
       );
     }
   }
+  
   updateUserProfileWithNewWeight(): void {
     if (this.userForm && this.newWeight !== undefined) {
+
+      this.editCredentials = {...this.userForm};
 
       this.editCredentials.weight = this.newWeight
       this.loginService.editProfile(this.editCredentials).subscribe(
@@ -428,6 +435,7 @@ export class UserProfileComponent implements OnInit {
         this.loginService.editProfile(this.editCredentials).subscribe(
           next =>{
             console.log('Pasword updated');
+            window.location.reload();
           },
           error =>{
             console.log('Pasword updated error');
