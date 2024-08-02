@@ -105,11 +105,18 @@
     align-items: center;
 }
 
+.running-man-div {
+    background-color: red;
+    margin: 50px;
+}
+
+.running-girl-div {
+    background-color: blue;
+    margin: 50px;
+}
 .running-man-image {
     position: absolute;
     width: 567px;
-    margin-right: 950px;
-    margin-bottom: 1200px;
     z-index: -1;
 }
 
@@ -117,8 +124,6 @@
     position: absolute;
     width: 567px;
     transform: scaleX(-1);
-    margin-bottom: 2100px;
-    margin-left: 950px;
     z-index: -1;
 }
 
