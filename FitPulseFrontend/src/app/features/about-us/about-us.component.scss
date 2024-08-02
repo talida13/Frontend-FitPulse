@@ -61,6 +61,12 @@
     height: 200px;
     background: rgba(0, 100, 33, 0.392);
     border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.challenge-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px rgb(255, 255, 255);
 }
 
 .challenge-image {
@@ -87,29 +93,23 @@
 .benefits-content {
     text-align: left;
     color: #24551C;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 500;
     margin: 20px;
 }
 
 .benefit-div {
-    margin: 30px;
+    margin-left: 15px;
     display: flex;
     //justify-content: center;
     align-items: center;
 }
 
-.title-3 {
-    color: white;
-    font-size: 24px;
-    font-weight: 600;
-    word-wrap: break-word;
-}
-
 .running-man-image {
     position: absolute;
     width: 567px;
-    margin-right: 1000px;
+    margin-right: 950px;
+    margin-bottom: 1200px;
     z-index: -1;
 }
 
@@ -117,8 +117,8 @@
     position: absolute;
     width: 567px;
     transform: scaleX(-1);
-    margin-bottom: 700px;
-    margin-left: 1000px;
+    margin-bottom: 2100px;
+    margin-left: 950px;
     z-index: -1;
 }
 
@@ -150,6 +150,14 @@ mat-card {
     padding: 10px;
     width: 100%; 
     box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.team-member:hover {
+    transform: scale(0.90) rotate(3deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.492);
 }
 
 .card-content {
@@ -190,36 +198,41 @@ mat-card {
     border-radius: 100px;
 }
 
-
-.white-box {
+.values-card {
     display: flex;
-    justify-content: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.white-box>div {
-    //border: 20px solid #ccc;
-    align-items: center;
-    justify-content: space-between;
-    width: 180px;
-    height: 180px;
-    background: #EAFFF3;
-    border-radius: 30px;
-    font-size: 12px;
-    margin: 10px;
+.values-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px rgb(255, 230, 0);
+}
+
+.values-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.values-title {
+    color: rgb(0, 54, 12);
+    font-size: 20px;
+    font-weight: 800;
     text-align: center;
-    color: black;
+    margin-top: 10px;
+}
+
+.values-description {
+    color: rgb(0, 80, 1);
     font-size: 16px;
-    //font-family: Poppins; 
-    font-weight: 600;
-    word-wrap: break-word;
-    padding: 10px;
-}
-
-.white-box-title {
-    text-align: center;
-}
-
-.white-box-content {
-    text-align: center;
+    font-weight: 400;
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
 }
