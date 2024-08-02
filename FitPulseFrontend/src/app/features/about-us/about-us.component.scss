@@ -105,27 +105,41 @@
     align-items: center;
 }
 
+.running-images-div {
+    position: relative; 
+    height: 100vh; 
+    overflow: hidden; 
+}
+
 .running-man-div {
-    background-color: red;
+    //background-color: red;
     margin: 50px;
+    position: absolute; 
+    left: 0;
+    top: 50%; 
+    transform: translateY(-50%); 
 }
 
 .running-girl-div {
-    background-color: blue;
+    //background-color: blue;
     margin: 50px;
+    position: absolute; 
+    right: 0; 
+    top: 15%; 
+    transform: translateY(-50%); 
 }
+
 .running-man-image {
-    position: absolute;
     width: 567px;
-    z-index: -1;
+    //z-index: -1; 
 }
 
 .running-girl-image {
-    position: absolute;
     width: 567px;
     transform: scaleX(-1);
-    z-index: -1;
+    //z-index: -1; 
 }
+
 
 mat-card {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
