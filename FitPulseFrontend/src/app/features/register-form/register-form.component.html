@@ -64,9 +64,6 @@
           <mat-label>E-mail</mat-label>
           <mat-form-field class="full-width">
             <input  id="emailId" matInput formControlName="email" placeholder="Enter your e-mail address">
-            <mat-error class="mat-error">
-              E-mail required!
-            </mat-error>
           </mat-form-field>
           <p class="mat-error" *ngIf="emailTaken" style="margin-top: -13%">
             Email already taken!
@@ -74,9 +71,6 @@
           <mat-label>Username</mat-label>
           <mat-form-field class="full-width">
             <input id="usernameId" matInput formControlName="username" placeholder="Choose your username">
-            <mat-error class="mat-error">
-              Username is required!
-            </mat-error>
           </mat-form-field>
           <p class="mat-error" *ngIf="usernameTaken" style="margin-top: -13%">
             Username already taken!
@@ -85,13 +79,12 @@
           <mat-form-field class="full-width">
             <input id="passwordId" matInput type="password" formControlName="password" placeholder="Create a password">
           </mat-form-field>
-          <p class="mat-error" *ngIf="secondFormGroup.get('password')?.value != secondFormGroup.get('confirmPassword')?.value" style="margin-top: -13%">
-            Passwords do not match!
-          </p>
           <mat-label>Confirm password</mat-label>
           <mat-form-field class="full-width">
-          
             <input  id="confirmPasswordId" matInput type="password" formControlName="confirmPassword" placeholder="Confirm created password">
+            <mat-error class="mat-error" *ngIf="secondFormGroup.get('password')?.value != secondFormGroup.get('confirmPassword')?.value" style="margin-top: -13%">
+              Passwords do not match!
+            </mat-error>
           </mat-form-field>
           <button mat-raised-button color="primary" class="Login" (click)="stepper.previous()">Back</button>
           <button id="registerId" mat-raised-button color="primary" class="Login" type="submit">Register</button>

@@ -356,6 +356,7 @@ export class UserProfileComponent implements OnInit {
  
    
   }
+  
   refresh(): void {
     this.getWeightTrackingData();
     this.getExercises();
@@ -384,7 +385,8 @@ export class UserProfileComponent implements OnInit {
         weight: this.newWeight,
         date_weight: new Date().toISOString()
       };
-  
+      console.log(newWeightEntry.weight);
+
       this.weightTrackingService.addWeightTracking(newWeightEntry).subscribe(
         response => {
           console.log('Weight logged successfully', response);
@@ -404,6 +406,7 @@ export class UserProfileComponent implements OnInit {
       );
     }
   }
+  
   updateUserProfileWithNewWeight(): void {
     if (this.userForm && this.newWeight !== undefined) {
       this.editCredentials = { ...this.userForm, weight: this.newWeight };
