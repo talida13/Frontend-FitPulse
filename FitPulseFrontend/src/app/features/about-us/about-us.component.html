@@ -1,16 +1,21 @@
 <div class = "main-container">
   <div class = "about-us-page">
     <p class="title">Know More About Us</p>
-    
+
+    <img class = "running-man-image" src = "/assets/running-yellow-man.png"/>
+    <img class = "running-girl-image" src = "/assets/girl-running.png"/>
+
     <mat-card class = "rectangle">
       <p class = "title-rectangle">About FitPulse</p>
-      <p class ="description-left-rectangle">FitPulse is a comprehensive platform that allows individuals to keep track of their health and fitness activities. Through our application, users can log their workouts and health metrics, monitoring their progress over time.
+      <p class ="description-rectangle">FitPulse is a comprehensive platform that allows individuals to keep track of their health and fitness activities. Through our application, users can log their workouts and health metrics, monitoring their progress over time.
     </mat-card>
 
     <mat-card class = "rectangle">
       <p class = "title-rectangle">Our Story</p>
-      <p class ="description-left-rectangle">FitPulse was founded in 2024 by a group of fitness enthusiasts with a passion for technology and health. Our mission is to make fitness accessible and enjoyable for everyone. With FitPulse, we aim to create a supportive community where individuals can achieve their fitness goals together.</p>
+      <p class ="description-rectangle">FitPulse was founded in 2024 by a group of fitness enthusiasts with a passion for technology and health. Our mission is to make fitness accessible and enjoyable for everyone. With FitPulse, we aim to create a supportive community where individuals can achieve their fitness goals together.</p>
     </mat-card>
+
+    
 
     <mat-card class = "rectangle">
       <p class = "title-rectangle">Challenges</p>
@@ -33,70 +38,77 @@
     <mat-card class = "rectangle">        
       <p class = "title-rectangle">Benefits of FitPulse</p>
 
-      <img class = "iconita-1-image" src = "/assets/iconita_1.svg"/>
-      <img class = "iconita-2-image" src = "/assets/iconita_2.svg"/>
-      <img class = "iconita-3-image" src = "/assets/iconita_3.svg"/>
-      <img class = "iconita-4-image" src = "/assets/iconita_4.svg"/>
-
-      <p class = "iconita-1-content">Track your fitness progress.</p>
-      <p class = "iconita-2-content">Log and analyze your workouts.</p>
-      <p class = "iconita-3-content">Receive personalized suggestions to improve performance.</p>
-      <p class = "iconita-4-content">Access detailed statistics for better insight into your progress.</p>
-
+      <div class="benefits-div">
+        <div class="benefit-div">
+          <img class = "benefits-icon" src = "/assets/benefits-icons/tracking.png"/>
+          <p class = "benefits-content">Track your fitness progress.</p>
+        </div>
+        <div class="benefit-div">
+          <img class = "benefits-icon" src = "/assets/benefits-icons/workouts.png"/>
+          <p class = "benefits-content">Log and analyze your workouts.</p>
+        </div>
+        <div class="benefit-div">
+          <img class = "benefits-icon" src = "/assets/benefits-icons/suggestions.png"/>
+          <p class = "benefits-content">Receive personalized suggestions to improve performance.</p>
+        </div>
+        <div class="benefit-div">
+          <img class = "benefits-icon" src = "/assets/benefits-icons/statistics.png"/>
+          <p class = "benefits-content">Access detailed statistics for better insight into your progress.</p>
+        </div>
+      </div>
     </mat-card>
-      
-      <!-- <p><img class = "running-man-image" src = "/assets/running-yellow-man.png"/></p>
-      <p class = "green-line"></p>  
-      
-      
-      <p class = "title-3"> <br><br> Meet our team </p>
+    
+    <mat-card class="members-rectangle">
+      <p class = "title-rectangle">Meet our team</p>
 
-      <mat-card class = "casian-card">
+      <div class="members-div">
+        <div class="team-member-div">
+          <mat-card class="team-member">
+            <img class = "card-image" src = "/assets/team-members/casian.png">
+            <p class = "rectangle-card">Casian Bahrim</p>
+            <p class = "card-content">A budding musician who plays the guitar and piano, loves composing music and performing for his friends.</p>
+          </mat-card>
+        </div>
+        <div class="team-member-div">
+          <mat-card class="team-member">
+            <img class = "card-image" src = "/assets/team-members/vlad.png">
+            <p class = "rectangle-card">Vlad Bulgaru</p>
+            <p class = "card-content">A passionate cook who enjoys experimenting with new recipes and creating delicious meals for his family.</p>
+          </mat-card>
+        </div>
+        <div class="team-member-div">
+          <mat-card class = "team-member">
+            <img class = "card-image" src = "/assets/team-members/talida.png">
+            <p class = "rectangle-card">Talida Caraman</p>
+            <p class = "card-content">A gifted artist excelling at drawing and painting, always full of imaginative ideas and creative projects.</p>
+          </mat-card>
+        </div>
+        <div class="team-member-div">
+          <mat-card class = "team-member">
+            <img class = "card-image" src = "/assets/team-members/teodora.png">
+            <p class = "rectangle-card">Teodora Filipescu</p>
+            <p class = "card-content">An enthusiastic dancer, thrives in ballet and contemporary styles, dedicating hours to perfecting her technique.</p>
+          </mat-card>
+        </div>
+        <div class="team-member-div">
+          <mat-card class = "team-member">
+            <img class = "card-image" src = "/assets/team-members/matei.png">
+            <p class = "rectangle-card">Matei Pricop</p>
+            <p class = "card-content">An avid traveler who enjoys exploring new cultures and languages, always eager to share stories from his adventures.</p>
+          </mat-card>
+        </div>
+      </div>
+    </mat-card>
 
-        <p class = "rectangle-card">Casian Bahrim</p>
-        <img class = "card-image" src = "/assets/team-members/casian.png">
-        <p class = "card-content">A budding musician who plays the guitar and piano, loves composing music and performing for his friends.</p>
-
-        
-
-      </mat-card>
 
 
-      <mat-card class = "vlad-card">
-
-        <p class = "rectangle-card">Vlad Bulgaru</p>
-        <img class = "card-image" src = "/assets/team-members/vlad.png">
-        <p class = "card-content">A talented athlete, participating in marathons regularly. Loves to go hiking and to play football.</p>
-
-      </mat-card>
 
 
-      <mat-card class = "talida-card">
 
-        <p class = "rectangle-card">Talida Caraman</p>
-        <img class = "card-image" src = "/assets/team-members/talida.png">
-        <p class = "card-content">A gifted artist excelling at drawing and painting, always full of imaginative ideas and creative projects.</p>
 
-      </mat-card>
 
-      <mat-card class = "teodora-card">
 
-        <p class = "rectangle-card">Teodora Filipescu</p>
-        <img class = "card-image" src = "/assets/team-members/teodora.png">
-        <p class = "card-content">An enthusiastic dancer, thrives in ballet and contemporary styles, dedicating hours to perfecting her technique.</p>
-
-      </mat-card>
-
-      <mat-card class = "matei-card">
-
-        <p class = "rectangle-card">Matei Pricop</p>
-        <img class = "card-image" src = "/assets/team-members/matei.png">
-        <p class = "card-content">An avid traveler who enjoys exploring new cultures and languages, always eager to share stories from his adventures.</p>
-
-      </mat-card>
-
-      <p class = "green-line"></p>  
-      <p class = "title-3"><br><br>Our Values</p>
+      <!-- <p class = "title-3"><br><br>Our Values</p>
 
       <div class = "white-box">
         <div>Innovation <br><br> We are committed to continuously improving our platform and services.</div>

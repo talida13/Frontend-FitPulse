@@ -363,6 +363,7 @@ export class UserProfileComponent implements OnInit {
     this.getWorkoutsData();
     this.renderChart();
   }
+  
   getLastWeightTrackingId(): void {
     this.weightTrackingService.getAllWeightTrackings().subscribe(
       data => {
@@ -375,7 +376,6 @@ export class UserProfileComponent implements OnInit {
       }
     );
   }
-  
   addNewWeightTracking(newId: number): void {
     if (this.newWeight) {
       const email = localStorage.getItem('email') ?? '';
@@ -392,7 +392,10 @@ export class UserProfileComponent implements OnInit {
           console.log('Weight logged successfully', response);
           this.updateUserProfileWithNewWeight(); 
           this.getWeightTrackingData(); 
+          
           this.newWeight = undefined; 
+          this.refresh(); 
+          this.cdr.detectChanges();
         },
         error => {
           console.error('Error logging weight', error);
@@ -406,10 +409,8 @@ export class UserProfileComponent implements OnInit {
   
   updateUserProfileWithNewWeight(): void {
     if (this.userForm && this.newWeight !== undefined) {
-
-      this.editCredentials = {...this.userForm};
-
-      this.editCredentials.weight = this.newWeight
+      this.editCredentials = { ...this.userForm, weight: this.newWeight };
+  
       this.loginService.editProfile(this.editCredentials).subscribe(
         () => {
           console.log('User profile updated successfully');
@@ -421,9 +422,11 @@ export class UserProfileComponent implements OnInit {
     }
   }
   
+  
   logWeight(): void {
       this.getLastWeightTrackingId();
   }
+  
 
   updateProfile(): void {
 
@@ -434,8 +437,9 @@ export class UserProfileComponent implements OnInit {
         console.log(this.editCredentials);
         this.loginService.editProfile(this.editCredentials).subscribe(
           next =>{
+            this.getUserProfile();
             console.log('Pasword updated');
-            window.location.reload();
+            this.cdr.detectChanges();
           },
           error =>{
             console.log('Pasword updated error');
@@ -443,4 +447,6 @@ export class UserProfileComponent implements OnInit {
         );
     }
   }
+  
 }
+
